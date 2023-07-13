@@ -26,7 +26,7 @@
         android:id="@+id/productFragment"
         android:name="uz.turgunboyevjurabek.rizon.fragments.ProductFragment"
         android:label="fragment_mahsulot"
-        tools:layout="@layout/fragment_mahsulot" />
+        tools:layout="@layout/fragment_product" />
     <fragment
         android:id="@+id/selectFragment"
         android:name="uz.turgunboyevjurabek.rizon.fragments.SelectFragment"

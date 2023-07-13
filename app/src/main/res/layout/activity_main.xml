@@ -6,9 +6,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:id="@+id/my_activity"
     tools:context=".MainActivity">
 
-    <fragment
+    <androidx.fragment.app.FragmentContainerView
         android:id="@+id/my_navigation_host"
         android:name="androidx.navigation.fragment.NavHostFragment"
         app:navGraph="@navigation/my_navigation"
@@ -18,6 +19,7 @@
         android:layout_height="0dp"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/btn_navigation"
         android:layout_width="match_parent"
         android:layout_height="63dp"
         android:background="#002940"
