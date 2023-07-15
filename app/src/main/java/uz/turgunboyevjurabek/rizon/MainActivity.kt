@@ -13,10 +13,12 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+
         val homeFragment=HomeFragment()
         val productFragment=ProductFragment()
         val orderFragment=OrderFragment()
         val profileFragment=ProfileFragment()
+
         binding.btnNavigation.setOnItemSelectedListener {
             when(it.itemId){
                 R.id.btn_home->{
