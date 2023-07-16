@@ -5,3 +5,4 @@ class MyProduct {
     var image:Int?=null
     var price:String?=null
 }
+//shunchaki ochiq turibdi bu class
