@@ -6,6 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import uz.turgunboyevjurabek.rizon.R
+import uz.turgunboyevjurabek.rizon.adapters.UserOrderAdapter
+import uz.turgunboyevjurabek.rizon.databinding.FragmentOrderBinding
+import uz.turgunboyevjurabek.rizon.madels.userOrders.Orders
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -18,6 +21,9 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class OrderFragment : Fragment() {
+    private val binding by lazy { FragmentOrderBinding.inflate(layoutInflater) }
+    private lateinit var userOrderAdapter: UserOrderAdapter
+    private lateinit var list: ArrayList<Orders>
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -34,8 +40,22 @@ class OrderFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_order, container, false)
+        // Bu yerda shunchaki testlash uchun resakle viewga list berib ushlatib ko'rdim
+        list= ArrayList()
+        list.addAll(listOf(Orders(R.drawable.argenta,"Argeta 100ml",100,200000),
+            Orders(R.drawable.argenta,"Argeta 100ml",100,200000),
+            Orders(R.drawable.argenta,"Argeta 100ml",100,200000),
+            Orders(R.drawable.argenta,"Argeta 100ml",100,200000),
+            Orders(R.drawable.argenta,"Argeta 100ml",100,200000),
+            Orders(R.drawable.argenta,"Argeta 100ml",100,200000),
+            Orders(R.drawable.argenta,"Argeta 100ml",100,200000),
+            Orders(R.drawable.argenta,"Argeta 100ml",100,200000),
+            Orders(R.drawable.argenta,"Argeta 100ml",100,200000),))
+
+        userOrderAdapter=UserOrderAdapter(list)
+        binding.rvUsersOrders.adapter=userOrderAdapter
+
+        return binding.root
     }
 
     companion object {

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="330dp"
+        android:layout_height="261dp"
+        app:strokeWidth="0dp"
+        android:layout_gravity="center"
+        android:layout_marginVertical="20dp"
+        app:cardElevation="10dp">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:background="#FFFFFF"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/item_img"
+                android:layout_width="128dp"
+                android:layout_height="160dp"
+                android:src="@drawable/argenta"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="31dp"
+                android:layout_marginStart="31dp"/>
+
+            <TextView
+                android:id="@+id/item_name"
+                android:layout_width="120sp"
+                android:layout_height="wrap_content"
+                android:text="Argeta 100ml"
+                android:textColor="#002940"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="31dp"
+                app:layout_constraintStart_toEndOf="@+id/item_img"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/item_price"
+                android:layout_width="92sp"
+                android:layout_height="19sp"
+                android:layout_marginTop="10dp"
+                android:text="119 000uzs"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/item_name"
+                app:layout_constraintTop_toBottomOf="@+id/item_name" />
+            <TextView
+                android:id="@+id/count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Soni"
+                android:textColor="#002940"
+                android:textSize="12sp"
+                app:layout_constraintTop_toBottomOf="@+id/item_price"
+                app:layout_constraintStart_toEndOf="@+id/item_img"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"/>
+            <TextView
+                android:id="@+id/item_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="100"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                app:layout_constraintTop_toBottomOf="@+id/count"
+                app:layout_constraintStart_toStartOf="@+id/count"
+                app:layout_constraintEnd_toEndOf="@+id/count"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ta"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="#002940"
+                android:layout_marginStart="2dp"
+                app:layout_constraintBottom_toBottomOf="@+id/item_count"
+                app:layout_constraintStart_toEndOf="@+id/item_count"
+                app:layout_constraintTop_toTopOf="@+id/item_count" />
+
+            <TextView
+                android:id="@+id/item_sum_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="12sp"
+                android:textColor="#002940"
+                android:text="2 000 000"
+                app:layout_constraintBottom_toBottomOf="@+id/item_img"
+                app:layout_constraintStart_toEndOf="@+id/item_img"
+                android:layout_marginStart="15dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Umumiy summa"
+                android:textColor="#002940"
+                app:layout_constraintBottom_toTopOf="@+id/item_sum_price"
+                app:layout_constraintStart_toStartOf="@+id/item_sum_price"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="uzs"
+                android:textColor="#002940"
+                app:layout_constraintTop_toTopOf="@+id/item_sum_price"
+                app:layout_constraintBottom_toBottomOf="@+id/item_sum_price"
+                app:layout_constraintStart_toEndOf="@+id/item_sum_price"
+                android:layout_marginStart="2dp"/>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_stop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cornerRadius="5dp"
+                android:backgroundTint="#FF0000"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginBottom="12dp"
+                android:textSize="14sp"
+                android:textColor="@color/white"
+                app:icon="@drawable/ic_stop"
+                app:iconGravity="textEnd"
+                android:text="Bekor qilish"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</LinearLayout>
