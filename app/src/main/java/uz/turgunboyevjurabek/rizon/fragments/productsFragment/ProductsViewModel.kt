@@ -1,4 +1,4 @@
-package uz.turgunboyevjurabek.rizon.viewmodel
+package uz.turgunboyevjurabek.rizon.fragments.productsFragment
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -8,13 +8,12 @@ import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import uz.turgunboyevjurabek.rizon.madels.usersProducts.GetUserProductsResponse
-import uz.turgunboyevjurabek.rizon.repository.AppRepository
 import uz.turgunboyevjurabek.rizon.utils.Resource
+import uz.turgunboyevjurabek.rizon.repository.MyViewModelObjects.appRepository
 
-class AppViewModel(val appRepository: AppRepository) : ViewModel() {
-
+class ProductsViewModel : ViewModel() {
     private val userAllProducts = MutableLiveData<Resource<GetUserProductsResponse>>()
-    fun getUsersProducts(token:String):MutableLiveData<Resource<GetUserProductsResponse>>{
+    fun getUsersProducts(token:String): MutableLiveData<Resource<GetUserProductsResponse>> {
         viewModelScope.launch {
             userAllProducts.postValue(Resource.loading("loading..."))
             try {

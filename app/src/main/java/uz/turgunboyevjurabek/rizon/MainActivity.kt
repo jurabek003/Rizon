@@ -4,8 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import uz.turgunboyevjurabek.rizon.databinding.ActivityMainBinding
 import uz.turgunboyevjurabek.rizon.fragments.HomeFragment
-import uz.turgunboyevjurabek.rizon.fragments.OrderFragment
-import uz.turgunboyevjurabek.rizon.fragments.ProductFragment
+import uz.turgunboyevjurabek.rizon.fragments.orderFragment.OrderFragment
+import uz.turgunboyevjurabek.rizon.fragments.productsFragment.ProductFragment
 import uz.turgunboyevjurabek.rizon.fragments.ProfileFragment
 
 class MainActivity : AppCompatActivity() {
@@ -15,8 +15,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val homeFragment=HomeFragment()
-        val productFragment=ProductFragment()
-        val orderFragment=OrderFragment()
+        val productFragment= ProductFragment()
+        val orderFragment= OrderFragment()
         val profileFragment=ProfileFragment()
 
         binding.btnNavigation.setOnItemSelectedListener {

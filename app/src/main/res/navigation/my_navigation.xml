@@ -24,7 +24,7 @@
     </fragment>
     <fragment
         android:id="@+id/productFragment"
-        android:name="uz.turgunboyevjurabek.rizon.fragments.ProductFragment"
+        android:name="uz.turgunboyevjurabek.rizon.fragments.productsFragment.ProductFragment"
         android:label="fragment_mahsulot"
         tools:layout="@layout/fragment_product" />
     <fragment
@@ -39,7 +39,7 @@
         android:label="ProfileFragment" />
     <fragment
         android:id="@+id/orderFragment"
-        android:name="uz.turgunboyevjurabek.rizon.fragments.OrderFragment"
+        android:name="uz.turgunboyevjurabek.rizon.fragments.orderFragment.OrderFragment"
         android:label="fragment_order"
         tools:layout="@layout/fragment_order" />
 </navigation>

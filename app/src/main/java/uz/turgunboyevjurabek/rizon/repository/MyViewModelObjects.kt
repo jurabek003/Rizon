@@ -1,4 +1,4 @@
-package uz.turgunboyevjurabek.rizon.viewmodel
+package uz.turgunboyevjurabek.rizon.repository
 
 import androidx.lifecycle.ViewModelProvider
 import uz.turgunboyevjurabek.rizon.repository.AppRepository
