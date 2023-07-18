@@ -1,5 +1,7 @@
 package uz.turgunboyevjurabek.rizon
 
+import android.graphics.Color
+import android.graphics.PorterDuff
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import uz.turgunboyevjurabek.rizon.databinding.ActivityMainBinding
@@ -25,21 +27,42 @@ class MainActivity : AppCompatActivity() {
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.my_navigation_host,homeFragment)
                         .commit()
+                    binding.thtPanel.text="Asosiy Panel"
+                    binding.btnNavigation.menu.findItem(R.id.btn_home).setIcon(R.drawable.ic_home2)
+                    binding.btnNavigation.menu.findItem(R.id.btn_user).setIcon(R.drawable.ic_user)
+                    binding.btnNavigation.menu.findItem(R.id.btn_savat).setIcon(R.drawable.ic_savat)
+                    binding.btnNavigation.menu.findItem(R.id.btn_karzinku).setIcon(R.drawable.ic_karzinka)
                 }
+
                 R.id.btn_savat->{
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.my_navigation_host,productFragment)
                         .commit()
+                    binding.thtPanel.text="Mahsulotlar"
+                    binding.btnNavigation.menu.findItem(R.id.btn_home).setIcon(R.drawable.ic_home)
+                    binding.btnNavigation.menu.findItem(R.id.btn_user).setIcon(R.drawable.ic_user)
+                    binding.btnNavigation.menu.findItem(R.id.btn_savat).setIcon(R.drawable.ic_savat2)
+                    binding.btnNavigation.menu.findItem(R.id.btn_karzinku).setIcon(R.drawable.ic_karzinka)
                 }
                 R.id.btn_karzinku->{
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.my_navigation_host,orderFragment)
                         .commit()
+                    binding.thtPanel.text="Buyurtmalar"
+                    binding.btnNavigation.menu.findItem(R.id.btn_home).setIcon(R.drawable.ic_home)
+                    binding.btnNavigation.menu.findItem(R.id.btn_user).setIcon(R.drawable.ic_user)
+                    binding.btnNavigation.menu.findItem(R.id.btn_savat).setIcon(R.drawable.ic_savat)
+                    binding.btnNavigation.menu.findItem(R.id.btn_karzinku).setIcon(R.drawable.ic_kalaska22)
                 }
                 R.id.btn_user->{
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.my_navigation_host,profileFragment)
                         .commit()
+                    binding.thtPanel.text="Profil"
+                    binding.btnNavigation.menu.findItem(R.id.btn_home).setIcon(R.drawable.ic_home)
+                    binding.btnNavigation.menu.findItem(R.id.btn_user).setIcon(R.drawable.user)
+                    binding.btnNavigation.menu.findItem(R.id.btn_savat).setIcon(R.drawable.ic_savat)
+                    binding.btnNavigation.menu.findItem(R.id.btn_karzinku).setIcon(R.drawable.ic_karzinka)
                 }
 
             }

@@ -8,68 +8,6 @@
     android:layout_height="match_parent"
     tools:context=".fragments.productsFragment.ProductFragment">
     <!-- Panel uchun layout   -->
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraint_layout"
-        android:layout_width="match_parent"
-        android:layout_height="63dp"
-        android:background="#002940"
-        app:layout_constraintTop_toTopOf="parent"
-        android:orientation="horizontal">
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/materialCardView2"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:layout_gravity="center"
-            android:background="@drawable/doira"
-            app:cardCornerRadius="50dp"
-            android:layout_marginStart="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <ImageView
-                android:id="@+id/img_notification"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center"
-                android:src="@drawable/notification" />
-        </com.google.android.material.card.MaterialCardView>
-
-        <TextView
-            android:id="@+id/tht_panel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Mahsulotlar"
-            android:textColor="@color/white"
-            android:textSize="24sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/materialCardView"
-            app:layout_constraintStart_toEndOf="@+id/materialCardView2"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/materialCardView"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:layout_marginEnd="10dp"
-            android:background="@drawable/doira"
-            app:cardCornerRadius="50dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <ImageView
-                android:id="@+id/img_calendar"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center"
-                android:src="@drawable/ic_calendar" />
-
-        </com.google.android.material.card.MaterialCardView>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     <androidx.recyclerview.widget.RecyclerView
@@ -77,7 +15,7 @@
         android:layout_height="0dp"
         android:id="@+id/rv_users_products"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraint_layout"
+        app:layout_constraintTop_toTopOf="parent"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/item_product_rv"
         />
