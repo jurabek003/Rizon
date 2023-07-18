@@ -3,4 +3,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="kulrang">#D8C9C9</color>
+    <color name="red">#FF0000</color>
+    <color name="yellow">#BEFF00</color>
+    <color name="purple_200">#0091EA</color>
 </resources>

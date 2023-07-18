@@ -60,7 +60,7 @@ class MainActivity : AppCompatActivity() {
                         .commit()
                     binding.thtPanel.text="Profil"
                     binding.btnNavigation.menu.findItem(R.id.btn_home).setIcon(R.drawable.ic_home)
-                    binding.btnNavigation.menu.findItem(R.id.btn_user).setIcon(R.drawable.user)
+                    binding.btnNavigation.menu.findItem(R.id.btn_user).setIcon(R.drawable.ic_user2)
                     binding.btnNavigation.menu.findItem(R.id.btn_savat).setIcon(R.drawable.ic_savat)
                     binding.btnNavigation.menu.findItem(R.id.btn_karzinku).setIcon(R.drawable.ic_karzinka)
                 }
