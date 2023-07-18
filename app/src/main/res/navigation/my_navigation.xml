@@ -34,7 +34,7 @@
         tools:layout="@layout/fragment_select" />
     <fragment
         android:id="@+id/profileFragment"
-        android:name="uz.turgunboyevjurabek.rizon.fragments.ProfileFragment"
+        android:name="uz.turgunboyevjurabek.rizon.fragments.profileFragment.ProfileFragment"
         tools:layout="@layout/fragment_profil"
         android:label="ProfileFragment" />
     <fragment

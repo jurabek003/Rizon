@@ -3,8 +3,10 @@ package uz.turgunboyevjurabek.rizon.retrofit
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Header
+import retrofit2.http.Path
 import uz.turgunboyevjurabek.rizon.madels.userOrders.GetUsersOrdersResponse
 import uz.turgunboyevjurabek.rizon.madels.usersProducts.GetUserProductsResponse
+import uz.turgunboyevjurabek.rizon.madels.usersProfile.GetUserProfileResponse
 
 interface ApiService {
 
@@ -19,5 +21,8 @@ interface ApiService {
 
     @GET("users-orders/")
     suspend fun getUsersOrders(@Header("Authorization") token:String):GetUsersOrdersResponse
+
+    @GET("users-profile/month/{month}")
+    suspend fun getUsersProfile(@Header("Authorization") token:String, @Path("month") month:String):GetUserProfileResponse
 
 }

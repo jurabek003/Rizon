@@ -1,31 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    tools:context=".fragments.ProfileFragment">
-    <!-- TODO: Update blank fragment layout -->
+    tools:context=".fragments.profileFragment.ProfileFragment">
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="341dp"
+                android:layout_height="341dp"
                 android:layout_gravity="center"
-                app:strokeWidth="0dp"
                 android:layout_marginTop="10dp"
                 app:cardCornerRadius="15dp"
-                android:layout_height="341dp">
+                app:strokeWidth="0dp">
+
                 <ImageView
+                    android:id="@+id/image_profile"
                     android:layout_width="341dp"
                     android:layout_height="341dp"
-                    android:src="@drawable/user_photo"
-                    android:scaleType="centerCrop"/>
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/user_photo" />
             </com.google.android.material.card.MaterialCardView>
 
             <TextView
@@ -36,114 +40,124 @@
                 android:fontFamily="@font/inter"
                 android:text="Ziyoda Hasanova"
                 android:textColor="@color/black"
-                android:textSize="22sp"
-                 />
+                android:textSize="22sp" />
+
             <TextView
+                android:id="@+id/tv_status"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
+                android:alpha=".75"
                 android:fontFamily="@font/inter"
                 android:text="Disterbyuter"
                 android:textColor="#000000"
-                android:textSize="13.96sp"
-                android:alpha=".75" />
+                android:textSize="13.96sp" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
                 android:layout_gravity="center"
+                android:layout_marginTop="25dp"
                 android:gravity="center"
                 android:orientation="horizontal">
+
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btn_kupon"
                     android:layout_width="wrap_content"
-                    android:layout_gravity="center"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:backgroundTint="#002940"
                     android:text="Kupon transfer"
                     android:textSize="10sp"
-                    app:cornerRadius="5dp"
-                    android:backgroundTint="#002940"/>
+                    app:cornerRadius="5dp" />
+
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btn_sotuv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Sotuv tarixi"
                     android:layout_gravity="center"
                     android:layout_marginHorizontal="10dp"
+                    android:backgroundTint="#002940"
                     android:gravity="center"
-                    app:cornerRadius="5dp"
+                    android:text="Sotuv tarixi"
                     android:textSize="10sp"
-                    android:backgroundTint="#002940"/>
+                    app:cornerRadius="5dp" />
+
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btn_maosh"
                     android:layout_width="wrap_content"
 
                     android:layout_height="wrap_content"
-                    android:text="Maosh tarixi"
-                    app:cornerRadius="5dp"
                     android:layout_gravity="center"
+                    android:backgroundTint="#002940"
+                    android:text="Maosh tarixi"
                     android:textSize="10sp"
-                    android:backgroundTint="#002940"/>
+                    app:cornerRadius="5dp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="258dp"
                 android:layout_height="44dp"
-                android:orientation="horizontal"
-                android:layout_margin="15dp">
+                android:layout_margin="15dp"
+                android:orientation="horizontal">
+
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_weight="1"
                     android:layout_height="match_parent"
+                    android:layout_weight="1"
                     android:orientation="vertical">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Umumiy kupon"
-                        android:textSize="14sp"
-                        android:textStyle="bold"
+                        android:alpha=".5"
                         android:fontFamily="@font/inter"
+                        android:text="Umumiy kupon"
                         android:textColor="@color/black"
-                        android:alpha=".5"/>
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
                     <TextView
                         android:id="@+id/umimiy_kupon"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/inter"
                         android:text="5000"
-                        android:textSize="18sp"
-                        android:textColor="@color/black"
-                        android:fontFamily="@font/inter"/>
+                        android:textColor="@color/black"/>
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:orientation="vertical">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Umumiy daromad"
-                        android:textSize="14sp"
+                        android:alpha=".5"
                         android:fontFamily="@font/inter"
-                        android:textStyle="bold"
+                        android:text="Umumiy daromad"
                         android:textColor="@color/black"
-                        android:alpha=".5"/>
+                        android:textSize="14sp"
+                        android:textStyle="bold"/>
                     <TextView
                         android:id="@+id/umimiy_daromad"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/inter"
                         android:text="14 000 000"
                         android:textSize="18sp"
-                        android:textColor="@color/black"
-                        android:fontFamily="@font/inter"/>
+                        android:textColor="@color/black"/>
                 </LinearLayout>
             </LinearLayout>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/inter"
                 android:text="Ma’lumotlar"
                 android:textStyle="bold"
-                android:fontFamily="@font/inter"
                 android:layout_marginStart="15dp"
                 android:textColor="@color/black"/>
                 <TextView
@@ -162,6 +176,7 @@
                 app:strokeWidth="0dp"
                 android:backgroundTint="@color/white">
                 <TextView
+                    android:id="@+id/tv_id"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="123 456 789"
@@ -181,19 +196,21 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:orientation="vertical">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/inter"
                         android:text="Telefon raqam"
                         android:textSize="12sp"
-                        android:textColor="@color/black"
-                        android:fontFamily="@font/inter" />
+                        android:textColor="@color/black" />
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="136dp"
                         android:layout_height="30dp"
                         app:strokeWidth="0dp"
                         android:backgroundTint="@color/white">
                         <TextView
+                            android:id="@+id/tv_phone_number_1"
                             android:layout_width="match_parent"
                             android:layout_height="30dp"
                             android:text="+998 90 000 00 00"
@@ -204,6 +221,7 @@
                     </com.google.android.material.card.MaterialCardView>
 
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -213,22 +231,23 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/inter"
                         android:text="Telefon raqam2"
                         android:textSize="12sp"
-                        android:textColor="@color/black"
-                        android:fontFamily="@font/inter" />
+                        android:textColor="@color/black" />
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="136dp"
                         android:layout_height="30dp"
                         app:strokeWidth="0dp"
                         android:backgroundTint="@color/white">
                         <TextView
+                            android:id="@+id/tv_phone_number_2"
                             android:layout_width="match_parent"
                             android:layout_height="30dp"
+                            android:gravity="center"
                             android:text="+998 90 000 00 00"
                             android:textStyle="bold"
                             android:textColor="@color/black"
-                            android:gravity="center"
                             android:textSize="14sp"/>
                     </com.google.android.material.card.MaterialCardView>
                 </LinearLayout>
@@ -246,10 +265,11 @@
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="190dp"
                 android:layout_height="30dp"
-                app:strokeWidth="0dp"
                 android:backgroundTint="@color/white"
-                android:layout_marginStart="15dp">
+                app:strokeWidth="0dp">
+
                 <TextView
+                    android:id="@+id/tv_address"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="Qo’qon sh. Bog’ieram 14b"
@@ -262,26 +282,29 @@
 
             <LinearLayout
                 android:layout_width="330dp"
+                android:layout_height="45dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:layout_height="45dp"
                 android:orientation="horizontal">
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:orientation="vertical">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/inter"
                         android:text="Pasport seriyasi"
                         android:textSize="12sp"
-                        android:fontFamily="@font/inter"
                         android:textColor="@color/black"/>
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
+
                         <com.google.android.material.card.MaterialCardView
                             android:layout_width="41dp"
                             app:strokeWidth="0dp"
@@ -297,6 +320,7 @@
                                 android:textStyle="bold"
                                 android:fontFamily="@font/inter"/>
                         </com.google.android.material.card.MaterialCardView>
+
                         <com.google.android.material.card.MaterialCardView
                             android:layout_width="87dp"
                             android:layout_height="30dp"
@@ -316,11 +340,13 @@
                     </LinearLayout>
 
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:orientation="vertical">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -347,6 +373,7 @@
                                 android:textStyle="bold"
                                 android:fontFamily="@font/inter"/>
                         </com.google.android.material.card.MaterialCardView>
+
                         <com.google.android.material.card.MaterialCardView
                             android:layout_width="41dp"
                             app:strokeWidth="0dp"
@@ -382,90 +409,109 @@
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="223dp"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:layout_marginTop="20dp"
                 android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
                 android:orientation="horizontal">
+
                 <com.google.android.material.button.MaterialButton
                     android:layout_width="106dp"
                     android:layout_height="40dp"
-                    app:cornerRadius="6dp"
                     android:layout_marginEnd="5dp"
                     android:backgroundTint="#002940"
                     android:text="O’zgartirish"
-                    android:textSize="11sp"/>
+                    android:textSize="11sp"
+                    app:cornerRadius="6dp" />
+
                 <com.google.android.material.button.MaterialButton
                     android:layout_width="90dp"
                     android:layout_height="40dp"
-                    app:cornerRadius="6dp"
                     android:layout_marginStart="5dp"
                     android:backgroundTint="#B9B9B9"
                     android:text="Saqlash"
-                    android:textSize="11sp"/>
+                    android:textSize="11sp"
+                    app:cornerRadius="6dp" />
             </LinearLayout>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/inter"
                 android:text="Shajara"
                 android:layout_marginVertical="30dp"
                 android:textColor="@color/black"
-                android:layout_gravity="center"
-                android:fontFamily="@font/inter"
-                android:textSize="22sp"/>
+                android:textSize="22sp" />
+
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginHorizontal="15dp"
-                app:strokeWidth="0dp"
+                android:backgroundTint="@color/white"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="15dp"
-                android:backgroundTint="@color/white"
-                android:layout_height="wrap_content">
+                app:strokeWidth="0dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:orientation="vertical"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
                         android:layout_gravity="center"
                         android:layout_marginStart="20dp"
+                        android:layout_marginTop="20dp"
                         android:orientation="horizontal">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="1-Avlod"
 
-                            android:textSize="20sp"
-                            android:textColor="@color/black"/>
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+
                         <ImageView
                             android:id="@+id/img_next"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_gravity="center"
                             android:layout_marginStart="20dp"
-                            android:src="@drawable/ic_next"/>
+                            android:src="@drawable/ic_next" />
                     </LinearLayout>
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Izdosh: 15ta"
-                        android:textSize="14sp"
-                        android:layout_marginTop="15dp"
                         android:layout_gravity="center"
-                        android:textColor="@color/black"/>
+                        android:layout_marginTop="15dp"
+                        android:text="Izdosh: 15ta"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rv_shajara"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginTop="13dp"
-                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
     </ScrollView>
-</LinearLayout>
+
+    <ProgressBar
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/progress_user_products"
+        android:padding="150dp"
+        android:visibility="gone"
+        />
+
+</FrameLayout>

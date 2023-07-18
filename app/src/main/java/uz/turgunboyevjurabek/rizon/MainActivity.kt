@@ -8,7 +8,7 @@ import uz.turgunboyevjurabek.rizon.databinding.ActivityMainBinding
 import uz.turgunboyevjurabek.rizon.fragments.HomeFragment
 import uz.turgunboyevjurabek.rizon.fragments.orderFragment.OrderFragment
 import uz.turgunboyevjurabek.rizon.fragments.productsFragment.ProductFragment
-import uz.turgunboyevjurabek.rizon.fragments.ProfileFragment
+import uz.turgunboyevjurabek.rizon.fragments.profileFragment.ProfileFragment
 
 class MainActivity : AppCompatActivity() {
     private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         val homeFragment=HomeFragment()
         val productFragment= ProductFragment()
         val orderFragment= OrderFragment()
-        val profileFragment=ProfileFragment()
+        val profileFragment= ProfileFragment()
 
         binding.btnNavigation.setOnItemSelectedListener {
             when(it.itemId){

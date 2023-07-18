@@ -16,7 +16,7 @@ class MyProductsAdapter (val list:ArrayList<Product> = ArrayList()):Adapter<MyPr
             itemRv.itemName.text = product.name
             itemRv.itemPrice.text = "${product.price} UZS"
 
-            Picasso.get().load("https://rizonwebapp.pythonanywhere.com${product.photo_link}").into(itemRv.itemImg)
+            Picasso.get().load("${ApiClient.PHOTO_BASE_URL}${product.photo_link}").into(itemRv.itemImg)
         }
     }
 
