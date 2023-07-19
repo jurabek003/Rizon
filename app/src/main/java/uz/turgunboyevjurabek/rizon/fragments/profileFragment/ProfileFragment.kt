@@ -12,7 +12,9 @@ import com.squareup.picasso.Picasso
 import uz.turgunboyevjurabek.rizon.adapters.ShajaraRvAdapter
 import uz.turgunboyevjurabek.rizon.databinding.FragmentProfilBinding
 import uz.turgunboyevjurabek.rizon.madels.usersProfile.GetUserProfileResponse
+import uz.turgunboyevjurabek.rizon.madels.usersProfile.X1
 import uz.turgunboyevjurabek.rizon.retrofit.ApiClient
+import uz.turgunboyevjurabek.rizon.utils.AppObject
 import uz.turgunboyevjurabek.rizon.utils.Status
 
 private const val TAG = "ProfileFragment"
@@ -43,6 +45,7 @@ class ProfileFragment : Fragment() {
 //                        myProductsAdapter.list.addAll(it.data?.products!!)
 //                        myProductsAdapter.notifyDataSetChanged()
                         showProfile(it.data!!)
+                        showShajara(it.data)
                         binding.progressUserProducts.visibility = View.GONE
                     }
                 }
@@ -55,7 +58,9 @@ class ProfileFragment : Fragment() {
     fun showProfile(getUserProfileResponse: GetUserProfileResponse){
         val user = getUserProfileResponse.user
         binding.apply {
-            Picasso.get().load(ApiClient.PHOTO_BASE_URL+user.photo.toString()).into(imageProfile)
+            if (user.photo!=null){
+                Picasso.get().load(ApiClient.PHOTO_BASE_URL+user.photo.toString()).into(imageProfile)
+            }
             userName.text = "${user.first_name} ${user.last_name}"
             umimiyDaromad.text = user.toString()
             tvId.text = user.user_id.toString()
@@ -65,6 +70,29 @@ class ProfileFragment : Fragment() {
             umimiyKupon.text = user.coupon.toString()
             umimiyDaromad.text = user.salary.toString()
             tvStatus.text = user.user_status
+            tvPasportSeriya.text = user.passport.substring(0, 2)
+            tvPassportRaqam.text = user.passport.substring(2)
+            tvTugilganKun.text = user.dateOfBirth.substring(8)
+            tvTugilganOy.text = user.dateOfBirth.substring(5, 7)
+            tvTugilganYil.text = user.dateOfBirth.substring(0, 4)
         }
+    }
+
+    var shajaraNumber = 1
+    fun showShajara(getUserProfileResponse: GetUserProfileResponse){
+        val user = getUserProfileResponse.user
+        shajaraRvAdapter = ShajaraRvAdapter(getUserProfileResponse.user_tree.`1` as ArrayList)
+
+        binding.apply {
+            rvShajara.adapter = shajaraRvAdapter
+            tvIzdoshlarSoni.text = "Izdosh ${getUserProfileResponse.user_tree.`1`.size} ta"
+
+
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        AppObject.binding.thtPanel.text = "Profil"
     }
 }

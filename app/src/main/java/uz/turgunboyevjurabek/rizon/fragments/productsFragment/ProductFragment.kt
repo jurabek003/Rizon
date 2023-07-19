@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import uz.turgunboyevjurabek.rizon.adapters.MyProductsAdapter
 import uz.turgunboyevjurabek.rizon.databinding.FragmentProductBinding
+import uz.turgunboyevjurabek.rizon.utils.AppObject
 import uz.turgunboyevjurabek.rizon.utils.Status
 
 private const val TAG = "ProductFragment"
@@ -49,5 +50,10 @@ class ProductFragment : Fragment() {
             }
 
         return binding.root
+    }
+
+    override fun onResume() {
+        super.onResume()
+        AppObject.binding.thtPanel.text = "Mahsulotlar"
     }
 }

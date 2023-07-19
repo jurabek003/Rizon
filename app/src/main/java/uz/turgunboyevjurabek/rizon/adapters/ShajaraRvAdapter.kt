@@ -10,7 +10,12 @@ import uz.turgunboyevjurabek.rizon.madels.usersProfile.X1
 class ShajaraRvAdapter(val list: ArrayList<X1>):RecyclerView.Adapter<ShajaraRvAdapter.Vh>() {
     inner class Vh(val itemShajaraRvBinding: ItemShajaraRvBinding):ViewHolder(itemShajaraRvBinding.root){
         fun  onBind(shajara: X1){
-
+            itemShajaraRvBinding.itemId.text = shajara.user_id.toString()
+            itemShajaraRvBinding.itemBonus.text = shajara.bonus_for_followers_status.toString()
+            itemShajaraRvBinding.itemStatus.text = shajara.user_status
+            itemShajaraRvBinding.itemIsmFamiliya.text = "${shajara.first_name} ${shajara.last_name}"
+            itemShajaraRvBinding.itemPhoneNumber.text = shajara.phoneNum
+            itemShajaraRvBinding.itemShaxsiyBall.text = shajara.extra_bonus.toString()
         }
     }
 

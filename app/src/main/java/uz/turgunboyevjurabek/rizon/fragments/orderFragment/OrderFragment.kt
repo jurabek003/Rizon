@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import uz.turgunboyevjurabek.rizon.R
 import uz.turgunboyevjurabek.rizon.adapters.UserOrderAdapter
 import uz.turgunboyevjurabek.rizon.databinding.FragmentOrderBinding
+import uz.turgunboyevjurabek.rizon.utils.AppObject
 import uz.turgunboyevjurabek.rizon.utils.Status
 
 private const val TAG = "OrderFragment"
@@ -50,6 +51,11 @@ class OrderFragment : Fragment() {
             }
 
         return binding.root
+    }
+
+    override fun onResume() {
+        super.onResume()
+        AppObject.binding.thtPanel.text = "Buyurtmalar"
     }
 
 }

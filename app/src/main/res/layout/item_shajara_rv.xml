@@ -44,6 +44,7 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/item_id"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/inter"
@@ -71,6 +72,7 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/item_phone_number"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/inter"
@@ -98,6 +100,7 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/item_status"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/inter"
@@ -132,6 +135,7 @@
                         android:textColor="@color/black"
                         android:fontFamily="@font/inter"/>
                     <TextView
+                        android:id="@+id/item_ism_familiya"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Elbek Nurmatov"
@@ -157,6 +161,7 @@
                         android:textColor="@color/black"
                         android:fontFamily="@font/inter"/>
                     <TextView
+                        android:id="@+id/item_bonus"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="1200"
@@ -182,6 +187,7 @@
                         android:textSize="14sp"
                         android:textStyle="bold" />
                     <TextView
+                        android:id="@+id/item_shaxsiy_ball"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="3000"

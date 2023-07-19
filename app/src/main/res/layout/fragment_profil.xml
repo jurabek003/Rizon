@@ -263,8 +263,8 @@
                 android:layout_marginStart="15dp"
                 android:textSize="12sp"/>
             <com.google.android.material.card.MaterialCardView
-                android:layout_width="190dp"
-                android:layout_height="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:backgroundTint="@color/white"
                 app:strokeWidth="0dp">
 
@@ -311,6 +311,7 @@
                             android:backgroundTint="@color/white"
                             android:layout_height="30dp">
                             <TextView
+                                android:id="@+id/tv_pasport_seriya"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:gravity="center"
@@ -328,6 +329,7 @@
                             android:layout_marginStart="5dp"
                             android:backgroundTint="@color/white">
                             <TextView
+                                android:id="@+id/tv_passport_raqam"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:gravity="center"
@@ -364,6 +366,7 @@
                             android:backgroundTint="@color/white"
                             android:layout_height="30dp">
                             <TextView
+                                android:id="@+id/tv_tugilgan_kun"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:gravity="center"
@@ -381,6 +384,7 @@
                             android:backgroundTint="@color/white"
                             android:layout_height="30dp">
                             <TextView
+                                android:id="@+id/tv_tugilgan_oy"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:gravity="center"
@@ -396,6 +400,7 @@
                             android:backgroundTint="@color/white"
                             android:layout_height="30dp">
                             <TextView
+                                android:id="@+id/tv_tugilgan_yil"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:gravity="center"
@@ -462,6 +467,7 @@
                     android:orientation="vertical">
 
                     <LinearLayout
+                        android:id="@+id/liner_avlod"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -473,7 +479,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="1-Avlod"
-
+                            android:id="@+id/tv_avld_number"
                             android:textColor="@color/black"
                             android:textSize="20sp" />
 
@@ -487,6 +493,7 @@
                     </LinearLayout>
 
                     <TextView
+                        android:id="@+id/tv_izdoshlar_soni"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"

@@ -21,6 +21,7 @@ import com.github.mikephil.charting.formatter.PercentFormatter
 import com.github.mikephil.charting.utils.MPPointF
 import uz.turgunboyevjurabek.rizon.R
 import uz.turgunboyevjurabek.rizon.databinding.FragmentHomeBinding
+import uz.turgunboyevjurabek.rizon.utils.AppObject
 
 
 class HomeFragment : Fragment() {
@@ -141,5 +142,10 @@ class HomeFragment : Fragment() {
         pieChart.invalidate()
 
 
+    }
+
+    override fun onResume() {
+        super.onResume()
+        AppObject.binding.thtPanel.text = "Asosiy panel"
     }
 }

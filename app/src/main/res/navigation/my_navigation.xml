@@ -8,30 +8,12 @@
         android:id="@+id/homeFragment"
         android:name="uz.turgunboyevjurabek.rizon.fragments.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
-        <action
-            android:id="@+id/action_homeFragment_to_selectFragment"
-            app:destination="@id/selectFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_profileFragment"
-            app:destination="@id/profileFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_orderFragment"
-            app:destination="@id/orderFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_productFragment"
-            app:destination="@id/productFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/productFragment"
         android:name="uz.turgunboyevjurabek.rizon.fragments.productsFragment.ProductFragment"
         android:label="fragment_mahsulot"
         tools:layout="@layout/fragment_product" />
-    <fragment
-        android:id="@+id/selectFragment"
-        android:name="uz.turgunboyevjurabek.rizon.fragments.SelectFragment"
-        android:label="fragment_select"
-        tools:layout="@layout/fragment_select" />
     <fragment
         android:id="@+id/profileFragment"
         android:name="uz.turgunboyevjurabek.rizon.fragments.profileFragment.ProfileFragment"

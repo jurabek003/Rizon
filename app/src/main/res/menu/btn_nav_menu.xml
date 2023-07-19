@@ -1,24 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android">
-<item android:id="@+id/btn_home"
+<item android:id="@+id/homeFragment"
     android:icon="@drawable/ic_home"
-    android:iconTint="@color/white"
     />
-<item android:id="@+id/btn_savat"
+<item android:id="@+id/productFragment"
     android:icon="@drawable/ic_savat"
-    android:iconTint="@color/white"
     />
-<item android:id="@+id/btn_karzinku"
+<item android:id="@+id/orderFragment"
     android:icon="@drawable/ic_karzinka"
-    android:iconTint="@color/white"
     />
 <item android:id="@+id/btn_puzzle"
     android:icon="@drawable/ic_puzzle"
-    android:iconTint="@color/white"
     />
-<item android:id="@+id/btn_user"
-    android:iconTint="@color/white"
+<item android:id="@+id/profileFragment"
     android:icon="@drawable/ic_user"
     />
 
