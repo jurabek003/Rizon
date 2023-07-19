@@ -9,7 +9,7 @@ import uz.turgunboyevjurabek.rizon.databinding.ItemProductRvBinding
 import uz.turgunboyevjurabek.rizon.madels.usersProducts.Product
 import uz.turgunboyevjurabek.rizon.retrofit.ApiClient
 
-class MyProductsAdapter (val list:ArrayList<Product> = ArrayList()):Adapter<MyProductsAdapter.Vh>(){
+class MyProductsAdapter (val list:ArrayList<Product> = ArrayList(),val selectItem: SelectItem ):Adapter<MyProductsAdapter.Vh>(){
 
     inner class Vh(val itemRv:ItemProductRvBinding):ViewHolder(itemRv.root){
         fun onBind(product: Product, position:Int){
@@ -17,6 +17,10 @@ class MyProductsAdapter (val list:ArrayList<Product> = ArrayList()):Adapter<MyPr
             itemRv.itemPrice.text = "${product.price} UZS"
 
             Picasso.get().load("${ApiClient.PHOTO_BASE_URL}${product.photo_link}").into(itemRv.itemImg)
+            itemRv.btnBatafsil.setOnClickListener {
+                selectItem.onClick(position,product)
+            }
+
         }
     }
 
@@ -31,4 +35,7 @@ class MyProductsAdapter (val list:ArrayList<Product> = ArrayList()):Adapter<MyPr
     override fun onBindViewHolder(holder: Vh, position: Int) {
         holder.onBind(list[position], position)
     }
+}
+interface SelectItem{
+    fun onClick(position: Int,product: Product)
 }

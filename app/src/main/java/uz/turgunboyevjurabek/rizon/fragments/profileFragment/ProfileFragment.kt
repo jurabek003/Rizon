@@ -8,7 +8,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.squareup.picasso.Picasso
+import uz.turgunboyevjurabek.rizon.R
 import uz.turgunboyevjurabek.rizon.adapters.ShajaraRvAdapter
 import uz.turgunboyevjurabek.rizon.databinding.FragmentProfilBinding
 import uz.turgunboyevjurabek.rizon.madels.usersProfile.GetUserProfileResponse
@@ -94,5 +96,13 @@ class ProfileFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         AppObject.binding.thtPanel.text = "Profil"
+
+        binding.btnSotuv.setOnClickListener {
+            findNavController().navigate(R.id.purchaseHistoryFragment)
+        }
+        binding.btnMaosh.setOnClickListener {
+            findNavController().navigate(R.id.salaryHistoryFragment)
+        }
+
     }
 }

@@ -13,15 +13,41 @@
         android:id="@+id/productFragment"
         android:name="uz.turgunboyevjurabek.rizon.fragments.productsFragment.ProductFragment"
         android:label="fragment_mahsulot"
-        tools:layout="@layout/fragment_product" />
+        tools:layout="@layout/fragment_product" >
+        <action
+            android:id="@+id/action_productFragment_to_selectFragment"
+            app:destination="@id/selectFragment" />
+    </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="uz.turgunboyevjurabek.rizon.fragments.profileFragment.ProfileFragment"
         tools:layout="@layout/fragment_profil"
-        android:label="ProfileFragment" />
+        android:label="ProfileFragment" >
+        <action
+            android:id="@+id/action_profileFragment_to_purchaseHistoryFragment"
+            app:destination="@id/purchaseHistoryFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_salaryHistoryFragment"
+            app:destination="@id/salaryHistoryFragment" />
+    </fragment>
     <fragment
         android:id="@+id/orderFragment"
         android:name="uz.turgunboyevjurabek.rizon.fragments.orderFragment.OrderFragment"
         android:label="fragment_order"
         tools:layout="@layout/fragment_order" />
+    <fragment
+        android:id="@+id/selectFragment"
+        android:name="uz.turgunboyevjurabek.rizon.fragments.productsFragment.SelectFragment"
+        android:label="fragment_select"
+        tools:layout="@layout/fragment_select" />
+    <fragment
+        android:id="@+id/purchaseHistoryFragment"
+        android:name="uz.turgunboyevjurabek.rizon.fragments.profileFragment.PurchaseHistoryFragment"
+        android:label="fragment_purchase_history"
+        tools:layout="@layout/fragment_purchase_history" />
+    <fragment
+        android:id="@+id/salaryHistoryFragment"
+        android:name="uz.turgunboyevjurabek.rizon.fragments.profileFragment.SalaryHistoryFragment"
+        android:label="fragment_salary_historyk"
+        tools:layout="@layout/fragment_salary_historyk" />
 </navigation>

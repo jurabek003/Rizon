@@ -41,10 +41,10 @@ class HomeFragment : Fragment() {
             // "binding" obyektini to'g'rilang
             val anyChartView: AnyChartView = binding.myPieDiagram
 
-            // Pie obyektini yaratish
+            //Pie obyektini yaratish
             val pie: Pie = AnyChart.pie()
 
-            // Ma'lumotlar listasini tuzish
+            //Ma'lumotlar listasini tuzish
             val list = mutableListOf<DataEntry>()
             list.add(ValueDataEntry("kkkk", 1000))
             list.add(ValueDataEntry("kkkk", 6000))

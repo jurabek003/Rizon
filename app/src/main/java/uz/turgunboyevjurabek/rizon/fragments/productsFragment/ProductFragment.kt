@@ -6,16 +6,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import uz.turgunboyevjurabek.rizon.R
 import uz.turgunboyevjurabek.rizon.adapters.MyProductsAdapter
+import uz.turgunboyevjurabek.rizon.adapters.SelectItem
 import uz.turgunboyevjurabek.rizon.databinding.FragmentProductBinding
+import uz.turgunboyevjurabek.rizon.madels.userOrders.Product
 import uz.turgunboyevjurabek.rizon.utils.AppObject
 import uz.turgunboyevjurabek.rizon.utils.Status
 
 private const val TAG = "ProductFragment"
 
-class ProductFragment : Fragment() {
+class ProductFragment : Fragment(),SelectItem {
     private val binding by lazy { FragmentProductBinding.inflate(layoutInflater) }
     private lateinit var productsViewModel: ProductsViewModel
     private lateinit var myProductsAdapter: MyProductsAdapter
@@ -25,7 +30,7 @@ class ProductFragment : Fragment() {
     ): View? {
         productsViewModel = ViewModelProvider(requireActivity())[ProductsViewModel::class.java]
 
-        myProductsAdapter = MyProductsAdapter()
+        myProductsAdapter = MyProductsAdapter(ArrayList(),this)
         binding.rvUsersProducts.adapter = myProductsAdapter
 
         productsViewModel.getUsersProducts("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjg5ODIzNTQ1LCJpYXQiOjE2ODkzOTE1NDUsImp0aSI6IjNmNDBhZTIxOTRiMjQ2YjFiOTdiODA4NDhmMjliODllIiwidXNlcl9pZCI6MTU4fQ.FvJu6ND6sHW2pBNXb8cEn_DKY4ruXwqMCSkGt6C7k6Q")
@@ -55,5 +60,10 @@ class ProductFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         AppObject.binding.thtPanel.text = "Mahsulotlar"
+    }
+
+    override fun onClick(position: Int, product: uz.turgunboyevjurabek.rizon.madels.usersProducts.Product) {
+        findNavController().navigate(R.id.selectFragment, bundleOf("keyName" to product.name,
+            "keyPrice" to product.price,"keyPhoto" to product.photo_link,"keyAbout" to product.about))
     }
 }

@@ -1,97 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.productsFragment.SelectFragment">
+
+    <ImageView
+        android:id="@+id/img_back"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/ic_back"
+        android:layout_margin="20dp"
+        android:scaleType="centerCrop"/>
+    
     <com.google.android.material.card.MaterialCardView
         android:layout_width="330dp"
-        android:layout_height="261dp"
+        android:layout_height="497dp"
+        android:backgroundTint="#FFFFFF"
         app:strokeWidth="0dp"
         android:layout_gravity="center"
-        android:layout_marginVertical="20dp"
-        app:cardElevation="10dp">
+        app:cardCornerRadius="10dp"
+        app:cardElevation="2dp">
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:background="#FFFFFF"
             android:layout_height="match_parent">
             <ImageView
-                android:id="@+id/item_img"
+                android:id="@+id/select_item_img"
                 android:layout_width="128dp"
                 android:layout_height="160dp"
+                app:layout_constraintStart_toStartOf="parent"
                 android:src="@drawable/argenta"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginTop="31dp"
-                android:layout_marginStart="31dp"/>
-
+                android:layout_margin="25dp"/>
             <TextView
-                android:id="@+id/item_name"
-                android:layout_width="120sp"
+                android:id="@+id/select_item_name"
+                android:layout_width="wrap_content"
+                android:maxWidth="160dp"
                 android:layout_height="wrap_content"
                 android:text="Argeta 100ml"
-                android:textColor="#002940"
                 android:textSize="18sp"
+                app:layout_constraintStart_toEndOf="@+id/select_item_img"
+                app:layout_constraintTop_toTopOf="@+id/select_item_img"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/inter"
                 android:textStyle="bold"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="31dp"
-                app:layout_constraintStart_toEndOf="@+id/item_img"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textColor="#002940"/>
 
             <TextView
-                android:id="@+id/item_price"
-                android:layout_width="92sp"
-                android:layout_height="19sp"
-                android:layout_marginTop="10dp"
+                android:id="@+id/select_item_price"
+                android:layout_width="85dp"
+                android:layout_height="19dp"
+                android:layout_marginTop="25dp"
                 android:text="119 000uzs"
-                android:textColor="#000000"
+                android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@+id/item_name"
-                app:layout_constraintTop_toBottomOf="@+id/item_name" />
+                app:layout_constraintStart_toStartOf="@+id/select_item_name"
+                app:layout_constraintTop_toBottomOf="@+id/select_item_name" />
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/textView5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
                 android:text="Ishlab chiqaruvchi:"
-                android:textSize="9.23sp"
                 android:textColor="@color/black"
-                android:layout_marginTop="10dp"
-                app:layout_constraintStart_toStartOf="@+id/item_price"
-                app:layout_constraintTop_toBottomOf="@+id/item_price" />
+                android:textSize="9sp"
+                app:layout_constraintStart_toStartOf="@+id/select_item_price"
+                app:layout_constraintTop_toBottomOf="@+id/select_item_price" />
 
             <TextView
-                android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=" RIZON MCHJ"
-                android:textSize="9.23sp"
                 android:textColor="#002940"
-                app:layout_constraintTop_toTopOf="@+id/textView"
-                app:layout_constraintStart_toEndOf="@+id/textView"
-                app:layout_constraintBottom_toBottomOf="@+id/textView"
-                />
+                app:layout_constraintBottom_toBottomOf="@+id/textView5"
+                app:layout_constraintStart_toEndOf="@+id/textView5"
+                app:layout_constraintTop_toTopOf="@+id/textView5" />
+            <TextView
+                android:id="@+id/select_item_about"
+                android:layout_width="330dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:textColor="@color/black"
+                android:alpha=".75"
+                android:paddingHorizontal="5dp"
+                android:layout_margin="20dp"
+                android:textSize="14sp"
+                android:text="Lorem ipsum dolor sit amet consectetur. Sed venenatis ornare quisque sapien in enim orci eget leo. Ornare elit urna iaculis vulputate. Mauris turpis neque in dolor eu. Hendrerit donec in tellus ullamcorper viverra. Magna pulvinar diam tempor dis venenatis. Nulla pellentesque elit quam nec quam suscipit vitae blandit sapien. Blandit felis phasellus augue nisl vitae arcu aliquam. Ipsum sed enim suscipit interdum tellus at vulputate."
+                app:layout_constraintTop_toBottomOf="@+id/select_item_img"/>
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_batafsil"
-                android:layout_width="80dp"
-                android:layout_height="40dp"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="30dp"
-                android:backgroundTint="#002940"
-                android:text="Batafsil"
-                android:textSize="9sp"
-                app:cornerRadius="5dp"
-                app:layout_constraintStart_toEndOf="@+id/item_img"
-                app:layout_constraintTop_toBottomOf="@+id/textView" />
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardview"
                 android:layout_width="86dp"
                 android:layout_height="28dp"
-                android:layout_marginStart="31dp"
+                android:layout_marginStart="10dp"
                 app:strokeWidth="0dp"
-                android:layout_marginBottom="13dp"
+                android:layout_marginBottom="10dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent">
                 <LinearLayout
@@ -107,14 +116,14 @@
                         android:src="@drawable/minus"
                         android:layout_height="28dp">
                     </ImageView>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:textSize="16sp"
-                            android:text="100"
-                            android:layout_gravity="center"
-                            android:textStyle="bold"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textSize="16sp"
+                        android:text="100"
+                        android:layout_gravity="center"
+                        android:textStyle="bold"/>
                     <ImageView
                         android:layout_width="21dp"
                         android:layout_weight="1"
@@ -141,26 +150,23 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="30dp"
-                android:layout_marginStart="24dp"
                 android:text="Umumiy summa"
                 android:textAllCaps="false"
                 android:textColor="#002940"
                 android:textSize="10sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/materialCardView3"
-                app:layout_constraintStart_toStartOf="@+id/materialCardView3"
-                app:layout_constraintVertical_bias="0.514" />
+                app:layout_constraintStart_toEndOf="@+id/cardview"
+                app:layout_constraintTop_toBottomOf="@+id/materialButton" />
 
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/materialCardView3"
+                android:id="@+id/materialCardView4"
                 android:layout_width="90dp"
                 android:layout_height="20dp"
-                android:background="#F1F1F1"
+                android:backgroundTint="#F1F1F1"
                 app:cardCornerRadius="4dp"
-                app:layout_constraintBottom_toBottomOf="@+id/materialButton2"
-                app:layout_constraintEnd_toStartOf="@+id/materialButton2"
-                app:layout_constraintStart_toEndOf="@+id/cardview"
+                app:layout_constraintEnd_toEndOf="@+id/item_sum_price"
+                app:layout_constraintStart_toStartOf="@+id/item_sum_price"
                 app:layout_constraintTop_toBottomOf="@+id/item_sum_price"
                 app:strokeWidth="0dp">
 
@@ -173,18 +179,19 @@
                     android:textSize="10.5dp"
                     android:textStyle="bold" />
             </com.google.android.material.card.MaterialCardView>
-
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/materialButton2"
                 android:layout_width="60dp"
                 android:layout_height="35dp"
-                android:layout_margin="13dp"
-                android:backgroundTint="#002940"
-                app:cornerRadius="4dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:icon="@drawable/ic_karzinka"
                 app:iconGravity="textStart"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
+                android:backgroundTint="#002940"
+                android:layout_marginBottom="8dp"
+                app:cornerRadius="4dp"
+                android:layout_marginEnd="15dp"
+                app:layout_constraintEnd_toEndOf="parent"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
+
+    
 </LinearLayout>
