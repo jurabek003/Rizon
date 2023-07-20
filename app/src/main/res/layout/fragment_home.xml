@@ -44,16 +44,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_izdosh"/>
 
-
-    <com.anychart.AnyChartView
-        android:id="@+id/my_pie_diagram"
-        android:layout_width="222dp"
-        android:layout_height="156dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <com.github.mikephil.charting.charts.PieChart
         android:id="@+id/my_pie_chart"
         android:layout_width="333dp"

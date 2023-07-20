@@ -32,32 +32,9 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
-        diagram2()
         diagram()
         return binding.root
     }
-    //figmadegidek uchun lekin ekranda ko'rinmayapti
-    fun diagram2() {
-            // "binding" obyektini to'g'rilang
-            val anyChartView: AnyChartView = binding.myPieDiagram
-
-            //Pie obyektini yaratish
-            val pie: Pie = AnyChart.pie()
-
-            //Ma'lumotlar listasini tuzish
-            val list = mutableListOf<DataEntry>()
-            list.add(ValueDataEntry("kkkk", 1000))
-            list.add(ValueDataEntry("kkkk", 6000))
-            list.add(ValueDataEntry("kkkk", 7000))
-
-            // Pie obyektiga datani o'rnatish
-            pie.data(list)
-
-            // AnyChartView ga Pie obyektini qo'shish
-            anyChartView.setChart(pie)
-
-    }
-
     // ekranda korin yapti lekin figmadagidek emas
     private fun diagram() {
         pieChart=binding.myPieChart
@@ -68,8 +45,8 @@ class HomeFragment : Fragment() {
         // on below line we are setting drag for our pie chart
         pieChart.setDragDecelerationFrictionCoef(0.95f)
         // on below line we are setting hole
-        // and hole color for pie chart
-        pieChart.setDrawHoleEnabled(true)
+
+        pieChart.setDrawHoleEnabled(false)  // o'rtadagi yumaloqni boshqarish
         pieChart.setHoleColor(Color.WHITE)
 
         // on below line we are setting circle color and alpha
@@ -102,8 +79,8 @@ class HomeFragment : Fragment() {
         // on below line we are creating array list and
         // adding data to it to display in pie chart
         val entries: ArrayList<PieEntry> = ArrayList()
-        entries.add(PieEntry(70f))
-        entries.add(PieEntry(80f))
+        entries.add(PieEntry(50f))
+        entries.add(PieEntry(30f))
         entries.add(PieEntry(10f))
         entries.add(PieEntry(40f))
 
@@ -114,7 +91,7 @@ class HomeFragment : Fragment() {
         dataSet.setDrawIcons(true)
 
         // on below line we are setting slice for pie
-        dataSet.sliceSpace = 3f
+        dataSet.sliceSpace = 0f
         dataSet.iconsOffset = MPPointF(0f, 40f)
         dataSet.selectionShift = 5f
 
@@ -123,6 +100,7 @@ class HomeFragment : Fragment() {
         colors.add(resources.getColor(R.color.purple_200))
         colors.add(resources.getColor(R.color.yellow))
         colors.add(resources.getColor(R.color.red))
+        colors.add(resources.getColor(R.color.black))
 
         // on below line we are setting colors.
         dataSet.colors = colors
@@ -130,8 +108,7 @@ class HomeFragment : Fragment() {
         // on below line we are setting pie data set
         val data = PieData(dataSet)
         data.setValueFormatter(PercentFormatter())
-        data.setValueTextSize(15f)
-        data.setValueTypeface(Typeface.DEFAULT_BOLD)
+        data.setValueTextSize(10f)
         data.setValueTextColor(Color.WHITE)
         pieChart.setData(data)
 
