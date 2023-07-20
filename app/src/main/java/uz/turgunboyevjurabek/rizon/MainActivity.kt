@@ -25,6 +25,9 @@ class MainActivity : AppCompatActivity() {
         AppObject.binding = binding
         val navController = findNavController(R.id.my_navigation_host)
         binding.btnNavigation.setupWithNavController(navController)
+        binding.imgNotification.setOnClickListener {
+        navController.navigate(R.id.notificationFragment)
 
+        }
     }
 }
