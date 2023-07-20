@@ -103,6 +103,9 @@ class ProfileFragment : Fragment() {
         binding.btnMaosh.setOnClickListener {
             findNavController().navigate(R.id.salaryHistoryFragment)
         }
+        binding.btnKupon.setOnClickListener {
+            findNavController().navigate(R.id.kuponTransferFragment)
+        }
 
     }
 }
