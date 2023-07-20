@@ -7,34 +7,95 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.anychart.AnyChart
 import com.anychart.AnyChartView
 import com.anychart.chart.common.dataentry.DataEntry
 import com.anychart.chart.common.dataentry.ValueDataEntry
 import com.anychart.charts.Pie
 import com.github.mikephil.charting.animation.Easing
+import com.github.mikephil.charting.charts.BarChart
 import com.github.mikephil.charting.charts.PieChart
+import com.github.mikephil.charting.components.XAxis
+import com.github.mikephil.charting.data.BarData
+import com.github.mikephil.charting.data.BarDataSet
+import com.github.mikephil.charting.data.BarEntry
 import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
+import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import com.github.mikephil.charting.formatter.PercentFormatter
 import com.github.mikephil.charting.utils.MPPointF
 import uz.turgunboyevjurabek.rizon.R
 import uz.turgunboyevjurabek.rizon.databinding.FragmentHomeBinding
 import uz.turgunboyevjurabek.rizon.utils.AppObject
+import java.text.SimpleDateFormat
+import java.util.Date
 
 
 class HomeFragment : Fragment() {
     private val binding by lazy { FragmentHomeBinding.inflate(layoutInflater) }
     private lateinit var pie: Pie
    private lateinit var pieChart: PieChart
+
+    lateinit var barChart: BarChart
+
+    // on below line we are creating
+    // a variable for bar data
+    lateinit var barData: BarData
+
+    // on below line we are creating a
+    // variable for bar data set
+    lateinit var barDataSet: BarDataSet
+
+    // on below line we are creating array list for bar data
+    lateinit var barEntriesList: ArrayList<BarEntry>
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
         diagram()
+        diagram2()
         return binding.root
     }
+
+    private fun diagram2() {
+        barChart = binding.barChartView
+
+        // on below line we are calling get bar
+        // chart data to add data to our array list
+        val barChart: BarChart = binding.barChartView
+
+        val dates = listOf("January", "February", "March", "April","May","June","July","August","September","October","November","December")
+        val values = listOf(10f, 50f, 700f, 120f,340f,214f,567f,6666f,999f,112f,2222f,1212f)
+        // BarEntry ma'lumotlarini tayyorlash
+        val entries: ArrayList<BarEntry> = ArrayList()
+        for (i in values.indices) {
+            entries.add(BarEntry(i.toFloat(), values[i]))
+        }
+
+        // X-osi bo'yicha datalarni joylash
+        val barDataSet = BarDataSet(entries, "Ma'lumotlar")
+        barDataSet.color = Color.BLUE
+        // X-osi bo'yicha nomlarni joylash
+        val xAxisLabels = dates.toTypedArray()
+        val xAxis = barChart.xAxis
+        xAxis.valueFormatter = IndexAxisValueFormatter(xAxisLabels)
+        xAxis.position = XAxis.XAxisPosition.BOTTOM
+        xAxis.granularity = 1f
+        xAxis.isGranularityEnabled = true
+
+        // BarChart konfiguratsiyalari
+        val barData = BarData(barDataSet)
+        barChart.data = barData
+        barChart.setFitBars(true)
+        barChart.description.isEnabled = false
+        barChart.animateY(1000)
+
+        // Barchartni yangilash
+        barChart.invalidate()
+    }
+
     // ekranda korin yapti lekin figmadagidek emas
     private fun diagram() {
         pieChart=binding.myPieChart
