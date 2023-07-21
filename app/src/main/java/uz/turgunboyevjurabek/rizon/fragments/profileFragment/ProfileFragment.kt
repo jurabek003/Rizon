@@ -17,6 +17,7 @@ import uz.turgunboyevjurabek.rizon.madels.usersProfile.GetUserProfileResponse
 import uz.turgunboyevjurabek.rizon.madels.usersProfile.X1
 import uz.turgunboyevjurabek.rizon.retrofit.ApiClient
 import uz.turgunboyevjurabek.rizon.utils.AppObject
+import uz.turgunboyevjurabek.rizon.utils.MySharedPreference
 import uz.turgunboyevjurabek.rizon.utils.Status
 
 private const val TAG = "ProfileFragment"
@@ -28,9 +29,10 @@ class ProfileFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
-        // Inflate the layout for this fragment
+        MySharedPreference.init(binding.root.context)
+
         profileViewModel = ViewModelProvider(requireActivity())[ProfileViewModel::class.java]
-        profileViewModel.getUsersProfile("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjg5ODIzNTQ1LCJpYXQiOjE2ODkzOTE1NDUsImp0aSI6IjNmNDBhZTIxOTRiMjQ2YjFiOTdiODA4NDhmMjliODllIiwidXNlcl9pZCI6MTU4fQ.FvJu6ND6sHW2pBNXb8cEn_DKY4ruXwqMCSkGt6C7k6Q", "2023-03")
+        profileViewModel.getUsersProfile(MySharedPreference.token, "2023-03")
             .observe(requireActivity()){
                 when(it.status){
                     Status.LOADING ->{

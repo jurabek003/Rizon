@@ -76,6 +76,7 @@
                                 android:textStyle="bold" />
 
                             <TextView
+                                android:id="@+id/tv_date"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/inter"
@@ -94,6 +95,7 @@
                                 android:textStyle="bold" />
 
                             <TextView
+                                android:id="@+id/tv_shaxsiy_aylanma"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/inter"
@@ -112,6 +114,7 @@
                                 android:textStyle="bold" />
 
                             <TextView
+                                android:id="@+id/tv_ustozlik_bonusi"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/inter"
@@ -130,6 +133,7 @@
                                 android:textStyle="bold" />
 
                             <TextView
+                                android:id="@+id/tv_jamoaviy_bonus"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/inter"
@@ -148,6 +152,7 @@
                                 android:textStyle="bold" />
 
                             <TextView
+                                android:id="@+id/tv_tolnadi"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/inter"
@@ -170,12 +175,13 @@
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/inter"
                                 android:paddingTop="5dp"
-                                android:text="Sana"
+                                android:text="Kupon"
                                 android:textColor="@color/black"
                                 android:textSize="14sp"
                                 android:textStyle="bold" />
 
                             <TextView
+                                android:id="@+id/tv_kupon"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/inter"
@@ -188,12 +194,13 @@
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/inter"
                                 android:paddingTop="5dp"
-                                android:text="Shaxsiy aylanma"
+                                android:text="Shaxsiy sotuv bonusi"
                                 android:textColor="@color/black"
                                 android:textSize="14sp"
                                 android:textStyle="bold" />
 
                             <TextView
+                                android:id="@+id/tv_shaxsiy_sotuv_bonusi"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/inter"
@@ -206,12 +213,13 @@
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/inter"
                                 android:paddingTop="5dp"
-                                android:text="Ustozlik bonusi"
+                                android:text="Jamoaviy aylanma"
                                 android:textColor="@color/black"
                                 android:textSize="14sp"
                                 android:textStyle="bold" />
 
                             <TextView
+                                android:id="@+id/tv_jamoaviy_aylanma"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/inter"
@@ -224,12 +232,13 @@
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/inter"
                                 android:paddingTop="5dp"
-                                android:text="Jamoaviy bonus"
+                                android:text="Extra bonus"
                                 android:textColor="@color/black"
                                 android:textSize="14sp"
                                 android:textStyle="bold" />
 
                             <TextView
+                                android:id="@+id/tv_extra_bonus"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/inter"
@@ -241,12 +250,13 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content" android:fontFamily="@font/inter"
                                 android:paddingTop="5dp"
-                                android:text="To’landi"
+                                android:text="Qarz"
                                 android:textColor="@color/black"
                                 android:textSize="14sp"
                                 android:textStyle="bold" />
 
                             <TextView
+                                android:id="@+id/tv_qarz"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/inter"

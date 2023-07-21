@@ -15,6 +15,7 @@ import uz.turgunboyevjurabek.rizon.fragments.orderFragment.OrderFragment
 import uz.turgunboyevjurabek.rizon.fragments.productsFragment.ProductFragment
 import uz.turgunboyevjurabek.rizon.fragments.profileFragment.ProfileFragment
 import uz.turgunboyevjurabek.rizon.utils.AppObject
+import uz.turgunboyevjurabek.rizon.utils.MySharedPreference
 
 class MainActivity : AppCompatActivity() {
     private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
@@ -26,5 +27,12 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.my_navigation_host)
         binding.btnNavigation.setupWithNavController(navController)
 
+        addCatchToken()
+    }
+
+    //vaqtinchalik funkiya token yozib olish uchun
+    fun addCatchToken(){
+        MySharedPreference.init(this)
+        MySharedPreference.token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjkwMjY0NDI2LCJpYXQiOjE2ODk4MzI0MjYsImp0aSI6IjdkZmNmZGE0ODZlNDRmZTBhZDcxYzliY2YxYmI3NGY2IiwidXNlcl9pZCI6MTU4fQ.LIvwD08gI0EIJkKGWI8SxiYxNYTTpyxaB2Oq9muBDCg"
     }
 }

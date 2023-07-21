@@ -16,6 +16,7 @@ import uz.turgunboyevjurabek.rizon.adapters.SelectItem
 import uz.turgunboyevjurabek.rizon.databinding.FragmentProductBinding
 import uz.turgunboyevjurabek.rizon.madels.userOrders.Product
 import uz.turgunboyevjurabek.rizon.utils.AppObject
+import uz.turgunboyevjurabek.rizon.utils.MySharedPreference
 import uz.turgunboyevjurabek.rizon.utils.Status
 
 private const val TAG = "ProductFragment"
@@ -32,8 +33,9 @@ class ProductFragment : Fragment(),SelectItem {
 
         myProductsAdapter = MyProductsAdapter(ArrayList(),this)
         binding.rvUsersProducts.adapter = myProductsAdapter
+        MySharedPreference.init(binding.root.context)
 
-        productsViewModel.getUsersProducts("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjg5ODIzNTQ1LCJpYXQiOjE2ODkzOTE1NDUsImp0aSI6IjNmNDBhZTIxOTRiMjQ2YjFiOTdiODA4NDhmMjliODllIiwidXNlcl9pZCI6MTU4fQ.FvJu6ND6sHW2pBNXb8cEn_DKY4ruXwqMCSkGt6C7k6Q")
+        productsViewModel.getUsersProducts(MySharedPreference.token)
             .observe(requireActivity()){
                 when(it.status){
                     Status.LOADING ->{

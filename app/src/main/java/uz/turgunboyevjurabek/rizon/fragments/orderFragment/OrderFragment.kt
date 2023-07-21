@@ -12,6 +12,7 @@ import uz.turgunboyevjurabek.rizon.R
 import uz.turgunboyevjurabek.rizon.adapters.UserOrderAdapter
 import uz.turgunboyevjurabek.rizon.databinding.FragmentOrderBinding
 import uz.turgunboyevjurabek.rizon.utils.AppObject
+import uz.turgunboyevjurabek.rizon.utils.MySharedPreference
 import uz.turgunboyevjurabek.rizon.utils.Status
 
 private const val TAG = "OrderFragment"
@@ -26,10 +27,11 @@ class OrderFragment : Fragment() {
     ): View? {
       userOrderAdapter = UserOrderAdapter()
         binding.rvUsersOrders.adapter = userOrderAdapter
+        MySharedPreference.init(binding.root.context)
 
         ordersViewModel = ViewModelProvider(requireActivity())[OrdersViewModel::class.java]
 
-        ordersViewModel.getUsersOrders("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjg5ODIzNTQ1LCJpYXQiOjE2ODkzOTE1NDUsImp0aSI6IjNmNDBhZTIxOTRiMjQ2YjFiOTdiODA4NDhmMjliODllIiwidXNlcl9pZCI6MTU4fQ.FvJu6ND6sHW2pBNXb8cEn_DKY4ruXwqMCSkGt6C7k6Q")
+        ordersViewModel.getUsersOrders(MySharedPreference.token)
             .observe(requireActivity()){
                 when(it.status){
                     Status.LOADING ->{

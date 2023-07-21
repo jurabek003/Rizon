@@ -47,7 +47,7 @@
         tools:layout="@layout/fragment_purchase_history" />
     <fragment
         android:id="@+id/salaryHistoryFragment"
-        android:name="uz.turgunboyevjurabek.rizon.fragments.profileFragment.SalaryHistoryFragment"
+        android:name="uz.turgunboyevjurabek.rizon.fragments.profileFragment.salary.SalaryHistoryFragment"
         android:label="fragment_salary_historyk"
         tools:layout="@layout/fragment_salary_historyk" />
 </navigation>
