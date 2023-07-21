@@ -7,55 +7,93 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.anychart.AnyChart
 import com.anychart.AnyChartView
 import com.anychart.chart.common.dataentry.DataEntry
 import com.anychart.chart.common.dataentry.ValueDataEntry
 import com.anychart.charts.Pie
 import com.github.mikephil.charting.animation.Easing
+import com.github.mikephil.charting.charts.BarChart
 import com.github.mikephil.charting.charts.PieChart
+import com.github.mikephil.charting.components.XAxis
+import com.github.mikephil.charting.data.BarData
+import com.github.mikephil.charting.data.BarDataSet
+import com.github.mikephil.charting.data.BarEntry
 import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
+import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import com.github.mikephil.charting.formatter.PercentFormatter
 import com.github.mikephil.charting.utils.MPPointF
 import uz.turgunboyevjurabek.rizon.R
 import uz.turgunboyevjurabek.rizon.databinding.FragmentHomeBinding
 import uz.turgunboyevjurabek.rizon.utils.AppObject
+import java.text.SimpleDateFormat
+import java.util.Date
 
 
 class HomeFragment : Fragment() {
     private val binding by lazy { FragmentHomeBinding.inflate(layoutInflater) }
     private lateinit var pie: Pie
    private lateinit var pieChart: PieChart
+
+    lateinit var barChart: BarChart
+
+    // on below line we are creating
+    // a variable for bar data
+    lateinit var barData: BarData
+
+    // on below line we are creating a
+    // variable for bar data set
+    lateinit var barDataSet: BarDataSet
+
+    // on below line we are creating array list for bar data
+    lateinit var barEntriesList: ArrayList<BarEntry>
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
-        diagram2()
         diagram()
+        diagram2()
         return binding.root
     }
-    //figmadegidek uchun lekin ekranda ko'rinmayapti
-    fun diagram2() {
-            // "binding" obyektini to'g'rilang
-            val anyChartView: AnyChartView = binding.myPieDiagram
 
-            //Pie obyektini yaratish
-            val pie: Pie = AnyChart.pie()
+    private fun diagram2() {
+        barChart = binding.barChartView
 
-            //Ma'lumotlar listasini tuzish
-            val list = mutableListOf<DataEntry>()
-            list.add(ValueDataEntry("kkkk", 1000))
-            list.add(ValueDataEntry("kkkk", 6000))
-            list.add(ValueDataEntry("kkkk", 7000))
+        // on below line we are calling get bar
+        // chart data to add data to our array list
+        val barChart: BarChart = binding.barChartView
 
-            // Pie obyektiga datani o'rnatish
-            pie.data(list)
+        val dates = listOf("January", "February", "March", "April","May","June","July","August","September","October","November","December")
+        val values = listOf(10f, 50f, 700f, 120f,340f,214f,567f,6666f,999f,112f,2222f,1212f)
+        // BarEntry ma'lumotlarini tayyorlash
+        val entries: ArrayList<BarEntry> = ArrayList()
+        for (i in values.indices) {
+            entries.add(BarEntry(i.toFloat(), values[i]))
+        }
 
-            // AnyChartView ga Pie obyektini qo'shish
-            anyChartView.setChart(pie)
+        // X-osi bo'yicha datalarni joylash
+        val barDataSet = BarDataSet(entries, "Ma'lumotlar")
+        barDataSet.color = Color.BLUE
+        // X-osi bo'yicha nomlarni joylash
+        val xAxisLabels = dates.toTypedArray()
+        val xAxis = barChart.xAxis
+        xAxis.valueFormatter = IndexAxisValueFormatter(xAxisLabels)
+        xAxis.position = XAxis.XAxisPosition.BOTTOM
+        xAxis.granularity = 1f
+        xAxis.isGranularityEnabled = true
 
+        // BarChart konfiguratsiyalari
+        val barData = BarData(barDataSet)
+        barChart.data = barData
+        barChart.setFitBars(true)
+        barChart.description.isEnabled = false
+        barChart.animateY(1000)
+
+        // Barchartni yangilash
+        barChart.invalidate()
     }
 
     // ekranda korin yapti lekin figmadagidek emas
@@ -68,8 +106,8 @@ class HomeFragment : Fragment() {
         // on below line we are setting drag for our pie chart
         pieChart.setDragDecelerationFrictionCoef(0.95f)
         // on below line we are setting hole
-        // and hole color for pie chart
-        pieChart.setDrawHoleEnabled(true)
+
+        pieChart.setDrawHoleEnabled(false)  // o'rtadagi yumaloqni boshqarish
         pieChart.setHoleColor(Color.WHITE)
 
         // on below line we are setting circle color and alpha
@@ -102,8 +140,8 @@ class HomeFragment : Fragment() {
         // on below line we are creating array list and
         // adding data to it to display in pie chart
         val entries: ArrayList<PieEntry> = ArrayList()
-        entries.add(PieEntry(70f))
-        entries.add(PieEntry(80f))
+        entries.add(PieEntry(50f))
+        entries.add(PieEntry(30f))
         entries.add(PieEntry(10f))
         entries.add(PieEntry(40f))
 
@@ -114,7 +152,7 @@ class HomeFragment : Fragment() {
         dataSet.setDrawIcons(true)
 
         // on below line we are setting slice for pie
-        dataSet.sliceSpace = 3f
+        dataSet.sliceSpace = 0f
         dataSet.iconsOffset = MPPointF(0f, 40f)
         dataSet.selectionShift = 5f
 
@@ -123,6 +161,7 @@ class HomeFragment : Fragment() {
         colors.add(resources.getColor(R.color.purple_200))
         colors.add(resources.getColor(R.color.yellow))
         colors.add(resources.getColor(R.color.red))
+        colors.add(resources.getColor(R.color.black))
 
         // on below line we are setting colors.
         dataSet.colors = colors
@@ -130,8 +169,7 @@ class HomeFragment : Fragment() {
         // on below line we are setting pie data set
         val data = PieData(dataSet)
         data.setValueFormatter(PercentFormatter())
-        data.setValueTextSize(15f)
-        data.setValueTypeface(Typeface.DEFAULT_BOLD)
+        data.setValueTextSize(10f)
         data.setValueTextColor(Color.WHITE)
         pieChart.setData(data)
 
