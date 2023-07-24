@@ -5,12 +5,14 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import uz.turgunboyevjurabek.rizon.databinding.ItemNotificationRvBinding
-import uz.turgunboyevjurabek.rizon.madels.Notification
+import uz.turgunboyevjurabek.rizon.madels.notification.Notification
 
-class NotificationAdapter(val list: ArrayList<Notification>):RecyclerView.Adapter<NotificationAdapter.Vh>() {
+class NotificationAdapter(val list: ArrayList<Notification> = ArrayList()):RecyclerView.Adapter<NotificationAdapter.Vh>() {
     inner class Vh(val itemNotificationRvBinding: ItemNotificationRvBinding):ViewHolder(itemNotificationRvBinding.root){
         fun onBind(notification: Notification){
-
+            itemNotificationRvBinding.itemTvNotification.text = notification.message
+            itemNotificationRvBinding.tvRizon.text = notification.title
+            itemNotificationRvBinding.tvDate.text = notification.date
         }
     }
 

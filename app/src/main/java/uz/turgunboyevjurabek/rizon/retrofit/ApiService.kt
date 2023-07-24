@@ -4,6 +4,7 @@ import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.Path
+import uz.turgunboyevjurabek.rizon.madels.notification.GetNotificationResponse
 import uz.turgunboyevjurabek.rizon.madels.salary.GetSalaryResponce
 import uz.turgunboyevjurabek.rizon.madels.userOrders.GetUsersOrdersResponse
 import uz.turgunboyevjurabek.rizon.madels.usersProducts.GetUserProductsResponse
@@ -28,4 +29,9 @@ interface ApiService {
 
     @GET("users-salary/payments/")
     suspend fun getSalaryPayments(@Header("Authorization") token: String): GetSalaryResponce
+
+    @GET("users-notifications")
+    suspend fun getNotifications(@Header("Authorization") token: String): GetNotificationResponse
+
+
 }
