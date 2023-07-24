@@ -1,17 +1,11 @@
-package uz.turgunboyevjurabek.rizon.fragments
+package uz.turgunboyevjurabek.rizon.fragments.homeFragment
 
 import android.graphics.Color
-import android.graphics.Typeface
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import com.anychart.AnyChart
-import com.anychart.AnyChartView
-import com.anychart.chart.common.dataentry.DataEntry
-import com.anychart.chart.common.dataentry.ValueDataEntry
 import com.anychart.charts.Pie
 import com.github.mikephil.charting.animation.Easing
 import com.github.mikephil.charting.charts.BarChart
@@ -29,8 +23,6 @@ import com.github.mikephil.charting.utils.MPPointF
 import uz.turgunboyevjurabek.rizon.R
 import uz.turgunboyevjurabek.rizon.databinding.FragmentHomeBinding
 import uz.turgunboyevjurabek.rizon.utils.AppObject
-import java.text.SimpleDateFormat
-import java.util.Date
 
 
 class HomeFragment : Fragment() {

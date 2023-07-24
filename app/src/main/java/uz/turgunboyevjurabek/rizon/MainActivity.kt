@@ -1,19 +1,10 @@
 package uz.turgunboyevjurabek.rizon
 
-import android.graphics.Color
-import android.graphics.PorterDuff
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import uz.turgunboyevjurabek.rizon.databinding.ActivityMainBinding
-import uz.turgunboyevjurabek.rizon.fragments.HomeFragment
-import uz.turgunboyevjurabek.rizon.fragments.orderFragment.OrderFragment
-import uz.turgunboyevjurabek.rizon.fragments.productsFragment.ProductFragment
-import uz.turgunboyevjurabek.rizon.fragments.profileFragment.ProfileFragment
 import uz.turgunboyevjurabek.rizon.utils.AppObject
 import uz.turgunboyevjurabek.rizon.utils.MySharedPreference
 
@@ -28,6 +19,10 @@ class MainActivity : AppCompatActivity() {
         binding.btnNavigation.setupWithNavController(navController)
 
         addCatchToken()
+
+        binding.imgNotification.setOnClickListener {
+            navController.navigate(R.id.notificationFragment)
+        }
     }
 
     //vaqtinchalik funkiya token yozib olish uchun

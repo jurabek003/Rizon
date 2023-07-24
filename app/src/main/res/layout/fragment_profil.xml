@@ -68,7 +68,7 @@
                     android:layout_gravity="center"
                     android:backgroundTint="#002940"
                     android:text="Kupon transfer"
-                    android:textSize="10sp"
+                    android:textSize="13sp"
                     app:cornerRadius="5dp" />
 
                 <com.google.android.material.button.MaterialButton
@@ -80,7 +80,7 @@
                     android:backgroundTint="#002940"
                     android:gravity="center"
                     android:text="Sotuv tarixi"
-                    android:textSize="10sp"
+                    android:textSize="13sp"
                     app:cornerRadius="5dp" />
 
                 <com.google.android.material.button.MaterialButton
@@ -91,7 +91,7 @@
                     android:layout_gravity="center"
                     android:backgroundTint="#002940"
                     android:text="Maosh tarixi"
-                    android:textSize="10sp"
+                    android:textSize="13sp"
                     app:cornerRadius="5dp" />
             </LinearLayout>
 
