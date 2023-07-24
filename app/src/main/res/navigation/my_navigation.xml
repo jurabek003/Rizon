@@ -45,7 +45,7 @@
         tools:layout="@layout/fragment_select" />
     <fragment
         android:id="@+id/purchaseHistoryFragment"
-        android:name="uz.turgunboyevjurabek.rizon.fragments.profileFragment.PurchaseHistoryFragment"
+        android:name="uz.turgunboyevjurabek.rizon.fragments.profileFragment.sotuvtarixi.PurchaseHistoryFragment"
         android:label="fragment_purchase_history"
         tools:layout="@layout/fragment_purchase_history" />
     <fragment

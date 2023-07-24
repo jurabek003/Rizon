@@ -6,8 +6,8 @@
     android:padding="10dp"
     android:layout_height="wrap_content">
     <com.google.android.material.card.MaterialCardView
-        android:layout_width="312dp"
-        android:layout_height="154dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:backgroundTint="#F1F3F4"
         app:strokeWidth="0dp"
         android:layout_gravity="center">
@@ -36,6 +36,7 @@
                         android:text="Sana"
                         android:textColor="@color/black"/>
                           <TextView
+                              android:id="@+id/tv_sana"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="14sp"
@@ -56,6 +57,7 @@
                         android:text="Shartnoma ID"
                         android:textColor="@color/black"/>
                     <TextView
+                        android:id="@+id/tv_shartnoma_id"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="14sp"
@@ -77,6 +79,7 @@
                         android:text="Ombor"
                         android:textColor="@color/black"/>
                     <TextView
+                        android:id="@+id/tv_address"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="14sp"
@@ -104,6 +107,7 @@
                         android:text="Turi"
                         android:textColor="@color/black"/>
                           <TextView
+                              android:id="@+id/tv_turi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="14sp"
@@ -124,6 +128,7 @@
                         android:text="Miqdori"
                         android:textColor="@color/black"/>
                     <TextView
+                        android:id="@+id/tv_miqdori"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="14sp"
@@ -145,6 +150,7 @@
                         android:text="Summa"
                         android:textColor="@color/black"/>
                     <TextView
+                        android:id="@+id/tv_summa"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="14sp"
@@ -160,6 +166,7 @@
                 android:background="#002940"
                 android:layout_height="38dp">
                 <TextView
+                    android:id="@+id/btn_show"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Ko’rish"
