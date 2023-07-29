@@ -5,11 +5,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import uz.turgunboyevjurabek.rizon.databinding.ItemShajaraRvBinding
-import uz.turgunboyevjurabek.rizon.madels.usersProfile.X1
+import uz.turgunboyevjurabek.rizon.madels.usersProfile.UserTree
 
-class ShajaraRvAdapter(val list: ArrayList<X1>):RecyclerView.Adapter<ShajaraRvAdapter.Vh>() {
+class ShajaraRvAdapter(val list: ArrayList<UserTree>):RecyclerView.Adapter<ShajaraRvAdapter.Vh>() {
     inner class Vh(val itemShajaraRvBinding: ItemShajaraRvBinding):ViewHolder(itemShajaraRvBinding.root){
-        fun  onBind(shajara: X1){
+        fun  onBind(shajara: UserTree){
             itemShajaraRvBinding.itemId.text = shajara.user_id.toString()
             itemShajaraRvBinding.itemBonus.text = shajara.bonus_for_followers_status.toString()
             itemShajaraRvBinding.itemStatus.text = shajara.user_status

@@ -14,7 +14,7 @@ import uz.turgunboyevjurabek.rizon.R
 import uz.turgunboyevjurabek.rizon.adapters.ShajaraRvAdapter
 import uz.turgunboyevjurabek.rizon.databinding.FragmentProfilBinding
 import uz.turgunboyevjurabek.rizon.madels.usersProfile.GetUserProfileResponse
-import uz.turgunboyevjurabek.rizon.madels.usersProfile.X1
+import uz.turgunboyevjurabek.rizon.madels.usersProfile.UserTree
 import uz.turgunboyevjurabek.rizon.retrofit.ApiClient
 import uz.turgunboyevjurabek.rizon.utils.AppObject
 import uz.turgunboyevjurabek.rizon.utils.MySharedPreference
@@ -85,11 +85,11 @@ class ProfileFragment : Fragment() {
     var shajaraNumber = 1
     fun showShajara(getUserProfileResponse: GetUserProfileResponse){
         val user = getUserProfileResponse.user
-        shajaraRvAdapter = ShajaraRvAdapter(getUserProfileResponse.user_tree.`1` as ArrayList)
+        shajaraRvAdapter = ShajaraRvAdapter(getUserProfileResponse.user_tree[0] as ArrayList<UserTree>)
 
         binding.apply {
             rvShajara.adapter = shajaraRvAdapter
-            tvIzdoshlarSoni.text = "Izdosh ${getUserProfileResponse.user_tree.`1`.size} ta"
+            tvIzdoshlarSoni.text = "Izdosh ${getUserProfileResponse.user_tree[0].size} ta"
 
 
         }

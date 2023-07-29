@@ -1,6 +1,5 @@
 package uz.turgunboyevjurabek.rizon.retrofit
 
-import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.Path
@@ -24,8 +23,8 @@ interface ApiService {
     @GET("users-orders/")
     suspend fun getUsersOrders(@Header("Authorization") token:String):GetUsersOrdersResponse
 
-    @GET("users-profile/month/{month}")
-    suspend fun getUsersProfile(@Header("Authorization") token:String, @Path("month") month:String):GetUserProfileResponse
+    @GET("users-profil/month/{month}")
+    suspend fun getUsersProfile(@Header("Authorization") token:String, @Path("month") month:String): GetUserProfileResponse
 
     @GET("users-salary/payments/")
     suspend fun getSalaryPayments(@Header("Authorization") token: String): GetSalaryResponce

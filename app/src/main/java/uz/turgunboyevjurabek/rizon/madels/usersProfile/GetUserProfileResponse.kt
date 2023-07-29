@@ -4,5 +4,5 @@ data class GetUserProfileResponse(
     val follower_link: String,
     val sale_link: String,
     val user: User,
-    val user_tree: UserTree
+    val user_tree: List<List<UserTree>>
 )
