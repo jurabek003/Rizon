@@ -8,4 +8,5 @@ class AppRepository(val apiService: ApiService) {
     suspend fun getUsersProfile(token:String, month:String) = apiService.getUsersProfile("Bearer $token", month)
     suspend fun getSalaryPayments(token: String) = apiService.getSalaryPayments("Bearer $token")
     suspend fun getNotifications(token: String) = apiService.getNotifications("Bearer $token")
+    suspend fun getUserCoupon(token: String) = apiService.getUsersCoupon("Bearer $token")
 }

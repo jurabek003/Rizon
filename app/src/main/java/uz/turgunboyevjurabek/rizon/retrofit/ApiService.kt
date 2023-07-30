@@ -3,6 +3,7 @@ package uz.turgunboyevjurabek.rizon.retrofit
 import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.Path
+import uz.turgunboyevjurabek.rizon.madels.coupon.GetUsersCoupon
 import uz.turgunboyevjurabek.rizon.madels.notification.GetNotificationResponse
 import uz.turgunboyevjurabek.rizon.madels.salary.GetSalaryResponce
 import uz.turgunboyevjurabek.rizon.madels.userOrders.GetUsersOrdersResponse
@@ -16,21 +17,27 @@ interface ApiService {
 //    fun getToken(@Body myTokenRequest: MyTokenRequest):Call<MyTokenResponce>
 
 
-//    @Headers({"Authorization", "Bearer $token"})
+    //    @Headers({"Authorization", "Bearer $token"})
     @GET("users-products/")
-    suspend fun getUsersProducts(@Header("Authorization") token:String):GetUserProductsResponse
+    suspend fun getUsersProducts(@Header("Authorization") token: String): GetUserProductsResponse
 
     @GET("users-orders/")
-    suspend fun getUsersOrders(@Header("Authorization") token:String):GetUsersOrdersResponse
+    suspend fun getUsersOrders(@Header("Authorization") token: String): GetUsersOrdersResponse
 
     @GET("users-profil/month/{month}")
-    suspend fun getUsersProfile(@Header("Authorization") token:String, @Path("month") month:String): GetUserProfileResponse
+    suspend fun getUsersProfile(
+        @Header("Authorization") token: String,
+        @Path("month") month: String
+    ): GetUserProfileResponse
 
     @GET("users-salary/payments/")
     suspend fun getSalaryPayments(@Header("Authorization") token: String): GetSalaryResponce
 
     @GET("users-notifications")
     suspend fun getNotifications(@Header("Authorization") token: String): GetNotificationResponse
+
+    @GET("users-coupons")
+    suspend fun getUsersCoupon(@Header("Authorization") token: String): GetUsersCoupon
 
 
 }

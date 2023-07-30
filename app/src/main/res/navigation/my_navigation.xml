@@ -55,7 +55,7 @@
         tools:layout="@layout/fragment_salary_historyk" />
     <fragment
         android:id="@+id/kuponTransferFragment"
-        android:name="uz.turgunboyevjurabek.rizon.fragments.profileFragment.KuponTransferFragment"
+        android:name="uz.turgunboyevjurabek.rizon.fragments.profileFragment.coupons.KuponTransferFragment"
         android:label="fragment_kupon_transfer"
         tools:layout="@layout/fragment_kupon_transfer" />
     <fragment

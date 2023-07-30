@@ -6,10 +6,11 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import uz.turgunboyevjurabek.rizon.databinding.ItemKuponRvBinding
 import uz.turgunboyevjurabek.rizon.madels.KuponTransfer
+import uz.turgunboyevjurabek.rizon.madels.coupon.Transfer
 
-class KuponTransferAdapter(val list:ArrayList<KuponTransfer>):RecyclerView.Adapter<KuponTransferAdapter.Vh>() {
+class KuponTransferAdapter(val list:ArrayList<Transfer> = ArrayList()):RecyclerView.Adapter<KuponTransferAdapter.Vh>() {
     inner class Vh(val itemKuponRvBinding: ItemKuponRvBinding):ViewHolder(itemKuponRvBinding.root){
-        fun onBind(kuponTransfer: KuponTransfer){
+        fun onBind(transfer: Transfer){
 
         }
     }
