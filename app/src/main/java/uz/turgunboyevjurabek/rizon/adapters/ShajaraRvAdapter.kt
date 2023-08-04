@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import uz.turgunboyevjurabek.rizon.databinding.ItemShajaraRvBinding
 import uz.turgunboyevjurabek.rizon.madels.usersProfile.UserTree
 
-class ShajaraRvAdapter(val list: ArrayList<UserTree>):RecyclerView.Adapter<ShajaraRvAdapter.Vh>() {
+class ShajaraRvAdapter(val list: ArrayList<UserTree> = ArrayList()):RecyclerView.Adapter<ShajaraRvAdapter.Vh>() {
     inner class Vh(val itemShajaraRvBinding: ItemShajaraRvBinding):ViewHolder(itemShajaraRvBinding.root){
         fun  onBind(shajara: UserTree){
             itemShajaraRvBinding.itemId.text = shajara.user_id.toString()

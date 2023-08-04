@@ -82,14 +82,30 @@ class ProfileFragment : Fragment() {
         }
     }
 
-    var shajaraNumber = 1
+    var shajaraNumber = 0
     fun showShajara(getUserProfileResponse: GetUserProfileResponse){
-        val user = getUserProfileResponse.user
-        shajaraRvAdapter = ShajaraRvAdapter(getUserProfileResponse.user_tree[0] as ArrayList<UserTree>)
+        shajaraRvAdapter = ShajaraRvAdapter()
+        shajaraRvAdapter.list.addAll(getUserProfileResponse.user_tree[shajaraNumber])
 
         binding.apply {
             rvShajara.adapter = shajaraRvAdapter
             tvIzdoshlarSoni.text = "Izdosh ${getUserProfileResponse.user_tree[0].size} ta"
+
+            linerAvlod.setOnClickListener {
+                    if (shajaraNumber<getUserProfileResponse.user_tree.size-1){
+                        shajaraNumber++
+                    }else{
+                        shajaraNumber = 0
+                    }
+                    shajaraRvAdapter.list.clear()
+                    shajaraRvAdapter.list.addAll(getUserProfileResponse.user_tree[shajaraNumber])
+                    shajaraRvAdapter.notifyDataSetChanged()
+
+                    tvAvldNumber.text = "${shajaraNumber + 1} - Avlod"
+
+                    tvIzdoshlarSoni.text =
+                        "Izdosh ${getUserProfileResponse.user_tree[shajaraNumber].size} ta"
+                }
 
 
         }
