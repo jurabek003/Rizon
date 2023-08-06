@@ -24,7 +24,9 @@ import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import com.github.mikephil.charting.formatter.PercentFormatter
 import com.github.mikephil.charting.utils.MPPointF
 import uz.turgunboyevjurabek.rizon.R
+import uz.turgunboyevjurabek.rizon.adapters.SaleRvAdapter
 import uz.turgunboyevjurabek.rizon.databinding.FragmentHomeBinding
+import uz.turgunboyevjurabek.rizon.madels.sale.Sale
 import uz.turgunboyevjurabek.rizon.utils.AppObject
 import uz.turgunboyevjurabek.rizon.utils.MySharedPreference
 import uz.turgunboyevjurabek.rizon.utils.Status
@@ -32,11 +34,11 @@ import uz.turgunboyevjurabek.rizon.utils.Status
 private const val TAG = "HomeFragment"
 class HomeFragment : Fragment() {
     private val binding by lazy { FragmentHomeBinding.inflate(layoutInflater) }
+    lateinit var saleRvAdapter: SaleRvAdapter
     private lateinit var pie: Pie
-   private lateinit var pieChart: PieChart
+    private lateinit var pieChart: PieChart
 
     lateinit var barChart: BarChart
-
     // on below line we are creating
     // a variable for bar data
     lateinit var barData: BarData
@@ -53,6 +55,7 @@ class HomeFragment : Fragment() {
         diagram()
         diagram2()
         getApi()
+        saleAdapter()
         return binding.root
     }
 
@@ -205,6 +208,19 @@ class HomeFragment : Fragment() {
         // loading chart
         pieChart.invalidate()
 
+
+    }
+
+    private fun saleAdapter() {
+        saleRvAdapter= SaleRvAdapter()
+        saleRvAdapter.list.clear()
+        saleRvAdapter.list.add(Sale("12"))
+        saleRvAdapter.list.add(Sale("12"))
+        saleRvAdapter.list.add(Sale("12"))
+        saleRvAdapter.list.add(Sale("12"))
+        saleRvAdapter.list.add(Sale("12"))
+        binding.rvSale.adapter=saleRvAdapter
+        saleRvAdapter.notifyDataSetChanged()
 
     }
 
