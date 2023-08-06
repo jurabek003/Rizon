@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import uz.turgunboyevjurabek.rizon.adapters.NotificationAdapter
 import uz.turgunboyevjurabek.rizon.databinding.FragmentNotificationBinding
+import uz.turgunboyevjurabek.rizon.utils.AppObject
 import uz.turgunboyevjurabek.rizon.utils.MySharedPreference
 import uz.turgunboyevjurabek.rizon.utils.Status
 
@@ -53,5 +54,11 @@ class NotificationFragment : Fragment() {
 
 
         return binding.root
+    }
+
+    override fun onResume() {
+        super.onResume()
+        AppObject.binding.thtPanel.text = "Bildirishnoma"
+        AppObject.binding.materialCardViewCalendar.visibility = View.INVISIBLE
     }
 }

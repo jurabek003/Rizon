@@ -56,6 +56,7 @@ class PurchaseHistoryFragment : Fragment() {
 
 
         AppObject.binding.thtPanel.text="Harid tarixi"
+        AppObject.binding.materialCardViewCalendar.visibility = View.INVISIBLE
         return binding.root
     }
 }

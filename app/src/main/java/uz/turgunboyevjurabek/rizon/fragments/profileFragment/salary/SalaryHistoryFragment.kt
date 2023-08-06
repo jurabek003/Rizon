@@ -51,6 +51,7 @@ class SalaryHistoryFragment : Fragment(),SelectSalary {
 
 
         AppObject.binding.thtPanel.text = "Maosh tarixi"
+        AppObject.binding.materialCardViewCalendar.visibility = View.INVISIBLE
         return binding.root
     }
 

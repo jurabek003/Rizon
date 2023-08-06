@@ -2,10 +2,13 @@ package uz.turgunboyevjurabek.rizon.fragments.homeFragment
 
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
 import com.anychart.charts.Pie
 import com.github.mikephil.charting.animation.Easing
 import com.github.mikephil.charting.charts.BarChart
@@ -23,8 +26,10 @@ import com.github.mikephil.charting.utils.MPPointF
 import uz.turgunboyevjurabek.rizon.R
 import uz.turgunboyevjurabek.rizon.databinding.FragmentHomeBinding
 import uz.turgunboyevjurabek.rizon.utils.AppObject
+import uz.turgunboyevjurabek.rizon.utils.MySharedPreference
+import uz.turgunboyevjurabek.rizon.utils.Status
 
-
+private const val TAG = "HomeFragment"
 class HomeFragment : Fragment() {
     private val binding by lazy { FragmentHomeBinding.inflate(layoutInflater) }
     private lateinit var pie: Pie
@@ -41,14 +46,43 @@ class HomeFragment : Fragment() {
     lateinit var barDataSet: BarDataSet
 
     // on below line we are creating array list for bar data
-    lateinit var barEntriesList: ArrayList<BarEntry>
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
         diagram()
         diagram2()
+        getApi()
         return binding.root
+    }
+
+    lateinit var homeViewModel: HomeViewModel
+    private fun getApi(){
+        MySharedPreference.init(binding.root.context)
+
+        homeViewModel = ViewModelProvider(requireActivity())[HomeViewModel::class.java]
+
+        homeViewModel.getUsersMain(MySharedPreference.token)
+            .observe(requireActivity()){
+                when(it.status){
+                    Status.LOADING ->{
+                        Log.d(TAG, "onCreate: Loading")
+                        binding.myProgressBar.visibility = View.VISIBLE
+                        binding.homeScrollview.visibility = View.INVISIBLE
+                    }
+                    Status.ERROR->{
+                        Log.d(TAG, "onCreate: Error ${it.message}")
+                        binding.myProgressBar.visibility = View.GONE
+                        Toast.makeText(context, "Error ${it.message}", Toast.LENGTH_SHORT).show()
+                    }
+                    Status.SUCCESS ->{
+                        Log.d(TAG, "onCreate: ${it.data}")
+                        binding.myProgressBar.visibility = View.GONE
+                        binding.homeScrollview.visibility = View.VISIBLE
+
+                    }
+                }
+            }
     }
 
     private fun diagram2() {
@@ -177,5 +211,6 @@ class HomeFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         AppObject.binding.thtPanel.text = "Asosiy panel"
+        AppObject.binding.materialCardViewCalendar.visibility = View.INVISIBLE
     }
 }

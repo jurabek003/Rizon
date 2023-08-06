@@ -64,5 +64,6 @@ class KuponTransferFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         AppObject.binding.thtPanel.text="Kupon transfer"
+        AppObject.binding.materialCardViewCalendar.visibility = View.INVISIBLE
     }
 }

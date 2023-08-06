@@ -58,6 +58,7 @@ class OrderFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         AppObject.binding.thtPanel.text = "Buyurtmalar"
+        AppObject.binding.materialCardViewCalendar.visibility = View.INVISIBLE
     }
 
 }

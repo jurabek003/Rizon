@@ -3,6 +3,7 @@ package uz.turgunboyevjurabek.rizon.retrofit
 import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.Path
+import uz.turgunboyevjurabek.rizon.madels.UserMain.GetUsersMainResponse
 import uz.turgunboyevjurabek.rizon.madels.coupon.GetUsersCoupon
 import uz.turgunboyevjurabek.rizon.madels.notification.GetNotificationResponse
 import uz.turgunboyevjurabek.rizon.madels.salary.GetSalaryResponce
@@ -39,5 +40,7 @@ interface ApiService {
     @GET("users-coupons")
     suspend fun getUsersCoupon(@Header("Authorization") token: String): GetUsersCoupon
 
+    @GET("users-main-a")
+    suspend fun getUsersMain(@Header("Authorization") token: String): GetUsersMainResponse
 
 }

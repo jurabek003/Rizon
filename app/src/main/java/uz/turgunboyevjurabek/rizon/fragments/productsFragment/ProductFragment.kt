@@ -62,6 +62,7 @@ class ProductFragment : Fragment(),SelectItem {
     override fun onResume() {
         super.onResume()
         AppObject.binding.thtPanel.text = "Mahsulotlar"
+        AppObject.binding.materialCardViewCalendar.visibility = View.INVISIBLE
     }
 
     override fun onClick(position: Int, product: uz.turgunboyevjurabek.rizon.madels.usersProducts.Product) {

@@ -114,6 +114,7 @@ class ProfileFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         AppObject.binding.thtPanel.text = "Profil"
+        AppObject.binding.materialCardViewCalendar.visibility = View.VISIBLE
 
         binding.btnSotuv.setOnClickListener {
             findNavController().navigate(R.id.purchaseHistoryFragment)
