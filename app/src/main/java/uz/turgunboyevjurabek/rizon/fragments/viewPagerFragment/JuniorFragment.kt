@@ -9,6 +9,7 @@ import uz.turgunboyevjurabek.rizon.R
 import uz.turgunboyevjurabek.rizon.adapters.viewPagerAdapter.RvAdapterJunior
 import uz.turgunboyevjurabek.rizon.databinding.FragmentJuniorBinding
 import uz.turgunboyevjurabek.rizon.madels.pager.Junior
+import uz.turgunboyevjurabek.rizon.utils.AppObject
 
 class JuniorFragment : Fragment() {
     private val binding by lazy { FragmentJuniorBinding.inflate(layoutInflater) }
@@ -21,6 +22,8 @@ class JuniorFragment : Fragment() {
         // Inflate the layout for this fragment
 
         adapter()
+
+
         return binding.root
     }
 
@@ -56,5 +59,13 @@ class JuniorFragment : Fragment() {
         rvAdapterJunior= RvAdapterJunior(list)
         binding.rvJunior.adapter=rvAdapterJunior
         rvAdapterJunior.notifyDataSetChanged()
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
     }
 }
