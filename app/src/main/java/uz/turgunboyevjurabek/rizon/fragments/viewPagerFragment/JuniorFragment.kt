@@ -5,13 +5,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import uz.turgunboyevjurabek.rizon.R
+import uz.turgunboyevjurabek.rizon.adapters.viewPagerAdapter.ItemSelect
 import uz.turgunboyevjurabek.rizon.adapters.viewPagerAdapter.RvAdapterJunior
 import uz.turgunboyevjurabek.rizon.databinding.FragmentJuniorBinding
 import uz.turgunboyevjurabek.rizon.madels.pager.Junior
 import uz.turgunboyevjurabek.rizon.utils.AppObject
 
-class JuniorFragment : Fragment() {
+class JuniorFragment : Fragment(),ItemSelect {
     private val binding by lazy { FragmentJuniorBinding.inflate(layoutInflater) }
     private lateinit var rvAdapterJunior: RvAdapterJunior
     private lateinit var list: ArrayList<Junior>
@@ -56,7 +58,7 @@ class JuniorFragment : Fragment() {
             Junior(""),
             Junior(""),
         ))
-        rvAdapterJunior= RvAdapterJunior(list)
+        rvAdapterJunior= RvAdapterJunior(list,this)
         binding.rvJunior.adapter=rvAdapterJunior
         rvAdapterJunior.notifyDataSetChanged()
     }
@@ -67,5 +69,9 @@ class JuniorFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+    }
+
+    override fun select(junior: Junior, position: Int) {
+        findNavController().navigate(R.id.bioFragment)
     }
 }

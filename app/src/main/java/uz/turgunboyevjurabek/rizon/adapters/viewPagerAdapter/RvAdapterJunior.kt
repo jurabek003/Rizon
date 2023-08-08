@@ -7,10 +7,13 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import uz.turgunboyevjurabek.rizon.databinding.ItemJuniorRvBinding
 import uz.turgunboyevjurabek.rizon.madels.pager.Junior
 
-class RvAdapterJunior(val list: ArrayList<Junior>):RecyclerView.Adapter<RvAdapterJunior.Vh>() {
+class RvAdapterJunior(val list: ArrayList<Junior>,val itemSelect: ItemSelect):RecyclerView.Adapter<RvAdapterJunior.Vh>() {
     inner class Vh(val itemJuniorRvBinding: ItemJuniorRvBinding):ViewHolder(itemJuniorRvBinding.root){
-        fun onBind( junior: Junior){
+        fun onBind( junior: Junior,position: Int){
 
+            itemJuniorRvBinding.root.setOnClickListener {
+                itemSelect.select(junior,position)
+            }
         }
     }
 
@@ -23,6 +26,9 @@ class RvAdapterJunior(val list: ArrayList<Junior>):RecyclerView.Adapter<RvAdapte
     }
 
     override fun onBindViewHolder(holder: Vh, position: Int) {
-        holder.onBind(list[position])
+        holder.onBind(list[position],position)
     }
+}
+interface ItemSelect{
+    fun select(junior: Junior,position: Int)
 }

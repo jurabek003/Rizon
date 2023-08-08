@@ -82,7 +82,11 @@
         android:id="@+id/juniorFragment"
         android:name="uz.turgunboyevjurabek.rizon.fragments.viewPagerFragment.JuniorFragment"
         android:label="fragment_junior"
-        tools:layout="@layout/fragment_junior" />
+        tools:layout="@layout/fragment_junior" >
+        <action
+            android:id="@+id/action_juniorFragment_to_bioFragment"
+            app:destination="@id/bioFragment" />
+    </fragment>
     <fragment
         android:id="@+id/middleFragment"
         android:name="uz.turgunboyevjurabek.rizon.fragments.viewPagerFragment.MiddleFragment"
@@ -93,4 +97,9 @@
         android:name="uz.turgunboyevjurabek.rizon.fragments.viewPagerFragment.SeniorFragment"
         android:label="fragment_senior"
         tools:layout="@layout/fragment_senior" />
+    <fragment
+        android:id="@+id/bioFragment"
+        android:name="uz.turgunboyevjurabek.rizon.fragments.viewPagerFragment.BioFragment"
+        android:label="fragment_bio"
+        tools:layout="@layout/fragment_bio" />
 </navigation>

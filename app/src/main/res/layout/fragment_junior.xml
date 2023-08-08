@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:spanCount="3"
-        android:layout_marginStart="10sp"
+        android:layout_marginStart="12dp"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"/>
 
 </LinearLayout>
