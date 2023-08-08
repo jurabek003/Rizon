@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="5dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="94.5dp"
+        android:layout_height="150dp"
+        app:strokeWidth="2dp"
+        app:strokeColor="#002940"
+        android:backgroundTint="#002940">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:src="@drawable/tifal"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="9sp"
+                android:text="Elektor choynak"
+                android:textColor="@color/white"
+                android:layout_gravity="center"
+                android:layout_marginTop="3dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Narx: 120RV"
+                android:textColor="@color/white"
+                android:layout_gravity="center"
+                android:textSize="6.21sp"
+                android:layout_marginTop="10dp"/>
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="50dp"
+                android:layout_height="15sp"
+                android:textSize="5.38sp"
+                app:strokeWidth="0dp"
+                android:backgroundTint="@color/white"
+                android:layout_gravity="center"
+                android:text="Harid qilish"
+                app:cardCornerRadius="4dp"
+                android:layout_marginTop="10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Harid qilish"
+                    android:textColor="#002940"
+                    android:textSize="5.38sp"
+                    android:layout_gravity="center"/>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</LinearLayout>

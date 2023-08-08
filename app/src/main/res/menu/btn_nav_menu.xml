@@ -10,7 +10,7 @@
 <item android:id="@+id/orderFragment"
     android:icon="@drawable/ic_karzinka"
     />
-<item android:id="@+id/btn_puzzle"
+<item android:id="@+id/promotionFragment"
     android:icon="@drawable/ic_puzzle"
     />
 <item android:id="@+id/profileFragment"
