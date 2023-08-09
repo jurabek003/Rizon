@@ -6,9 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import uz.turgunboyevjurabek.rizon.R
 import uz.turgunboyevjurabek.rizon.adapters.viewPagerAdapter.ItemSelect
 import uz.turgunboyevjurabek.rizon.adapters.viewPagerAdapter.RvAdapterJunior
+import uz.turgunboyevjurabek.rizon.databinding.DialogPromotionBuyBinding
 import uz.turgunboyevjurabek.rizon.databinding.FragmentJuniorBinding
 import uz.turgunboyevjurabek.rizon.madels.pager.Junior
 import uz.turgunboyevjurabek.rizon.utils.AppObject
@@ -74,4 +76,18 @@ class JuniorFragment : Fragment(),ItemSelect {
     override fun select(junior: Junior, position: Int) {
         findNavController().navigate(R.id.bioFragment)
     }
+
+    override fun dialogSelect(junior: Junior, position: Int) {
+        val mdialog=MaterialAlertDialogBuilder(requireContext()).create()
+        val dialogPromotionBuyBinding=DialogPromotionBuyBinding.inflate(layoutInflater)
+        mdialog.setView(dialogPromotionBuyBinding.root)
+        mdialog.show()
+
+        dialogPromotionBuyBinding.edtCancel.setOnClickListener {
+            mdialog.cancel()
+        }
+
+
+    }
+
 }

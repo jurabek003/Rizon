@@ -67,11 +67,23 @@
                         android:textSize="10sp"
                         app:icon="@drawable/ic_karzinka"
                         app:iconGravity="textEnd"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Lorem ipsum dolor sit amet consectetur. Sed venenatis ornare quisque sapien in enim orci eget leo. Ornare elit urna iaculis vulputate. Mauris turpis neque in dolor eu. Hendrerit donec in tellus ullamcorper viverra. Magna pulvinar diam tempor dis venenatis. Nulla pellentesque elit quam nec quam suscipit vitae blandit sapien. Blandit felis phasellus augue nisl vitae arcu aliquam. Ipsum sed enim suscipit interdum tellus at vulputate."
+                        android:layout_marginHorizontal="21dp"
+                        android:textSize="12sp"
+                        android:textColor="@color/black"
+                        android:alpha=".75"
 
+                        android:layout_marginTop="23dp"/>
 
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
-
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                />
         </LinearLayout>
     </ScrollView>
 

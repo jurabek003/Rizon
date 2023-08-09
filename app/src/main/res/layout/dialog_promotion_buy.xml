@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bonus harid qilish"
+        android:textSize="27sp"
+        android:textColor="@color/black"
+        android:layout_marginTop="45dp"
+        android:fontFamily="@font/inter"
+        android:textStyle="bold"
+        android:layout_gravity="center"/>
+    <ImageView
+        android:layout_width="252dp"
+        android:layout_height="270dp"
+        android:layout_gravity="center"
+        android:src="@drawable/tifal2"
+        android:layout_marginTop="43dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Elektor choynak"
+        android:textSize="26sp"
+        android:textColor="#002940"
+        android:layout_marginTop="29dp"
+        android:fontFamily="@font/inter"
+        android:textStyle="bold"
+        android:layout_gravity="center"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Narx: 120RV"
+        android:textSize="20sp"
+        android:textColor="#002940"
+        android:layout_marginTop="6dp"
+        android:fontFamily="@font/inter"
+        android:textStyle="bold"
+        android:layout_gravity="center"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:orientation="horizontal">
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/edt_cancel"
+            android:layout_width="149dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="20dp"
+            android:backgroundTint="#002940"
+            app:cornerRadius="9dp"
+            android:alpha=".5"
+            android:textStyle="bold"
+            android:text="Bekor qilish"
+            android:textColor="@color/white"/>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_buy"
+            android:layout_width="149dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="20dp"
+            android:backgroundTint="#002940"
+            app:cornerRadius="9dp"
+            android:textStyle="bold"
+            android:text="Harid qilish"
+            android:textColor="@color/white"/>
+    </LinearLayout>
+        
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:layout_marginTop="5dp"
+    />
+
+
+
+</LinearLayout>

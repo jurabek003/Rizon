@@ -11,9 +11,15 @@ class RvAdapterJunior(val list: ArrayList<Junior>,val itemSelect: ItemSelect):Re
     inner class Vh(val itemJuniorRvBinding: ItemJuniorRvBinding):ViewHolder(itemJuniorRvBinding.root){
         fun onBind( junior: Junior,position: Int){
 
+
             itemJuniorRvBinding.root.setOnClickListener {
                 itemSelect.select(junior,position)
             }
+            // dialogda chiqishi uchun
+            itemJuniorRvBinding.cardBuy.setOnClickListener {
+                itemSelect.dialogSelect(junior,position)
+            }
+
         }
     }
 
@@ -31,4 +37,5 @@ class RvAdapterJunior(val list: ArrayList<Junior>,val itemSelect: ItemSelect):Re
 }
 interface ItemSelect{
     fun select(junior: Junior,position: Int)
+    fun dialogSelect(junior: Junior,position: Int)
 }
