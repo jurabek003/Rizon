@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
+import uz.turgunboyevjurabek.rizon.R
 import uz.turgunboyevjurabek.rizon.adapters.viewPagerAdapter.ViewPagerAdapter
 import uz.turgunboyevjurabek.rizon.databinding.FragmentPromotionBinding
 import uz.turgunboyevjurabek.rizon.databinding.ItemTabBinding
@@ -77,6 +79,10 @@ class PromotionFragment : Fragment() {
         super.onResume()
         AppObject.binding.thtPanel.text = "Junior | 780 RV"
         AppObject.binding.materialCardViewCalendar.visibility = View.VISIBLE
+        binding.btnHistory.setOnClickListener {
+            findNavController().navigate(R.id.promotionHistoryFragment)
+
+        }
     }
 }
 

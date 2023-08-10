@@ -1,10 +1,11 @@
-package uz.turgunboyevjurabek.rizon.fragments.viewPagerFragment
+package uz.turgunboyevjurabek.rizon.fragments.promotionFragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import uz.turgunboyevjurabek.rizon.R
 import uz.turgunboyevjurabek.rizon.databinding.FragmentBioBinding
 
@@ -20,4 +21,12 @@ class BioFragment : Fragment() {
 
         return  binding.root
     }
+
+    override fun onResume() {
+        super.onResume()
+        binding.imgBackBio.setOnClickListener {
+            findNavController().popBackStack(R.id.promotionFragment,true)
+        }
+    }
+
 }
