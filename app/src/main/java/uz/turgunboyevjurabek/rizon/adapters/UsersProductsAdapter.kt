@@ -21,6 +21,15 @@ class MyProductsAdapter (val list:ArrayList<Product> = ArrayList(),val selectIte
                 selectItem.onClick(position,product)
             }
 
+            itemRv.btnPlus.setOnClickListener {
+                selectItem.plusCount(position, product)
+            }
+            itemRv.btnMinus.setOnClickListener {
+                selectItem.minusCount(position, product)
+            }
+            itemRv.materialButton2.setOnClickListener {
+                selectItem.buyurtmaBtn(position, product)
+            }
         }
     }
 
@@ -38,4 +47,7 @@ class MyProductsAdapter (val list:ArrayList<Product> = ArrayList(),val selectIte
 }
 interface SelectItem{
     fun onClick(position: Int,product: Product)
+    fun buyurtmaBtn(position: Int, product: Product)
+    fun plusCount(position: Int, product: Product)
+    fun minusCount(position: Int, product: Product)
 }

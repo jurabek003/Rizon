@@ -1,7 +1,9 @@
 package uz.turgunboyevjurabek.rizon.retrofit
 
+import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.Header
+import retrofit2.http.POST
 import retrofit2.http.Path
 import uz.turgunboyevjurabek.rizon.madels.UserMain.GetUsersMainResponse
 import uz.turgunboyevjurabek.rizon.madels.coupon.GetUsersCoupon
@@ -9,6 +11,7 @@ import uz.turgunboyevjurabek.rizon.madels.notification.GetNotificationResponse
 import uz.turgunboyevjurabek.rizon.madels.salary.GetSalaryResponce
 import uz.turgunboyevjurabek.rizon.madels.userOrders.GetUsersOrdersResponse
 import uz.turgunboyevjurabek.rizon.madels.usersProducts.GetUserProductsResponse
+import uz.turgunboyevjurabek.rizon.madels.usersProducts.post.PostOrderProducts
 import uz.turgunboyevjurabek.rizon.madels.usersProfile.GetUserProfileResponse
 
 interface ApiService {
@@ -21,6 +24,8 @@ interface ApiService {
     //    @Headers({"Authorization", "Bearer $token"})
     @GET("users-products/")
     suspend fun getUsersProducts(@Header("Authorization") token: String): GetUserProductsResponse
+   @POST("users/product/order/")
+    suspend fun postProductOrder(@Header("Authorization") token: String, @Body postOrderProducts: PostOrderProducts): GetUserProductsResponse
 
     @GET("users-orders/")
     suspend fun getUsersOrders(@Header("Authorization") token: String): GetUsersOrdersResponse

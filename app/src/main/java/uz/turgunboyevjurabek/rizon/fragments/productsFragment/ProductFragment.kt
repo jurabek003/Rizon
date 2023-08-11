@@ -69,4 +69,25 @@ class ProductFragment : Fragment(),SelectItem {
         findNavController().navigate(R.id.selectFragment, bundleOf("keyName" to product.name,
             "keyPrice" to product.price,"keyPhoto" to product.photo_link,"keyAbout" to product.about))
     }
+
+    override fun buyurtmaBtn(
+        position: Int,
+        product: uz.turgunboyevjurabek.rizon.madels.usersProducts.Product
+    ) {
+
+    }
+
+    override fun plusCount(
+        position: Int,
+        product: uz.turgunboyevjurabek.rizon.madels.usersProducts.Product
+    ) {
+
+    }
+
+    override fun minusCount(
+        position: Int,
+        product: uz.turgunboyevjurabek.rizon.madels.usersProducts.Product
+    ) {
+
+    }
 }
