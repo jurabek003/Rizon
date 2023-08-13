@@ -14,7 +14,6 @@ import uz.turgunboyevjurabek.rizon.R
 import uz.turgunboyevjurabek.rizon.adapters.MyProductsAdapter
 import uz.turgunboyevjurabek.rizon.adapters.SelectItem
 import uz.turgunboyevjurabek.rizon.databinding.FragmentProductBinding
-import uz.turgunboyevjurabek.rizon.madels.userOrders.Product
 import uz.turgunboyevjurabek.rizon.utils.AppObject
 import uz.turgunboyevjurabek.rizon.utils.MySharedPreference
 import uz.turgunboyevjurabek.rizon.utils.Status
@@ -49,6 +48,7 @@ class ProductFragment : Fragment(),SelectItem {
                     }
                     Status.SUCCESS ->{
                         Log.d(TAG, "onCreate: ${it.data}")
+                        myProductsAdapter.list.clear()
                         myProductsAdapter.list.addAll(it.data?.products!!)
                         myProductsAdapter.notifyDataSetChanged()
                         binding.progressUserProducts.visibility = View.GONE

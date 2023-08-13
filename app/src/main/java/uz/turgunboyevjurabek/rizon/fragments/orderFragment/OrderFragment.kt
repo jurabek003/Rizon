@@ -45,6 +45,7 @@ class OrderFragment : Fragment() {
                     }
                     Status.SUCCESS ->{
                         Log.d(TAG, "onCreate: ${it.data}")
+                        userOrderAdapter.list.clear()
                         userOrderAdapter.list.addAll(it.data?.orders!!)
                         userOrderAdapter.notifyDataSetChanged()
                         binding.progressUserProducts.visibility = View.GONE

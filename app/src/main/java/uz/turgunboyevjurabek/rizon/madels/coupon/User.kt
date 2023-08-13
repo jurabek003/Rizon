@@ -6,7 +6,7 @@ data class User(
     val date: String,
     val dateOfBirth: String,
     val first_name: String,
-    val id: Int,
+    val id: String,
     val last_name: String,
     val passport: String,
     val password: String,

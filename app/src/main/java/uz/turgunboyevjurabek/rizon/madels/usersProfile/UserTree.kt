@@ -12,7 +12,7 @@ data class UserTree(
     val first_name: String,
     val forMentorship: Int,
     val for_followers_status_percent: Int,
-    val id: Int,
+    val id: String,
     val last_name: String,
     val month: String,
     val paid: Int,

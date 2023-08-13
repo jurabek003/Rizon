@@ -2,11 +2,13 @@ package uz.turgunboyevjurabek.rizon.madels.userOrders
 
 data class Order(
     val amount: Int,
+    val created_time: String,
     val date: String,
     val done: Boolean,
-    val id: Int,
+    val id: String,
     val product: Product,
     val summa: Int,
-    val user: Int,
-    val warehouse: Int
+    val updated_time: String,
+    val user: User,
+    val warehouse: String
 )

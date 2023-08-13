@@ -12,8 +12,8 @@ class SalaryHistoryAdapter(val selectSalary: SelectSalary, val list:ArrayList<Sa
             itemSalaryRvBinding.showLayout.setOnClickListener {
                 selectSalary.clickSalary(salaryHistory,position)
             }
-            itemSalaryRvBinding.tvDate.text = salaryHistory.date
-            itemSalaryRvBinding.salaryItemSana.text = salaryHistory.date
+            itemSalaryRvBinding.tvDate.text = salaryHistory.updated_time
+            itemSalaryRvBinding.salaryItemSana.text = salaryHistory.month
             itemSalaryRvBinding.tvKupon.text = salaryHistory.coupon.toString()
             itemSalaryRvBinding.tvShaxsiyAylanma.text = salaryHistory.user_score.toString()
             itemSalaryRvBinding.tvShaxsiySotuvBonusi.text = salaryHistory.personal_bonus.toString()

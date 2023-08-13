@@ -8,8 +8,8 @@ import java.util.concurrent.TimeUnit
 
 object ApiClient {
 
-    val PHOTO_BASE_URL = "https://rizonwebapp.pythonanywhere.com"
-    private val BASE_URL = "http://rizonwebapp.pythonanywhere.com/api/"
+    val PHOTO_BASE_URL = "https://rizonwebappapi.pythonanywhere.com"
+    private val BASE_URL = "https://rizonwebappapi.pythonanywhere.com/api/"
     private fun getRetrofit(): Retrofit{
 
         val okHttpClient = OkHttpClient().newBuilder()

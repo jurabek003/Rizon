@@ -6,7 +6,7 @@ data class Discount(
     val discount: String,
     val expiration_date: String,
     val extraPrice: Int,
-    val id: Int,
+    val id: String,
     val manufacturer: String,
     val name: String,
     val photo_link: String,

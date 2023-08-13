@@ -26,12 +26,14 @@ import com.github.mikephil.charting.utils.MPPointF
 import uz.turgunboyevjurabek.rizon.R
 import uz.turgunboyevjurabek.rizon.adapters.SaleRvAdapter
 import uz.turgunboyevjurabek.rizon.databinding.FragmentHomeBinding
+import uz.turgunboyevjurabek.rizon.madels.UserMain.ProductSalesData2
 import uz.turgunboyevjurabek.rizon.madels.sale.Sale
 import uz.turgunboyevjurabek.rizon.utils.AppObject
 import uz.turgunboyevjurabek.rizon.utils.MySharedPreference
 import uz.turgunboyevjurabek.rizon.utils.Status
 
 private const val TAG = "HomeFragment"
+
 class HomeFragment : Fragment() {
     private val binding by lazy { FragmentHomeBinding.inflate(layoutInflater) }
     lateinit var saleRvAdapter: SaleRvAdapter
@@ -39,6 +41,7 @@ class HomeFragment : Fragment() {
     private lateinit var pieChart: PieChart
 
     lateinit var barChart: BarChart
+
     // on below line we are creating
     // a variable for bar data
     lateinit var barData: BarData
@@ -55,34 +58,36 @@ class HomeFragment : Fragment() {
         diagram()
         diagram2()
         getApi()
-        saleAdapter()
+
         return binding.root
     }
 
     lateinit var homeViewModel: HomeViewModel
-    private fun getApi(){
+    private fun getApi() {
         MySharedPreference.init(binding.root.context)
 
         homeViewModel = ViewModelProvider(requireActivity())[HomeViewModel::class.java]
 
         homeViewModel.getUsersMain(MySharedPreference.token)
-            .observe(requireActivity()){
-                when(it.status){
-                    Status.LOADING ->{
+            .observe(requireActivity()) {
+                when (it.status) {
+                    Status.LOADING -> {
                         Log.d(TAG, "onCreate: Loading")
                         binding.myProgressBar.visibility = View.VISIBLE
                         binding.homeScrollview.visibility = View.INVISIBLE
                     }
-                    Status.ERROR->{
+
+                    Status.ERROR -> {
                         Log.d(TAG, "onCreate: Error ${it.message}")
                         binding.myProgressBar.visibility = View.GONE
                         Toast.makeText(context, "Error ${it.message}", Toast.LENGTH_SHORT).show()
                     }
-                    Status.SUCCESS ->{
+
+                    Status.SUCCESS -> {
                         Log.d(TAG, "onCreate: ${it.data}")
                         binding.myProgressBar.visibility = View.GONE
                         binding.homeScrollview.visibility = View.VISIBLE
-
+                        saleAdapter(it.data?.product_sales_data2 as? ArrayList)
                     }
                 }
             }
@@ -95,8 +100,21 @@ class HomeFragment : Fragment() {
         // chart data to add data to our array list
         val barChart: BarChart = binding.barChartView
 
-        val dates = listOf("January", "February", "March", "April","May","June","July","August","September","October","November","December")
-        val values = listOf(10f, 50f, 700f, 120f,340f,214f,567f,6666f,999f,112f,2222f,1212f)
+        val dates = listOf(
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December"
+        )
+        val values = listOf(10f, 50f, 700f, 120f, 340f, 214f, 567f, 6666f, 999f, 112f, 2222f, 1212f)
         // BarEntry ma'lumotlarini tayyorlash
         val entries: ArrayList<BarEntry> = ArrayList()
         for (i in values.indices) {
@@ -127,7 +145,7 @@ class HomeFragment : Fragment() {
 
     // ekranda korin yapti lekin figmadagidek emas
     private fun diagram() {
-        pieChart=binding.myPieChart
+        pieChart = binding.myPieChart
         pieChart.setUsePercentValues(true)
         pieChart.getDescription().setEnabled(false)
         pieChart.setExtraOffsets(5f, 10f, 5f, 5f)
@@ -211,15 +229,12 @@ class HomeFragment : Fragment() {
 
     }
 
-    private fun saleAdapter() {
-        saleRvAdapter= SaleRvAdapter()
+    private fun saleAdapter(list:ArrayList<ProductSalesData2>?) {
+        saleRvAdapter = SaleRvAdapter()
         saleRvAdapter.list.clear()
-        saleRvAdapter.list.add(Sale("12"))
-        saleRvAdapter.list.add(Sale("12"))
-        saleRvAdapter.list.add(Sale("12"))
-        saleRvAdapter.list.add(Sale("12"))
-        saleRvAdapter.list.add(Sale("12"))
-        binding.rvSale.adapter=saleRvAdapter
+        if (list!=null)
+        saleRvAdapter.list.addAll(list)
+        binding.rvSale.adapter = saleRvAdapter
         saleRvAdapter.notifyDataSetChanged()
 
     }

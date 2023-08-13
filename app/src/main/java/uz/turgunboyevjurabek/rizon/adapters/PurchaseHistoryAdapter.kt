@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import uz.turgunboyevjurabek.rizon.databinding.ItemHistoryRvBinding
-import uz.turgunboyevjurabek.rizon.madels.PurchaseHistory
 import uz.turgunboyevjurabek.rizon.madels.userOrders.Order
 import java.text.SimpleDateFormat
 

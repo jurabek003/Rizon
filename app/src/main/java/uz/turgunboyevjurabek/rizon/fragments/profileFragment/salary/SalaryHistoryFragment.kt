@@ -1,6 +1,7 @@
 package uz.turgunboyevjurabek.rizon.fragments.profileFragment.salary
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -17,6 +18,7 @@ import uz.turgunboyevjurabek.rizon.utils.AppObject
 import uz.turgunboyevjurabek.rizon.utils.MySharedPreference
 import uz.turgunboyevjurabek.rizon.utils.Status
 
+private const val TAG = "SalaryHistoryFragment"
 class SalaryHistoryFragment : Fragment(),SelectSalary {
     private val binding by lazy { FragmentSalaryHistorykBinding.inflate(layoutInflater) }
     private lateinit var salaryHistoryAdapter: SalaryHistoryAdapter
@@ -35,6 +37,7 @@ class SalaryHistoryFragment : Fragment(),SelectSalary {
                 when(it.status){
                     Status.ERROR->{
                         Toast.makeText(context, "${it.message}", Toast.LENGTH_SHORT).show()
+                        Log.d(TAG, "onCreateView: ${it.message}")
                         binding.myProgressBar.visibility = View.GONE
                     }
                     Status.LOADING->{

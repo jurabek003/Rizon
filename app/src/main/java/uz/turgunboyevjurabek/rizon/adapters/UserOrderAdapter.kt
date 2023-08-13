@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.squareup.picasso.Picasso
-import uz.turgunboyevjurabek.rizon.R
 import uz.turgunboyevjurabek.rizon.databinding.ItemOrderRvBinding
 import uz.turgunboyevjurabek.rizon.madels.userOrders.Order
 import uz.turgunboyevjurabek.rizon.retrofit.ApiClient

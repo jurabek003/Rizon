@@ -9,7 +9,6 @@ import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import uz.turgunboyevjurabek.rizon.madels.coupon.GetUsersCoupon
-import uz.turgunboyevjurabek.rizon.madels.salary.GetSalaryResponce
 import uz.turgunboyevjurabek.rizon.repository.MyViewModelObjects
 import uz.turgunboyevjurabek.rizon.utils.Resource
 

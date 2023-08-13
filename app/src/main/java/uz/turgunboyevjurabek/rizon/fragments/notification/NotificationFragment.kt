@@ -45,6 +45,7 @@ class NotificationFragment : Fragment() {
                     Status.SUCCESS ->{
                         notificationAdapter.list.clear()
                         Log.d(TAG, "onCreate: ${it.data}")
+                        notificationAdapter.list.clear()
                         notificationAdapter.list.addAll(it.data?.notifications!!)
                         notificationAdapter.notifyDataSetChanged()
                         binding.myProgressBar.visibility = View.GONE

@@ -1,22 +1,20 @@
 package uz.turgunboyevjurabek.rizon.fragments.profileFragment.coupons
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
-import uz.turgunboyevjurabek.rizon.R
 import uz.turgunboyevjurabek.rizon.adapters.KuponTransferAdapter
 import uz.turgunboyevjurabek.rizon.databinding.FragmentKuponTransferBinding
-import uz.turgunboyevjurabek.rizon.fragments.profileFragment.salary.SalaryViewModel
-import uz.turgunboyevjurabek.rizon.madels.KuponTransfer
 import uz.turgunboyevjurabek.rizon.utils.AppObject
 import uz.turgunboyevjurabek.rizon.utils.MySharedPreference
 import uz.turgunboyevjurabek.rizon.utils.Status
 
-
+private const val TAG = "KuponTransferFragment"
 class KuponTransferFragment : Fragment() {
     private val binding by lazy { FragmentKuponTransferBinding.inflate(layoutInflater) }
     private lateinit var kuponTransferAdapter: KuponTransferAdapter
@@ -36,12 +34,14 @@ class KuponTransferFragment : Fragment() {
                     Status.ERROR->{
                         Toast.makeText(context, "${it.message}", Toast.LENGTH_SHORT).show()
                         binding.myProgressBar.visibility = View.GONE
+                        Log.d(TAG, "onCreateView: ${it.message}")
                     }
                     Status.LOADING->{
                         binding.myProgressBar.visibility = View.VISIBLE
+                        Log.d(TAG, "onCreateView: loading")
                     }
                     Status.SUCCESS->{
-
+                        Log.d(TAG, "onCreateView: ${it.data}")
                         binding.apply {
                         val data = it.data!!
                             tvYuboruvchi.text = data.user.first_name

@@ -28,6 +28,6 @@ class MainActivity : AppCompatActivity() {
     //vaqtinchalik funkiya token yozib olish uchun
     fun addCatchToken(){
         MySharedPreference.init(this)
-        MySharedPreference.token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjkxNTc0NTUyLCJpYXQiOjE2OTExNDI1NTIsImp0aSI6ImM3MTgxMWE1NjMyMDRmZTE4NjczZTFlYmJlNjY3MjdiIiwidXNlcl9pZCI6MTU4fQ.pYWpo3PZ-WHc4r_WobBeTS4mI7ROAPCo-utzqwJAHa0"
+        MySharedPreference.token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjkxOTE4NDU2LCJpYXQiOjE2OTE3NDU2NTYsImp0aSI6IjQyMGM5ZGRlMGE0NzQ2MzI4NmQ2MmVlY2VhOWFmN2I0IiwidXNlcl9pZCI6ImQ0ZDJlZDBlLTljYTMtNGI1Ni1iYjc4LTAxNDk3MWU1YmFkNCJ9.Dv0qBe8nEvuwq1WwnpZJ32TkHMpBKGaDXI-QFD0rw-w"
     }
 }
