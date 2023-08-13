@@ -14,6 +14,7 @@ import uz.turgunboyevjurabek.rizon.R
 import uz.turgunboyevjurabek.rizon.adapters.MyProductsAdapter
 import uz.turgunboyevjurabek.rizon.adapters.SelectItem
 import uz.turgunboyevjurabek.rizon.databinding.FragmentProductBinding
+import uz.turgunboyevjurabek.rizon.madels.usersProducts.post.PostOrderProducts
 import uz.turgunboyevjurabek.rizon.utils.AppObject
 import uz.turgunboyevjurabek.rizon.utils.MySharedPreference
 import uz.turgunboyevjurabek.rizon.utils.Status
@@ -72,8 +73,11 @@ class ProductFragment : Fragment(),SelectItem {
 
     override fun buyurtmaBtn(
         position: Int,
-        product: uz.turgunboyevjurabek.rizon.madels.usersProducts.Product
+        product: uz.turgunboyevjurabek.rizon.madels.usersProducts.Product,
+        count:Int
     ) {
+
+//        val postOrderProducts = PostOrderProducts(count, false, product, )
 
     }
 

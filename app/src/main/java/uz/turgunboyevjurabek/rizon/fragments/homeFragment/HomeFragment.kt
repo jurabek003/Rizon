@@ -55,8 +55,7 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
-        diagram()
-        diagram2()
+
         getApi()
 
         return binding.root
@@ -88,6 +87,8 @@ class HomeFragment : Fragment() {
                         binding.myProgressBar.visibility = View.GONE
                         binding.homeScrollview.visibility = View.VISIBLE
                         saleAdapter(it.data?.product_sales_data2 as? ArrayList)
+                        diagram()
+                        diagram2()
                     }
                 }
             }
