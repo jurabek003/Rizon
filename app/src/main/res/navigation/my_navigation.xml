@@ -77,19 +77,12 @@
         <action
             android:id="@+id/action_promotionFragment_to_seniorFragment"
             app:destination="@id/seniorFragment" />
-        <action
-            android:id="@+id/action_promotionFragment_to_promotionHistoryFragment"
-            app:destination="@id/promotionHistoryFragment" />
     </fragment>
     <fragment
         android:id="@+id/juniorFragment"
         android:name="uz.turgunboyevjurabek.rizon.fragments.viewPagerFragment.JuniorFragment"
         android:label="fragment_junior"
-        tools:layout="@layout/fragment_junior" >
-        <action
-            android:id="@+id/action_juniorFragment_to_bioFragment"
-            app:destination="@id/bioFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_junior" />
     <fragment
         android:id="@+id/middleFragment"
         android:name="uz.turgunboyevjurabek.rizon.fragments.viewPagerFragment.MiddleFragment"
