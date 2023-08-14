@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:id="@+id/my_container_sing"
+    tools:context=".fragments.auth.AuthFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="10dp">
+
+   <com.google.android.material.textfield.TextInputLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+       <com.google.android.material.textfield.TextInputEditText
+           android:id="@+id/edt_user_name"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:hint="Username"
+           android:text="MuqaddasxonXabirxanova"
+           />
+   </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edt_password"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Parol"
+            android:text="MuqaddasxonXabirxanova"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_sign"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cornerRadius="0dp"
+        android:layout_marginTop="10dp"
+        android:text="Kirish"
+        />
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/my_progress_bar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="150dp"
+        android:visibility="gone"
+        />
+
+</FrameLayout>

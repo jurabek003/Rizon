@@ -110,4 +110,9 @@
         android:name="uz.turgunboyevjurabek.rizon.fragments.PromotionHistoryFragment"
         android:label="fragment_promotion_history"
         tools:layout="@layout/fragment_promotion_history" />
+    <fragment
+        android:id="@+id/authFragment"
+        android:name="uz.turgunboyevjurabek.rizon.fragments.auth.AuthFragment"
+        android:label="fragment_auth"
+        tools:layout="@layout/fragment_auth" />
 </navigation>

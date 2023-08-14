@@ -18,7 +18,6 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.my_navigation_host)
         binding.btnNavigation.setupWithNavController(navController)
 
-        addCatchToken()
 
         binding.imgNotification.setOnClickListener {
             navController.navigate(R.id.notificationFragment)
@@ -26,8 +25,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     //vaqtinchalik funkiya token yozib olish uchun
-    fun addCatchToken(){
-        MySharedPreference.init(this)
-        MySharedPreference.token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjkxOTE4NDU2LCJpYXQiOjE2OTE3NDU2NTYsImp0aSI6IjQyMGM5ZGRlMGE0NzQ2MzI4NmQ2MmVlY2VhOWFmN2I0IiwidXNlcl9pZCI6ImQ0ZDJlZDBlLTljYTMtNGI1Ni1iYjc4LTAxNDk3MWU1YmFkNCJ9.Dv0qBe8nEvuwq1WwnpZJ32TkHMpBKGaDXI-QFD0rw-w"
-    }
+//    fun addCatchToken(){
+//        MySharedPreference.init(this)
+//        MySharedPreference.token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjkxOTE4NDU2LCJpYXQiOjE2OTE3NDU2NTYsImp0aSI6IjQyMGM5ZGRlMGE0NzQ2MzI4NmQ2MmVlY2VhOWFmN2I0IiwidXNlcl9pZCI6ImQ0ZDJlZDBlLTljYTMtNGI1Ni1iYjc4LTAxNDk3MWU1YmFkNCJ9.Dv0qBe8nEvuwq1WwnpZJ32TkHMpBKGaDXI-QFD0rw-w"
+//    }
 }

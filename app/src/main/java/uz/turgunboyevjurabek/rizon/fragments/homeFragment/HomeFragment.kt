@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.anychart.charts.Pie
 import com.github.mikephil.charting.animation.Easing
 import com.github.mikephil.charting.charts.BarChart
@@ -80,6 +81,10 @@ class HomeFragment : Fragment() {
                         Log.d(TAG, "onCreate: Error ${it.message}")
                         binding.myProgressBar.visibility = View.GONE
                         Toast.makeText(context, "Error ${it.message}", Toast.LENGTH_SHORT).show()
+                        if (it.message!!.lowercase().contains("unauth")){
+                            findNavController().popBackStack()
+                            findNavController().navigate(R.id.authFragment)
+                        }
                     }
 
                     Status.SUCCESS -> {

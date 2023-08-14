@@ -9,6 +9,7 @@
     android:id="@+id/my_activity"
     tools:context=".MainActivity">
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/app_panel"
         android:layout_width="match_parent"
         android:layout_height="63dp"
         android:background="#002940"
