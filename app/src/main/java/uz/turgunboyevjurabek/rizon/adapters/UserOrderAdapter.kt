@@ -14,9 +14,9 @@ class UserOrderAdapter(val list: ArrayList<Order> = ArrayList()):RecyclerView.Ad
         fun onBind(orders: Order){
             Picasso.get().load("${ApiClient.PHOTO_BASE_URL}${orders.product.photo_link}").into(itemOrderRvBinding.itemImg)
             itemOrderRvBinding.itemName.text = orders.product.name
-            itemOrderRvBinding.itemPrice.text = "${orders.product.price}"
-            itemOrderRvBinding.itemCount.text = "${orders.amount}"
-            itemOrderRvBinding.itemSumPrice.text = "${orders.summa}"
+            itemOrderRvBinding.itemPrice.text = "${orders.product.price}uzs"
+            itemOrderRvBinding.itemCount.text = "${orders.amount}ta"
+            itemOrderRvBinding.itemSumPrice.text = "${orders.summa}uzs"
 
         }
     }

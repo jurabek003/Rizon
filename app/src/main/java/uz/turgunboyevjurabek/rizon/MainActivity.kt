@@ -18,12 +18,35 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.my_navigation_host)
         binding.btnNavigation.setupWithNavController(navController)
 
+        //selectNavigation()
 
         binding.imgNotification.setOnClickListener {
             navController.navigate(R.id.notificationFragment)
         }
+
     }
 
+    private fun selectNavigation() {
+        if (binding.btnNavigation.selectedItemId==R.id.homeFragment){
+            binding.btnNavigation.menu.findItem(R.id.homeFragment).setIcon(R.drawable.ic_home2)
+        }
+        if (binding.btnNavigation.selectedItemId==R.id.orderFragment){
+            binding.btnNavigation.menu.findItem(R.id.orderFragment).setIcon(R.drawable.ic_kalaska2)
+            binding.btnNavigation.menu.findItem(R.id.homeFragment).setIcon(R.drawable.ic_home2)
+
+        }
+
+        if(binding.btnNavigation.selectedItemId==R.id.productFragment){
+            binding.btnNavigation.menu.findItem(R.id.productFragment).setIcon(R.drawable.ic_savat2)
+            binding.btnNavigation.menu.findItem(R.id.orderFragment).setIcon(R.drawable.ic_karzinka)
+            binding.btnNavigation.menu.findItem(R.id.homeFragment).setIcon(R.drawable.ic_home2)
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+    //    selectNavigation()
+    }
     //vaqtinchalik funkiya token yozib olish uchun
 //    fun addCatchToken(){
 //        MySharedPreference.init(this)

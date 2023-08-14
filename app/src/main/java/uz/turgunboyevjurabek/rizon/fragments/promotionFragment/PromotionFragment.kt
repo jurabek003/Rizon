@@ -17,13 +17,17 @@ class PromotionFragment : Fragment() {
     private val binding by lazy { FragmentPromotionBinding.inflate(layoutInflater) }
     lateinit var viewPager2Adapter: ViewPagerAdapter
     lateinit var list: ArrayList<Pager>
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        viewPager()
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
         // Inflate the layout for this fragment
 
-        viewPager()
 
         return binding.root
     }
@@ -31,7 +35,6 @@ class PromotionFragment : Fragment() {
     private fun viewPager() {
         list= ArrayList()
         list.addAll(listOf(Pager("Junior"),Pager("Middle"),Pager("Senior")))
-
         viewPager2Adapter=ViewPagerAdapter(parentFragmentManager)
         binding.myViewPager.adapter=viewPager2Adapter
         binding.tabLayout.setupWithViewPager(binding.myViewPager)

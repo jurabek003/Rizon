@@ -11,6 +11,15 @@ import uz.turgunboyevjurabek.rizon.databinding.FragmentBioBinding
 
 class BioFragment : Fragment() {
    private val binding by lazy { FragmentBioBinding.inflate(layoutInflater) }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        // bio fragmentdan promotionFragmentga utish onCreate da  yozdimdim, --
+        // -- onResume ga yozsam ilovadan chiqib ketib qolyapti
+        binding.imgBackBio.setOnClickListener {
+            findNavController().popBackStack()
+        }
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
@@ -20,13 +29,6 @@ class BioFragment : Fragment() {
 
 
         return  binding.root
-    }
-
-    override fun onResume() {
-        super.onResume()
-        binding.imgBackBio.setOnClickListener {
-            findNavController().popBackStack(R.id.promotionFragment,true)
-        }
     }
 
 }

@@ -1,5 +1,6 @@
 package uz.turgunboyevjurabek.rizon.fragments.homeFragment
 
+import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
@@ -249,5 +250,10 @@ class HomeFragment : Fragment() {
         super.onResume()
         AppObject.binding.thtPanel.text = "Asosiy panel"
         AppObject.binding.materialCardViewCalendar.visibility = View.INVISIBLE
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+
     }
 }

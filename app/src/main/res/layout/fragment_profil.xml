@@ -105,6 +105,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+
                     android:orientation="vertical">
 
                     <TextView
@@ -122,7 +123,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/inter"
+                        android:textStyle="bold"
                         android:text="5000"
+                        android:textSize="18sp"
                         android:textColor="@color/black"/>
                 </LinearLayout>
 
@@ -130,6 +133,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:layout_marginStart="30dp"
                     android:orientation="vertical">
 
                     <TextView
@@ -147,6 +151,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/inter"
                         android:text="14 000 000"
+                        android:textStyle="bold"
                         android:textSize="18sp"
                         android:textColor="@color/black"/>
                 </LinearLayout>
@@ -265,7 +270,9 @@
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
                 android:backgroundTint="@color/white"
+
                 app:strokeWidth="0dp">
 
                 <TextView
@@ -275,6 +282,7 @@
                     android:text="Qo’qon sh. Bog’ieram 14b"
                     android:gravity="center"
                     android:textColor="@color/black"
+                    android:paddingHorizontal="5dp"
                     android:textSize="14sp"
                     android:fontFamily="@font/inter"
                     android:textStyle="bold"/>
