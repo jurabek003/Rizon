@@ -10,7 +10,7 @@ class AppRepository(val apiService: ApiService) {
     suspend fun getUsersOrders(token:String) = apiService.getUsersOrders("Bearer $token")
 
     suspend fun getAllFilials(token:String) = apiService.getFilials("Bearer $token")
-    suspend fun postProductsOrder(token: String, postOrderProducts:PostProductsOrder) = apiService.postProductOrder(token, postOrderProducts)
+    suspend fun postProductsOrder(token: String, postOrderProducts:PostProductsOrder) = apiService.postProductOrder("Bearer $token", postOrderProducts)
 
     suspend fun getUsersProfile(token:String, month:String) = apiService.getUsersProfile("Bearer $token", month)
     suspend fun getSalaryPayments(token: String) = apiService.getSalaryPayments("Bearer $token")

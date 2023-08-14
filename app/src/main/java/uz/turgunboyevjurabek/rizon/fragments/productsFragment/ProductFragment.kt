@@ -20,6 +20,7 @@ import uz.turgunboyevjurabek.rizon.adapters.SelectItem
 import uz.turgunboyevjurabek.rizon.databinding.FragmentProductBinding
 import uz.turgunboyevjurabek.rizon.databinding.ItemAddOrderDialogBinding
 import uz.turgunboyevjurabek.rizon.madels.usersProducts.Product
+import uz.turgunboyevjurabek.rizon.madels.usersProducts.post.PostProductsOrder
 import uz.turgunboyevjurabek.rizon.retrofit.ApiClient
 import uz.turgunboyevjurabek.rizon.utils.AppObject
 import uz.turgunboyevjurabek.rizon.utils.MySharedPreference
@@ -113,16 +114,54 @@ class ProductFragment : Fragment(),SelectItem {
                         itemDialog.itemContainer.visibility = View.VISIBLE
                         itemDialog.myProgressBar.visibility = View.GONE
                         val nameList = ArrayList<String>()
+                        val list = it.data
                         it.data?.forEach {
                             nameList.add("${it.name} ${it.address}")
                         }
                         itemDialog.spinnerFilial.adapter = ArrayAdapter<String>(binding.root.context, android.R.layout.simple_list_item_1, nameList)
+
+                        itemDialog.materialButton2.setOnClickListener {
+                            applyOrder(
+                                dialog,
+                                itemDialog,
+                                PostProductsOrder(
+                                itemDialog.tvCount.text.toString().toInt(),
+                                product.id,
+                                list?.get(itemDialog.spinnerFilial.selectedItemPosition)!!.id
+                            ))
+                        }
                     }
                 }
             }
 
         dialog.setContentView(itemDialog.root)
         dialog.show()
+    }
+
+    fun applyOrder(alertDialog: BottomSheetDialog, itemDialog:ItemAddOrderDialogBinding, postProductsOrder: PostProductsOrder){
+        productsViewModel.postProductsOrder(MySharedPreference.token, postProductsOrder)
+            .observe(viewLifecycleOwner){
+                when(it.status){
+                    Status.LOADING ->{
+                        Log.d(TAG, "onCreate: Loading")
+                        itemDialog.itemContainer.isEnabled = false
+                        itemDialog.myProgressBar.visibility = View.VISIBLE
+                    }
+                    Status.ERROR ->{
+                        Log.d(TAG, "onCreate: Error ${it.message}")
+                        itemDialog.myProgressBar.visibility = View.GONE
+                        itemDialog.itemContainer.isEnabled = true
+                        Toast.makeText(context, "Error ${it.message}", Toast.LENGTH_SHORT).show()
+                    }
+                    Status.SUCCESS ->{
+                        Log.d(TAG, "onCreate: ${it.data}")
+                        val dialog = AlertDialog.Builder(binding.root.context)
+                        dialog.setMessage("${it.data?.product} maxsuloti ${it.data?.warehouse} filialiga ${it.data?.amount} ta buyurtma qilindi. Buyurtmalar oynasidan ko'rishingiz mumkin.")
+                        dialog.show()
+                        itemDialog.myProgressBar.visibility = View.GONE
+                    }
+                }
+            }
     }
 
     override fun plusCount(
