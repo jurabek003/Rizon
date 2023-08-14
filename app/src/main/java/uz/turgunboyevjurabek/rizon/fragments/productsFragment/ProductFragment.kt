@@ -14,7 +14,6 @@ import uz.turgunboyevjurabek.rizon.R
 import uz.turgunboyevjurabek.rizon.adapters.MyProductsAdapter
 import uz.turgunboyevjurabek.rizon.adapters.SelectItem
 import uz.turgunboyevjurabek.rizon.databinding.FragmentProductBinding
-import uz.turgunboyevjurabek.rizon.madels.usersProducts.post.PostOrderProducts
 import uz.turgunboyevjurabek.rizon.utils.AppObject
 import uz.turgunboyevjurabek.rizon.utils.MySharedPreference
 import uz.turgunboyevjurabek.rizon.utils.Status

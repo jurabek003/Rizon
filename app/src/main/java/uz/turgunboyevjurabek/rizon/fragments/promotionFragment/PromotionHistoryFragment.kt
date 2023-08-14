@@ -1,4 +1,4 @@
-package uz.turgunboyevjurabek.rizon.fragments
+package uz.turgunboyevjurabek.rizon.fragments.promotionFragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

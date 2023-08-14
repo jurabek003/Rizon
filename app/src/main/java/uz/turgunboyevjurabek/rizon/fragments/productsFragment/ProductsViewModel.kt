@@ -9,7 +9,6 @@ import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import uz.turgunboyevjurabek.rizon.madels.usersProducts.GetUserProductsResponse
-import uz.turgunboyevjurabek.rizon.madels.usersProducts.post.PostOrderProducts
 import uz.turgunboyevjurabek.rizon.utils.Resource
 import uz.turgunboyevjurabek.rizon.repository.MyViewModelObjects.appRepository
 
