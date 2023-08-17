@@ -67,7 +67,7 @@ class PromotionFragment : Fragment() {
             }
 
             override fun onTabReselected(tab: TabLayout.Tab?) {
-                Toast.makeText(requireContext(), "reselected", Toast.LENGTH_SHORT).show()
+
             }
         })
 
