@@ -499,6 +499,10 @@
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                />
         </LinearLayout>
     </ScrollView>
 
@@ -509,5 +513,4 @@
         android:padding="150dp"
         android:visibility="gone"
         />
-
 </FrameLayout>
