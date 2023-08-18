@@ -32,22 +32,27 @@
                     android:src="@drawable/user_photo" />
             </com.google.android.material.card.MaterialCardView>
 
-            <TextView
+            <EditText
                 android:id="@+id/user_name"
                 android:layout_width="wrap_content"
+                android:layout_marginTop="15dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
+                android:background="#FEFAFD"
                 android:fontFamily="@font/inter"
+                android:padding="3dp"
                 android:text="Ziyoda Hasanova"
                 android:textColor="@color/black"
                 android:textSize="22sp" />
 
-            <TextView
+            <EditText
                 android:id="@+id/tv_status"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
                 android:alpha=".75"
+
+                android:background="#FEFAFD"
                 android:fontFamily="@font/inter"
                 android:text="Disterbyuter"
                 android:textColor="#000000"
@@ -172,7 +177,7 @@
                     android:textSize="12sp"
                     android:textColor="@color/black"
                     android:fontFamily="@font/inter"
-                    android:layout_marginStart="20dp"
+                    android:layout_marginStart="15dp"
                     android:layout_marginTop="5dp"/>
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="112dp"
@@ -185,16 +190,19 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="123 456 789"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/inter"
                     android:layout_gravity="center"
                     android:textColor="@color/black"
                     android:textSize="14sp"/>
             </com.google.android.material.card.MaterialCardView>
 
             <LinearLayout
-                android:layout_width="330dp"
-                android:layout_height="45dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:orientation="horizontal"
+                android:layout_marginHorizontal="15dp"
                 android:layout_marginTop="20dp">
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -209,22 +217,17 @@
                         android:text="Telefon raqam"
                         android:textSize="12sp"
                         android:textColor="@color/black" />
-                    <com.google.android.material.card.MaterialCardView
-                        android:layout_width="136dp"
-                        android:layout_height="30dp"
-                        app:strokeWidth="0dp"
-                        android:backgroundTint="@color/white">
-                        <TextView
+                        <EditText
                             android:id="@+id/tv_phone_number_1"
-                            android:layout_width="match_parent"
-                            android:layout_height="30dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:text="+998 90 000 00 00"
                             android:gravity="center"
                             android:textStyle="bold"
+                            android:padding="5dp"
+                            android:background="@drawable/bac_shape"
                             android:textColor="@color/black"
                             android:textSize="14sp"/>
-                    </com.google.android.material.card.MaterialCardView>
-
                 </LinearLayout>
 
                 <LinearLayout
@@ -240,21 +243,17 @@
                         android:text="Telefon raqam2"
                         android:textSize="12sp"
                         android:textColor="@color/black" />
-                    <com.google.android.material.card.MaterialCardView
-                        android:layout_width="136dp"
-                        android:layout_height="30dp"
-                        app:strokeWidth="0dp"
-                        android:backgroundTint="@color/white">
-                        <TextView
+                        <EditText
                             android:id="@+id/tv_phone_number_2"
-                            android:layout_width="match_parent"
-                            android:layout_height="30dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:gravity="center"
                             android:text="+998 90 000 00 00"
                             android:textStyle="bold"
+                            android:padding="5dp"
                             android:textColor="@color/black"
+                            android:background="@drawable/bac_shape"
                             android:textSize="14sp"/>
-                    </com.google.android.material.card.MaterialCardView>
                 </LinearLayout>
             </LinearLayout>
 
@@ -267,32 +266,27 @@
                 android:layout_marginTop="15dp"
                 android:layout_marginStart="15dp"
                 android:textSize="12sp"/>
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:backgroundTint="@color/white"
-
-                app:strokeWidth="0dp">
-
-                <TextView
+                <EditText
                     android:id="@+id/tv_address"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
                     android:text="Qo’qon sh. Bog’ieram 14b"
                     android:gravity="center"
+                    android:paddingVertical="5dp"
+                    android:background="@drawable/bac_shape"
                     android:textColor="@color/black"
                     android:paddingHorizontal="5dp"
                     android:textSize="14sp"
                     android:fontFamily="@font/inter"
                     android:textStyle="bold"/>
-            </com.google.android.material.card.MaterialCardView>
 
             <LinearLayout
-                android:layout_width="330dp"
-                android:layout_height="45dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
+                android:layout_marginHorizontal="15dp"
                 android:orientation="horizontal">
 
                 <LinearLayout
@@ -313,40 +307,35 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
 
-                        <com.google.android.material.card.MaterialCardView
-                            android:layout_width="41dp"
-                            app:strokeWidth="0dp"
-                            android:backgroundTint="@color/white"
-                            android:layout_height="30dp">
-                            <TextView
+                            <EditText
                                 android:id="@+id/tv_pasport_seriya"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:gravity="center"
                                 android:text="AA"
+                                android:padding="5dp"
+                                android:background="@drawable/bac_shape_2"
                                 android:textColor="@color/black"
                                 android:textSize="14sp"
                                 android:textStyle="bold"
                                 android:fontFamily="@font/inter"/>
-                        </com.google.android.material.card.MaterialCardView>
 
-                        <com.google.android.material.card.MaterialCardView
-                            android:layout_width="87dp"
-                            android:layout_height="30dp"
-                            app:strokeWidth="0dp"
-                            android:layout_marginStart="5dp"
-                            android:backgroundTint="@color/white">
-                            <TextView
+
+                            <EditText
                                 android:id="@+id/tv_passport_raqam"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:gravity="center"
                                 android:text="000 00 00"
+                                android:inputType="number"
+                                android:layout_marginStart="5dp"
+                                android:padding="5dp"
+                                android:background="@drawable/bac_shape_2"
                                 android:textColor="@color/black"
                                 android:textSize="14sp"
                                 android:textStyle="bold"
                                 android:fontFamily="@font/inter"/>
-                        </com.google.android.material.card.MaterialCardView>
+
                     </LinearLayout>
 
                 </LinearLayout>
@@ -368,56 +357,46 @@
                         android:layout_width="wrap_content"
                         android:orientation="horizontal"
                         android:layout_height="wrap_content">
-                        <com.google.android.material.card.MaterialCardView
-                            android:layout_width="41dp"
-                            app:strokeWidth="0dp"
-                            android:backgroundTint="@color/white"
-                            android:layout_height="30dp">
-                            <TextView
-                                android:id="@+id/tv_tugilgan_kun"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:gravity="center"
-                                android:text="05"
-                                android:textColor="@color/black"
-                                android:textSize="14sp"
-                                android:textStyle="bold"
-                                android:fontFamily="@font/inter"/>
-                        </com.google.android.material.card.MaterialCardView>
 
-                        <com.google.android.material.card.MaterialCardView
-                            android:layout_width="41dp"
-                            app:strokeWidth="0dp"
-                            android:layout_marginHorizontal="5dp"
-                            android:backgroundTint="@color/white"
-                            android:layout_height="30dp">
-                            <TextView
-                                android:id="@+id/tv_tugilgan_oy"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
+                            <EditText
+                                android:id="@+id/tv_tugilgan_kun"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
                                 android:gravity="center"
                                 android:text="05"
+                                android:inputType="number"
+                                android:padding="5dp"
+                                android:background="@drawable/bac_shape_2"
                                 android:textColor="@color/black"
                                 android:textSize="14sp"
                                 android:textStyle="bold"
                                 android:fontFamily="@font/inter"/>
-                        </com.google.android.material.card.MaterialCardView>
-                        <com.google.android.material.card.MaterialCardView
-                            android:layout_width="41dp"
-                            app:strokeWidth="0dp"
-                            android:backgroundTint="@color/white"
-                            android:layout_height="30dp">
-                            <TextView
-                                android:id="@+id/tv_tugilgan_yil"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
+                            <EditText
+                                android:id="@+id/tv_tugilgan_oy"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
                                 android:gravity="center"
+                                android:background="@drawable/bac_shape_2"
+                                android:padding="5dp"
+                                android:text="05"
+                                android:inputType="number"
+                                android:layout_marginHorizontal="5dp"                                android:textColor="@color/black"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                android:fontFamily="@font/inter"/>
+                            <EditText
+                                android:id="@+id/tv_tugilgan_yil"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:background="@drawable/bac_shape_2"
+                                android:padding="5dp"
                                 android:text="1980"
+                                android:inputType="number"
                                 android:textColor="@color/black"
                                 android:textSize="14sp"
                                 android:textStyle="bold"
                                 android:fontFamily="@font/inter"/>
-                        </com.google.android.material.card.MaterialCardView>
 
                     </LinearLayout>
                 </LinearLayout>
@@ -432,7 +411,8 @@
                 android:orientation="horizontal">
 
                 <com.google.android.material.button.MaterialButton
-                    android:layout_width="106dp"
+                    android:id="@+id/btn_edit"
+                    android:layout_width="wrap_content"
                     android:layout_height="40dp"
                     android:layout_marginEnd="5dp"
                     android:backgroundTint="#002940"
@@ -441,10 +421,11 @@
                     app:cornerRadius="6dp" />
 
                 <com.google.android.material.button.MaterialButton
-                    android:layout_width="90dp"
+                    android:id="@+id/btn_save"
+                    android:layout_width="wrap_content"
                     android:layout_height="40dp"
                     android:layout_marginStart="5dp"
-                    android:backgroundTint="#B9B9B9"
+                    android:alpha=".35"
                     android:text="Saqlash"
                     android:textSize="11sp"
                     app:cornerRadius="6dp" />

@@ -1,6 +1,8 @@
 package uz.turgunboyevjurabek.rizon.fragments.profileFragment
 
+import android.annotation.SuppressLint
 import android.os.Bundle
+import android.text.Editable
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -31,6 +33,8 @@ class ProfileFragment : Fragment() {
     ): View? {
         MySharedPreference.init(binding.root.context)
 
+        editing()
+
         profileViewModel = ViewModelProvider(requireActivity())[ProfileViewModel::class.java]
         profileViewModel.getUsersProfile(MySharedPreference.token, "2023-03")
             .observe(requireActivity()){
@@ -59,26 +63,28 @@ class ProfileFragment : Fragment() {
         return binding.root
     }
 
+    @SuppressLint("SetTextI18n")
     fun showProfile(getUserProfileResponse: GetUserProfileResponse){
         val user = getUserProfileResponse.user
         binding.apply {
             if (user.photo!=null){
-                Picasso.get().load(ApiClient.PHOTO_BASE_URL+user.photo.toString()).into(imageProfile)
+            Picasso.get().load(ApiClient.PHOTO_BASE_URL+user.photo.toString()).into(imageProfile)
             }
-            userName.text = "${user.first_name} ${user.last_name}"
+            userName.setText("${user.first_name} ${user.last_name}")
+            tvStatus.setText(user.user_status)
+            tvPhoneNumber1.setText(user.phoneNum)
+            tvPhoneNumber2.setText(user.phoneNumTwo)
+
             umimiyDaromad.text = user.toString()
             tvId.text = user.user_id.toString()
-            tvPhoneNumber1.text = user.phoneNum
-            tvPhoneNumber2.text = user.phoneNumTwo
-            tvAddress.text = user.address
+            tvAddress.setText(user.address)
             umimiyKupon.text = user.coupon.toString()
             umimiyDaromad.text = user.salary.toString()
-            tvStatus.text = user.user_status
-            tvPasportSeriya.text = user.passport.substring(0, 2)
-            tvPassportRaqam.text = user.passport.substring(2)
-            tvTugilganKun.text = user.dateOfBirth.substring(8)
-            tvTugilganOy.text = user.dateOfBirth.substring(5, 7)
-            tvTugilganYil.text = user.dateOfBirth.substring(0, 4)
+            tvPasportSeriya.setText(user.passport.substring(0, 2))
+            tvPassportRaqam.setText(user.passport.substring(2))
+            tvTugilganKun.setText(user.dateOfBirth.substring(8))
+            tvTugilganOy.setText(user.dateOfBirth.substring(5, 7))
+            tvTugilganYil.setText(user.dateOfBirth.substring(0, 4))
         }
     }
 
@@ -111,6 +117,52 @@ class ProfileFragment : Fragment() {
         }
     }
 
+    private fun editing(){
+        edtFalse()
+        binding.apply {
+            btnSave.setOnClickListener {
+                edtFalse()
+                btnSave.alpha=.35f
+                Toast.makeText(requireActivity(), "Saved", Toast.LENGTH_SHORT).show()
+            }
+            btnEdit.setOnClickListener {
+                btnSave.alpha=1f
+                edtTrue()
+            }
+
+        }
+    }
+    private fun edtFalse(){
+        binding.apply {
+        userName.isEnabled=false
+        tvStatus.isEnabled=false
+        tvPhoneNumber1.isEnabled=false
+        tvPhoneNumber2.isEnabled=false
+        tvAddress.isEnabled=false
+        tvPasportSeriya.isEnabled=false
+        tvPassportRaqam.isEnabled=false
+        tvTugilganKun.isEnabled=false
+        tvTugilganOy.isEnabled=false
+        tvTugilganYil.isEnabled=false
+
+
+        }
+    }
+    private fun edtTrue(){
+        binding.apply {
+            userName.isEnabled=true
+            tvStatus.isEnabled=true
+            tvPhoneNumber1.isEnabled=true
+            tvPhoneNumber2.isEnabled=true
+            tvAddress.isEnabled=true
+            tvPasportSeriya.isEnabled=true
+            tvPassportRaqam.isEnabled=true
+            tvTugilganKun.isEnabled=true
+            tvTugilganOy.isEnabled=true
+            tvTugilganYil.isEnabled=true
+
+        }
+    }
     override fun onResume() {
         super.onResume()
         AppObject.binding.thtPanel.text = "Profil"
