@@ -9,14 +9,16 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import uz.turgunboyevjurabek.rizon.R
+import uz.turgunboyevjurabek.rizon.adapters.RvAction
 import uz.turgunboyevjurabek.rizon.adapters.UserOrderAdapter
 import uz.turgunboyevjurabek.rizon.databinding.FragmentOrderBinding
+import uz.turgunboyevjurabek.rizon.madels.userOrders.Order
 import uz.turgunboyevjurabek.rizon.utils.AppObject
 import uz.turgunboyevjurabek.rizon.utils.MySharedPreference
 import uz.turgunboyevjurabek.rizon.utils.Status
 
 private const val TAG = "OrderFragment"
-class OrderFragment : Fragment() {
+class OrderFragment : Fragment(), RvAction {
     private val binding by lazy { FragmentOrderBinding.inflate(layoutInflater) }
     private lateinit var userOrderAdapter: UserOrderAdapter
     private lateinit var ordersViewModel: OrdersViewModel
@@ -25,7 +27,7 @@ class OrderFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
-      userOrderAdapter = UserOrderAdapter()
+      userOrderAdapter = UserOrderAdapter(this)
         binding.rvUsersOrders.adapter = userOrderAdapter
         MySharedPreference.init(binding.root.context)
 
@@ -60,6 +62,10 @@ class OrderFragment : Fragment() {
         super.onResume()
         AppObject.binding.thtPanel.text = "Buyurtmalar"
         AppObject.binding.materialCardViewCalendar.visibility = View.INVISIBLE
+    }
+
+    override fun deleteOrder(orders: Order, position: Int) {
+        //buyurtmani bekor qilish
     }
 
 }

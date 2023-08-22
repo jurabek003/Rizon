@@ -4,13 +4,19 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
+import com.squareup.picasso.Picasso
 import uz.turgunboyevjurabek.rizon.databinding.ItemJuniorRvBinding
-import uz.turgunboyevjurabek.rizon.madels.pager.Junior
+import uz.turgunboyevjurabek.rizon.madels.promotion.ProductsInterval
+import uz.turgunboyevjurabek.rizon.madels.promotion.pager.Junior
+import uz.turgunboyevjurabek.rizon.retrofit.ApiClient
 
-class RvAdapterJunior(val list: ArrayList<Junior>,val itemSelect: ItemSelect):RecyclerView.Adapter<RvAdapterJunior.Vh>() {
+class RvAdapterJunior(val list: ArrayList<ProductsInterval>, val itemSelect: ItemSelect):RecyclerView.Adapter<RvAdapterJunior.Vh>() {
     inner class Vh(val itemJuniorRvBinding: ItemJuniorRvBinding):ViewHolder(itemJuniorRvBinding.root){
-        fun onBind( junior: Junior,position: Int){
+        fun onBind(junior: ProductsInterval, position: Int){
 
+            itemJuniorRvBinding.tvName.text = junior.name
+            itemJuniorRvBinding.tvPrice.text = junior.coupon.toString()
+            Picasso.get().load("${ApiClient.PHOTO_BASE_URL}${junior.photo}").into(itemJuniorRvBinding.imagePromotions)
 
             itemJuniorRvBinding.root.setOnClickListener {
                 itemSelect.select(junior,position)
@@ -36,6 +42,6 @@ class RvAdapterJunior(val list: ArrayList<Junior>,val itemSelect: ItemSelect):Re
     }
 }
 interface ItemSelect{
-    fun select(junior: Junior,position: Int)
-    fun dialogSelect(junior: Junior,position: Int)
+    fun select(junior: ProductsInterval, position: Int)
+    fun dialogSelect(junior: ProductsInterval, position: Int)
 }

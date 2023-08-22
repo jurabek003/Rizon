@@ -1,4 +1,4 @@
-package uz.turgunboyevjurabek.rizon.madels.pager
+package uz.turgunboyevjurabek.rizon.madels.promotion.pager
 
 class Pager {
     var name:String?=null

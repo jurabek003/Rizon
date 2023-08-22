@@ -3,11 +3,10 @@ package uz.turgunboyevjurabek.rizon.adapters.viewPagerAdapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import uz.turgunboyevjurabek.rizon.fragments.viewPagerFragment.JuniorFragment
-import uz.turgunboyevjurabek.rizon.fragments.viewPagerFragment.MiddleFragment
-import uz.turgunboyevjurabek.rizon.fragments.viewPagerFragment.SeniorFragment
+import uz.turgunboyevjurabek.rizon.fragments.promotionFragment.viewPagerFragment.JuniorFragment
+import uz.turgunboyevjurabek.rizon.madels.promotion.GetPromotionResponse
 
-class ViewPagerAdapter(fm:FragmentManager): FragmentPagerAdapter(fm) {
+class ViewPagerAdapter(fm:FragmentManager, val getPromotionResponse: GetPromotionResponse): FragmentPagerAdapter(fm) {
     override fun getCount(): Int {
         return 3
     }
@@ -16,17 +15,17 @@ class ViewPagerAdapter(fm:FragmentManager): FragmentPagerAdapter(fm) {
         when(position){
             0->{
 
-                return JuniorFragment()
+                return JuniorFragment.newInstance(getPromotionResponse.small_interval)
             }
             1->{
 
-                return MiddleFragment()
+                return JuniorFragment.newInstance(getPromotionResponse.middle_interval)
             }
             2->{
 
-                return SeniorFragment()
+                return JuniorFragment.newInstance(getPromotionResponse.large_interval)
             }
         }
-        return JuniorFragment()
+        return JuniorFragment.newInstance(getPromotionResponse.small_interval)
     }
 }

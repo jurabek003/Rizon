@@ -11,6 +11,7 @@ import uz.turgunboyevjurabek.rizon.madels.auth.PostAuthResponse
 import uz.turgunboyevjurabek.rizon.madels.coupon.GetUsersCoupon
 import uz.turgunboyevjurabek.rizon.madels.filial.Filial
 import uz.turgunboyevjurabek.rizon.madels.notification.GetNotificationResponse
+import uz.turgunboyevjurabek.rizon.madels.promotion.GetPromotionResponse
 import uz.turgunboyevjurabek.rizon.madels.salary.GetSalaryResponce
 import uz.turgunboyevjurabek.rizon.madels.userOrders.GetUsersOrdersResponse
 import uz.turgunboyevjurabek.rizon.madels.usersProducts.GetUserProductsResponse
@@ -56,5 +57,8 @@ interface ApiService {
 
     @GET("users-main-a")
     suspend fun getUsersMain(@Header("Authorization") token: String): GetUsersMainResponse
+
+    @GET("users-promotions")
+    suspend fun getPromotions(@Header("Authorization") token: String): GetPromotionResponse
 
 }

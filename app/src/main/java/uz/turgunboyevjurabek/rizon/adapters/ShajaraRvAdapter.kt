@@ -14,7 +14,7 @@ class ShajaraRvAdapter(val list: ArrayList<UserTree> = ArrayList()):RecyclerView
             itemShajaraRvBinding.itemBonus.text = shajara.bonus_for_followers_status.toString()
             itemShajaraRvBinding.itemStatus.text = shajara.user_status
             itemShajaraRvBinding.itemIsmFamiliya.text = "${shajara.first_name} ${shajara.last_name}"
-            itemShajaraRvBinding.itemPhoneNumber.text = shajara.phoneNum
+            itemShajaraRvBinding.itemPhoneNumber.text = shajara.phone_number
             itemShajaraRvBinding.itemShaxsiyBall.text = shajara.extra_bonus.toString()
         }
     }

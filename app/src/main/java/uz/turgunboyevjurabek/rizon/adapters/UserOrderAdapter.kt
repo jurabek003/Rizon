@@ -9,15 +9,18 @@ import uz.turgunboyevjurabek.rizon.databinding.ItemOrderRvBinding
 import uz.turgunboyevjurabek.rizon.madels.userOrders.Order
 import uz.turgunboyevjurabek.rizon.retrofit.ApiClient
 
-class UserOrderAdapter(val list: ArrayList<Order> = ArrayList()):RecyclerView.Adapter<UserOrderAdapter.Vh>() {
+class UserOrderAdapter(val rvAction:RvAction,  val list: ArrayList<Order> = ArrayList()):RecyclerView.Adapter<UserOrderAdapter.Vh>() {
     inner class Vh(val itemOrderRvBinding: ItemOrderRvBinding):ViewHolder(itemOrderRvBinding.root){
-        fun onBind(orders: Order){
+        fun onBind(orders: Order, position: Int){
             Picasso.get().load("${ApiClient.PHOTO_BASE_URL}${orders.product.photo_link}").into(itemOrderRvBinding.itemImg)
             itemOrderRvBinding.itemName.text = orders.product.name
             itemOrderRvBinding.itemPrice.text = "${orders.product.price}uzs"
             itemOrderRvBinding.itemCount.text = "${orders.amount}ta"
             itemOrderRvBinding.itemSumPrice.text = "${orders.summa}uzs"
 
+            itemOrderRvBinding.btnStop.setOnClickListener {
+                rvAction.deleteOrder(orders, position)
+            }
         }
     }
 
@@ -28,6 +31,10 @@ class UserOrderAdapter(val list: ArrayList<Order> = ArrayList()):RecyclerView.Ad
     override fun getItemCount(): Int =list.size
 
     override fun onBindViewHolder(holder: Vh, position: Int) {
-        holder.onBind(list[position])
+        holder.onBind(list[position], position)
     }
+}
+
+interface RvAction{
+    fun deleteOrder(orders: Order, position: Int)
 }

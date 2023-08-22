@@ -1,14 +1,15 @@
 package uz.turgunboyevjurabek.rizon.fragments.homeFragment
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.anychart.charts.Pie
@@ -29,10 +30,10 @@ import uz.turgunboyevjurabek.rizon.R
 import uz.turgunboyevjurabek.rizon.adapters.SaleRvAdapter
 import uz.turgunboyevjurabek.rizon.databinding.FragmentHomeBinding
 import uz.turgunboyevjurabek.rizon.madels.UserMain.ProductSalesData2
-import uz.turgunboyevjurabek.rizon.madels.sale.Sale
 import uz.turgunboyevjurabek.rizon.utils.AppObject
 import uz.turgunboyevjurabek.rizon.utils.MySharedPreference
 import uz.turgunboyevjurabek.rizon.utils.Status
+
 
 private const val TAG = "HomeFragment"
 
@@ -95,11 +96,30 @@ class HomeFragment : Fragment() {
                         saleAdapter(it.data?.product_sales_data2 as? ArrayList)
                         diagram()
                         diagram2()
+                        shareLink(it.data?.follower_link!!, it.data.sale_link)
                     }
                 }
             }
     }
 
+    //share links
+    private fun shareLink(izdoshLink:String, sotuvLink:String){
+        binding.btnIzdosh.setOnClickListener {
+            val i = Intent(Intent.ACTION_SEND)
+            i.type = "text/plain"
+            i.putExtra(Intent.EXTRA_TEXT, izdoshLink)
+            startActivity(i)
+        }
+
+        binding.btnSotuv.setOnClickListener {
+            val i = Intent(Intent.ACTION_SEND)
+            i.type = "text/plain"
+            i.putExtra(Intent.EXTRA_TEXT, sotuvLink)
+            startActivity(i)
+        }
+    }
+
+    ////umumiy maosh grafigi // salary-data
     private fun diagram2() {
         barChart = binding.barChartView
 
@@ -150,6 +170,7 @@ class HomeFragment : Fragment() {
         barChart.invalidate()
     }
 
+    //maxsulot sotuv ulushi// products-selas-data2
     // ekranda korin yapti lekin figmadagidek emas
     private fun diagram() {
         pieChart = binding.myPieChart
@@ -236,6 +257,7 @@ class HomeFragment : Fragment() {
 
     }
 
+    //chegirmali maxsulotlar
     private fun saleAdapter(list:ArrayList<ProductSalesData2>?) {
         saleRvAdapter = SaleRvAdapter()
         saleRvAdapter.list.clear()

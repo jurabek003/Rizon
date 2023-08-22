@@ -2,7 +2,6 @@ package uz.turgunboyevjurabek.rizon.fragments.profileFragment
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.text.Editable
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -16,7 +15,6 @@ import uz.turgunboyevjurabek.rizon.R
 import uz.turgunboyevjurabek.rizon.adapters.ShajaraRvAdapter
 import uz.turgunboyevjurabek.rizon.databinding.FragmentProfilBinding
 import uz.turgunboyevjurabek.rizon.madels.usersProfile.GetUserProfileResponse
-import uz.turgunboyevjurabek.rizon.madels.usersProfile.UserTree
 import uz.turgunboyevjurabek.rizon.retrofit.ApiClient
 import uz.turgunboyevjurabek.rizon.utils.AppObject
 import uz.turgunboyevjurabek.rizon.utils.MySharedPreference
@@ -72,7 +70,7 @@ class ProfileFragment : Fragment() {
             }
             userName.setText("${user.first_name} ${user.last_name}")
             tvStatus.setText(user.user_status)
-            tvPhoneNumber1.setText(user.phoneNum)
+            tvPhoneNumber1.setText(user.phone_number)
             tvPhoneNumber2.setText(user.phoneNumTwo)
 
             umimiyDaromad.text = user.toString()

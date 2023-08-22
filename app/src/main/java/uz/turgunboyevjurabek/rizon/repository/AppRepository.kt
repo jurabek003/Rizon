@@ -17,4 +17,5 @@ class AppRepository(val apiService: ApiService) {
     suspend fun getNotifications(token: String) = apiService.getNotifications("Bearer $token")
     suspend fun getUserCoupon(token: String) = apiService.getUsersCoupon("Bearer $token")
     suspend fun getUserMain(token: String) = apiService.getUsersMain("Bearer $token")
+    suspend fun getPromotions(token: String) = apiService.getPromotions("Bearer $token")
 }
