@@ -4,15 +4,15 @@ plugins {
 }
 
 android {
-    namespace 'uz.turgunboyevjurabek.rizon'
+    namespace 'uz.ilhomjon.rizonuz'
     compileSdk 33
 
     defaultConfig {
-        applicationId "uz.turgunboyevjurabek.rizon"
+        applicationId "uz.ilhomjon.rizonuz"
         minSdk 22
         targetSdk 33
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "1.1"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
     }
@@ -30,8 +30,8 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    viewBinding{
-        enabled true
+    buildFeatures{
+        viewBinding true
     }
 }
 

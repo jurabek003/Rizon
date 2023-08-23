@@ -1,5 +1,7 @@
 package uz.turgunboyevjurabek.rizon.madels.usersProducts
 
+import java.io.Serializable
+
 data class Product(
     val about: String,
     val date: String,
@@ -11,4 +13,4 @@ data class Product(
     val photo_link: String,
     val price: Int,
     val product_type: String
-)
+):Serializable

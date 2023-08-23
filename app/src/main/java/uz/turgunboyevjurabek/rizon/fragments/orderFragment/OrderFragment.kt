@@ -8,10 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
-import uz.turgunboyevjurabek.rizon.R
+import uz.ilhomjon.rizonuz.databinding.FragmentOrderBinding
 import uz.turgunboyevjurabek.rizon.adapters.RvAction
 import uz.turgunboyevjurabek.rizon.adapters.UserOrderAdapter
-import uz.turgunboyevjurabek.rizon.databinding.FragmentOrderBinding
 import uz.turgunboyevjurabek.rizon.madels.userOrders.Order
 import uz.turgunboyevjurabek.rizon.utils.AppObject
 import uz.turgunboyevjurabek.rizon.utils.MySharedPreference
@@ -66,6 +65,27 @@ class OrderFragment : Fragment(), RvAction {
 
     override fun deleteOrder(orders: Order, position: Int) {
         //buyurtmani bekor qilish
+        ordersViewModel.deleteOrder(MySharedPreference.token, orders.id)
+            .observe(requireActivity()){
+                when(it.status){
+                    Status.LOADING ->{
+                        Log.d(TAG, "onCreate: Loading")
+                        binding.progressUserProducts.visibility = View.VISIBLE
+                    }
+                    Status.ERROR->{
+                        Log.d(TAG, "onCreate: Error ${it.message}")
+                        binding.progressUserProducts.visibility = View.GONE
+//                        Toast.makeText(context, "Error ${it.message}", Toast.LENGTH_SHORT).show()
+                    }
+                    Status.SUCCESS ->{
+                        Log.d(TAG, "onCreate: ${it.data}")
+                        userOrderAdapter.list.remove(orders)
+                        userOrderAdapter.notifyItemRemoved(position)
+                        binding.progressUserProducts.visibility = View.GONE
+                    }
+                }
+            }
+
     }
 
 }

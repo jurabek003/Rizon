@@ -1,7 +1,8 @@
 package uz.turgunboyevjurabek.rizon.utils
 
-import uz.turgunboyevjurabek.rizon.databinding.ActivityMainBinding
+import uz.ilhomjon.rizonuz.databinding.ActivityMainBinding
+
 
 object AppObject {
-    lateinit var binding:ActivityMainBinding
+    lateinit var binding: ActivityMainBinding
 }

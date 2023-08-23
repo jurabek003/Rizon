@@ -11,10 +11,10 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.tabs.TabLayout
-import uz.turgunboyevjurabek.rizon.R
+import uz.ilhomjon.rizonuz.R
 import uz.turgunboyevjurabek.rizon.adapters.viewPagerAdapter.ViewPagerAdapter
-import uz.turgunboyevjurabek.rizon.databinding.FragmentPromotionBinding
-import uz.turgunboyevjurabek.rizon.databinding.ItemTabBinding
+import uz.ilhomjon.rizonuz.databinding.FragmentPromotionBinding
+import uz.ilhomjon.rizonuz.databinding.ItemTabBinding
 import uz.turgunboyevjurabek.rizon.fragments.orderFragment.OrdersViewModel
 import uz.turgunboyevjurabek.rizon.madels.promotion.pager.Pager
 import uz.turgunboyevjurabek.rizon.madels.promotion.GetPromotionResponse

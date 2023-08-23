@@ -2,11 +2,12 @@ package uz.turgunboyevjurabek.rizon
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
-import uz.turgunboyevjurabek.rizon.databinding.ActivityMainBinding
+import uz.ilhomjon.rizonuz.R
+import uz.ilhomjon.rizonuz.databinding.ActivityMainBinding
 import uz.turgunboyevjurabek.rizon.utils.AppObject
-import uz.turgunboyevjurabek.rizon.utils.MySharedPreference
 
 class MainActivity : AppCompatActivity() {
     private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
@@ -23,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         binding.imgNotification.setOnClickListener {
             navController.navigate(R.id.notificationFragment)
         }
-
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
     }
 
     private fun selectNavigation() {

@@ -1,24 +1,30 @@
 package uz.turgunboyevjurabek.rizon.fragments.profileFragment
 
 import android.annotation.SuppressLint
+import android.app.DatePickerDialog
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.squareup.picasso.Picasso
-import uz.turgunboyevjurabek.rizon.R
+import uz.ilhomjon.rizonuz.R
 import uz.turgunboyevjurabek.rizon.adapters.ShajaraRvAdapter
-import uz.turgunboyevjurabek.rizon.databinding.FragmentProfilBinding
+import uz.ilhomjon.rizonuz.databinding.FragmentProfilBinding
 import uz.turgunboyevjurabek.rizon.madels.usersProfile.GetUserProfileResponse
+import uz.turgunboyevjurabek.rizon.madels.usersProfile.userChangeInfo.PatchUserChangeInfoRequest
 import uz.turgunboyevjurabek.rizon.retrofit.ApiClient
 import uz.turgunboyevjurabek.rizon.utils.AppObject
 import uz.turgunboyevjurabek.rizon.utils.MySharedPreference
 import uz.turgunboyevjurabek.rizon.utils.Status
+import java.text.SimpleDateFormat
+import java.util.Date
 
 private const val TAG = "ProfileFragment"
 class ProfileFragment : Fragment() {
@@ -31,10 +37,16 @@ class ProfileFragment : Fragment() {
     ): View? {
         MySharedPreference.init(binding.root.context)
 
-        editing()
 
         profileViewModel = ViewModelProvider(requireActivity())[ProfileViewModel::class.java]
-        profileViewModel.getUsersProfile(MySharedPreference.token, "2023-03")
+
+        getMainApi(SimpleDateFormat("yyyy-MM").format(Date()))
+
+        return binding.root
+    }
+
+    fun getMainApi(date:String){ //"2023-03"
+        profileViewModel.getUsersProfile(MySharedPreference.token, date)
             .observe(requireActivity()){
                 when(it.status){
                     Status.LOADING ->{
@@ -56,19 +68,26 @@ class ProfileFragment : Fragment() {
                     }
                 }
             }
-
-
-        return binding.root
     }
 
     @SuppressLint("SetTextI18n")
     fun showProfile(getUserProfileResponse: GetUserProfileResponse){
         val user = getUserProfileResponse.user
+        editing(PatchUserChangeInfoRequest(
+            user.address,
+            user.dateOfBirth,
+            user.first_name,
+            user.last_name,
+            user.passport,
+            user.phone_number,
+            user.phoneNumTwo
+        ))
         binding.apply {
             if (user.photo!=null){
             Picasso.get().load(ApiClient.PHOTO_BASE_URL+user.photo.toString()).into(imageProfile)
             }
-            userName.setText("${user.first_name} ${user.last_name}")
+            firstName.setText(user.first_name)
+            lastName.setText(user.last_name)
             tvStatus.setText(user.user_status)
             tvPhoneNumber1.setText(user.phone_number)
             tvPhoneNumber2.setText(user.phoneNumTwo)
@@ -115,13 +134,45 @@ class ProfileFragment : Fragment() {
         }
     }
 
-    private fun editing(){
+    private fun editing(patchUserChangeInfoRequest: PatchUserChangeInfoRequest){
         edtFalse()
         binding.apply {
             btnSave.setOnClickListener {
                 edtFalse()
                 btnSave.alpha=.35f
-                Toast.makeText(requireActivity(), "Saved", Toast.LENGTH_SHORT).show()
+
+//userchaneinfo
+                patchUserChangeInfoRequest.first_name = firstName.text.toString().trim()
+                patchUserChangeInfoRequest.last_name = lastName.text.toString().trim()
+                patchUserChangeInfoRequest.passport = tvPasportSeriya.text.toString().trim()+tvPassportRaqam.text.toString().trim()
+                patchUserChangeInfoRequest.address = tvAddress.text.toString().trim()
+                patchUserChangeInfoRequest.phone_number = tvPhoneNumber1.text.toString().trim()
+                patchUserChangeInfoRequest.phoneNumTwo = tvPhoneNumber2.text.toString().trim()
+                patchUserChangeInfoRequest.dateOfBirth = "${tvTugilganYil.text}-${tvTugilganOy.text}-${tvTugilganKun.text}"
+
+                profileViewModel.changeUserInfo(MySharedPreference.token, patchUserChangeInfoRequest)
+                    .observe(requireActivity()){
+                        when(it.status){
+                            Status.LOADING ->{
+                                Log.d(TAG, "onCreate: Loading")
+                                binding.progressUserProducts.visibility = View.VISIBLE
+                            }
+                            Status.ERROR ->{
+                                Log.d(TAG, "onCreate: Error ${it.message}")
+                                binding.progressUserProducts.visibility = View.GONE
+                                Toast.makeText(context, "Error ${it.message}", Toast.LENGTH_SHORT).show()
+                            }
+                            Status.SUCCESS ->{
+                                Log.d(TAG, "onCreate: ${it.data}")
+//                        myProductsAdapter.list.addAll(it.data?.products!!)
+//                        myProductsAdapter.notifyDataSetChanged()
+                                binding.progressUserProducts.visibility = View.GONE
+                                getMainApi(SimpleDateFormat("yyyy-MM").format(Date()))
+
+                            }
+                        }
+                    }
+
             }
             btnEdit.setOnClickListener {
                 btnSave.alpha=1f
@@ -132,7 +183,8 @@ class ProfileFragment : Fragment() {
     }
     private fun edtFalse(){
         binding.apply {
-        userName.isEnabled=false
+        firstName.isEnabled=false
+        lastName.isEnabled=false
         tvStatus.isEnabled=false
         tvPhoneNumber1.isEnabled=false
         tvPhoneNumber2.isEnabled=false
@@ -148,7 +200,8 @@ class ProfileFragment : Fragment() {
     }
     private fun edtTrue(){
         binding.apply {
-            userName.isEnabled=true
+            firstName.isEnabled=true
+            lastName.isEnabled=true
             tvStatus.isEnabled=true
             tvPhoneNumber1.isEnabled=true
             tvPhoneNumber2.isEnabled=true
@@ -161,10 +214,26 @@ class ProfileFragment : Fragment() {
 
         }
     }
+    @RequiresApi(Build.VERSION_CODES.N)
     override fun onResume() {
         super.onResume()
         AppObject.binding.thtPanel.text = "Profil"
         AppObject.binding.materialCardViewCalendar.visibility = View.VISIBLE
+        AppObject.binding.materialCardViewCalendar.setOnClickListener {
+
+            val datePickerDialog = DatePickerDialog(binding.root.context)
+
+            datePickerDialog.setOnDateSetListener { view, year, month, dayOfMonth ->
+                if (month/10 >= 1)
+                getMainApi("$year-$month")
+                else
+                    getMainApi("$year-0$month")
+
+            }
+
+            datePickerDialog.show()
+
+        }
 
         binding.btnSotuv.setOnClickListener {
             findNavController().navigate(R.id.purchaseHistoryFragment)

@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import uz.turgunboyevjurabek.rizon.adapters.KuponTransferAdapter
-import uz.turgunboyevjurabek.rizon.databinding.FragmentKuponTransferBinding
+import uz.ilhomjon.rizonuz.databinding.FragmentKuponTransferBinding
 import uz.turgunboyevjurabek.rizon.utils.AppObject
 import uz.turgunboyevjurabek.rizon.utils.MySharedPreference
 import uz.turgunboyevjurabek.rizon.utils.Status

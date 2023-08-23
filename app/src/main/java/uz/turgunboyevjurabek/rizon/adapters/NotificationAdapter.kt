@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
-import uz.turgunboyevjurabek.rizon.databinding.ItemNotificationRvBinding
+import uz.ilhomjon.rizonuz.databinding.ItemNotificationRvBinding
 import uz.turgunboyevjurabek.rizon.madels.notification.Notification
 import java.text.SimpleDateFormat
 import java.time.format.DateTimeFormatter

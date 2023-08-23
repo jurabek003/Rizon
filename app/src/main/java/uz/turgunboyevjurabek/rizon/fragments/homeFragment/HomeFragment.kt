@@ -26,9 +26,9 @@ import com.github.mikephil.charting.data.PieEntry
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import com.github.mikephil.charting.formatter.PercentFormatter
 import com.github.mikephil.charting.utils.MPPointF
-import uz.turgunboyevjurabek.rizon.R
+import uz.ilhomjon.rizonuz.R
+import uz.ilhomjon.rizonuz.databinding.FragmentHomeBinding
 import uz.turgunboyevjurabek.rizon.adapters.SaleRvAdapter
-import uz.turgunboyevjurabek.rizon.databinding.FragmentHomeBinding
 import uz.turgunboyevjurabek.rizon.madels.UserMain.ProductSalesData2
 import uz.turgunboyevjurabek.rizon.utils.AppObject
 import uz.turgunboyevjurabek.rizon.utils.MySharedPreference

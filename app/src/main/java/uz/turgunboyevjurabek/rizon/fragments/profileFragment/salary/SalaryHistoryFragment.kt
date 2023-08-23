@@ -11,8 +11,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import uz.turgunboyevjurabek.rizon.adapters.SalaryHistoryAdapter
 import uz.turgunboyevjurabek.rizon.adapters.SelectSalary
-import uz.turgunboyevjurabek.rizon.databinding.DialogSalaryItemBinding
-import uz.turgunboyevjurabek.rizon.databinding.FragmentSalaryHistorykBinding
+import uz.ilhomjon.rizonuz.databinding.DialogSalaryItemBinding
+import uz.ilhomjon.rizonuz.databinding.FragmentSalaryHistorykBinding
 import uz.turgunboyevjurabek.rizon.madels.salary.SalaryHistory
 import uz.turgunboyevjurabek.rizon.utils.AppObject
 import uz.turgunboyevjurabek.rizon.utils.MySharedPreference

@@ -31,4 +31,23 @@ class OrdersViewModel:ViewModel() {
         return userOrders
     }
 
+    private val deleteLiveData = MutableLiveData<Resource<Int>>()
+    fun deleteOrder(token: String, id:String):MutableLiveData<Resource<Int>>{
+        viewModelScope.launch {
+            deleteLiveData.postValue(Resource.loading("loading..."))
+            try {
+                coroutineScope {
+                        launch (Dispatchers.IO) {
+                            appRepository.deleteProductsOrder(token, id)
+                        }
+                    deleteLiveData.postValue(Resource.success(204))
+                }
+            }catch (e:Exception){
+                deleteLiveData.postValue(Resource.error(e.message))
+            }
+        }
+
+        return deleteLiveData
+    }
+
 }

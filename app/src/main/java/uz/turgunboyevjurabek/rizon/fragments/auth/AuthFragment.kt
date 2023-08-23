@@ -9,8 +9,8 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import uz.turgunboyevjurabek.rizon.R
-import uz.turgunboyevjurabek.rizon.databinding.FragmentAuthBinding
+import uz.ilhomjon.rizonuz.R
+import uz.ilhomjon.rizonuz.databinding.FragmentAuthBinding
 import uz.turgunboyevjurabek.rizon.madels.auth.PostAuthRequest
 import uz.turgunboyevjurabek.rizon.utils.AppObject
 import uz.turgunboyevjurabek.rizon.utils.MySharedPreference

@@ -14,11 +14,11 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.squareup.picasso.Picasso
-import uz.turgunboyevjurabek.rizon.R
+import uz.ilhomjon.rizonuz.R
+import uz.ilhomjon.rizonuz.databinding.FragmentProductBinding
+import uz.ilhomjon.rizonuz.databinding.ItemAddOrderDialogBinding
 import uz.turgunboyevjurabek.rizon.adapters.MyProductsAdapter
 import uz.turgunboyevjurabek.rizon.adapters.SelectItem
-import uz.turgunboyevjurabek.rizon.databinding.FragmentProductBinding
-import uz.turgunboyevjurabek.rizon.databinding.ItemAddOrderDialogBinding
 import uz.turgunboyevjurabek.rizon.madels.usersProducts.Product
 import uz.turgunboyevjurabek.rizon.madels.usersProducts.post.PostProductsOrder
 import uz.turgunboyevjurabek.rizon.retrofit.ApiClient
@@ -74,8 +74,7 @@ class ProductFragment : Fragment(),SelectItem {
     }
 
     override fun onClick(position: Int, product: uz.turgunboyevjurabek.rizon.madels.usersProducts.Product) {
-        findNavController().navigate(R.id.selectFragment, bundleOf("keyName" to product.name,
-            "keyPrice" to product.price,"keyPhoto" to product.photo_link,"keyAbout" to product.about))
+        findNavController().navigate(R.id.selectFragment, bundleOf("keyProduct" to product))
     }
 
     override fun buyurtmaBtn(
@@ -159,6 +158,7 @@ class ProductFragment : Fragment(),SelectItem {
                         dialog.setMessage("${it.data?.product} maxsuloti ${it.data?.warehouse} filialiga ${it.data?.amount} ta buyurtma qilindi. Buyurtmalar oynasidan ko'rishingiz mumkin.")
                         dialog.show()
                         itemDialog.myProgressBar.visibility = View.GONE
+                        alertDialog.cancel()
                     }
                 }
             }

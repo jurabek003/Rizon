@@ -6,9 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import uz.turgunboyevjurabek.rizon.R
-import uz.turgunboyevjurabek.rizon.databinding.FragmentPromotionHistoryBinding
-import uz.turgunboyevjurabek.rizon.databinding.FragmentPurchaseHistoryBinding
+import uz.ilhomjon.rizonuz.databinding.FragmentPromotionHistoryBinding
 
 
 class PromotionHistoryFragment : Fragment() {
@@ -24,7 +22,7 @@ class PromotionHistoryFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         binding.imgBackHistory.setOnClickListener {
-            findNavController().popBackStack(R.id.promotionFragment,true)
+            findNavController().popBackStack()
         }
     }
 }

@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.squareup.picasso.Picasso
-import uz.turgunboyevjurabek.rizon.databinding.ItemJuniorRvBinding
+import uz.ilhomjon.rizonuz.databinding.ItemJuniorRvBinding
 import uz.turgunboyevjurabek.rizon.madels.promotion.ProductsInterval
 import uz.turgunboyevjurabek.rizon.madels.promotion.pager.Junior
 import uz.turgunboyevjurabek.rizon.retrofit.ApiClient

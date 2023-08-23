@@ -6,11 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import uz.turgunboyevjurabek.rizon.R
-import uz.turgunboyevjurabek.rizon.databinding.FragmentBioBinding
+import com.squareup.picasso.Picasso
+import uz.ilhomjon.rizonuz.R
+import uz.ilhomjon.rizonuz.databinding.FragmentBioBinding
+import uz.turgunboyevjurabek.rizon.madels.promotion.ProductsInterval
+import uz.turgunboyevjurabek.rizon.retrofit.ApiClient
 
 class BioFragment : Fragment() {
    private val binding by lazy { FragmentBioBinding.inflate(layoutInflater) }
+    lateinit var productsInterval: ProductsInterval
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -26,8 +30,17 @@ class BioFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
 
+        productsInterval = arguments?.getSerializable("keyProductInterval") as ProductsInterval
+        binding.tvName.text = productsInterval.name
+        binding.tvName2.text = productsInterval.coupon.toString()
+//        binding.tvAboit.text = productsInterval.pause
 
+        Picasso.get().load("${ApiClient.PHOTO_BASE_URL}${productsInterval.photo}").into(binding.imagePromotions)
+        binding.btnOrder.setOnClickListener {
 
+            //xarid qilish
+
+        }
         return  binding.root
     }
 

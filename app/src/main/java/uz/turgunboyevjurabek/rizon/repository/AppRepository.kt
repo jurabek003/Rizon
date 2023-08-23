@@ -2,6 +2,7 @@ package uz.turgunboyevjurabek.rizon.repository
 
 import uz.turgunboyevjurabek.rizon.madels.auth.PostAuthRequest
 import uz.turgunboyevjurabek.rizon.madels.usersProducts.post.PostProductsOrder
+import uz.turgunboyevjurabek.rizon.madels.usersProfile.userChangeInfo.PatchUserChangeInfoRequest
 import uz.turgunboyevjurabek.rizon.retrofit.ApiService
 
 class AppRepository(val apiService: ApiService) {
@@ -11,8 +12,10 @@ class AppRepository(val apiService: ApiService) {
 
     suspend fun getAllFilials(token:String) = apiService.getFilials("Bearer $token")
     suspend fun postProductsOrder(token: String, postOrderProducts:PostProductsOrder) = apiService.postProductOrder("Bearer $token", postOrderProducts)
+    suspend fun deleteProductsOrder(token: String, id:String) = apiService.deleteOrder("Bearer $token", id)
 
     suspend fun getUsersProfile(token:String, month:String) = apiService.getUsersProfile("Bearer $token", month)
+    suspend fun changeUserInfo(token:String, patchUserChangeInfoRequest: PatchUserChangeInfoRequest) = apiService.changeUserInfo("Bearer $token", patchUserChangeInfoRequest)
     suspend fun getSalaryPayments(token: String) = apiService.getSalaryPayments("Bearer $token")
     suspend fun getNotifications(token: String) = apiService.getNotifications("Bearer $token")
     suspend fun getUserCoupon(token: String) = apiService.getUsersCoupon("Bearer $token")

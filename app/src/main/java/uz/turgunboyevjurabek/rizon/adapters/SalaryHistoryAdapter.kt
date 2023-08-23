@@ -3,7 +3,7 @@ package uz.turgunboyevjurabek.rizon.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import uz.turgunboyevjurabek.rizon.databinding.ItemSalaryRvBinding
+import uz.ilhomjon.rizonuz.databinding.ItemSalaryRvBinding
 import uz.turgunboyevjurabek.rizon.madels.salary.SalaryHistory
 
 class SalaryHistoryAdapter(val selectSalary: SelectSalary, val list:ArrayList<SalaryHistory> = ArrayList()):RecyclerView.Adapter<SalaryHistoryAdapter.Vh>() {

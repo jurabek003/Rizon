@@ -9,7 +9,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import uz.turgunboyevjurabek.rizon.adapters.PurchaseHistoryAdapter
-import uz.turgunboyevjurabek.rizon.databinding.FragmentPurchaseHistoryBinding
+import uz.ilhomjon.rizonuz.databinding.FragmentPurchaseHistoryBinding
 import uz.turgunboyevjurabek.rizon.utils.AppObject
 import uz.turgunboyevjurabek.rizon.utils.MySharedPreference
 import uz.turgunboyevjurabek.rizon.utils.Status

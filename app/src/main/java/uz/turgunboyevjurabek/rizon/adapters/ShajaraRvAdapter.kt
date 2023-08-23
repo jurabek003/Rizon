@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
-import uz.turgunboyevjurabek.rizon.databinding.ItemShajaraRvBinding
+import uz.ilhomjon.rizonuz.databinding.ItemShajaraRvBinding
 import uz.turgunboyevjurabek.rizon.madels.usersProfile.UserTree
 
 class ShajaraRvAdapter(val list: ArrayList<UserTree> = ArrayList()):RecyclerView.Adapter<ShajaraRvAdapter.Vh>() {

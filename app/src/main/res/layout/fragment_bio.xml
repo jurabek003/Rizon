@@ -39,12 +39,14 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
                     <ImageView
+                        android:id="@+id/image_promotions"
                         android:layout_width="238dp"
                         android:layout_height="251dp"
                         android:src="@drawable/tifal2"
                         android:layout_gravity="center"
                         android:layout_marginTop="24dp"/>
                     <TextView
+                        android:id="@+id/tv_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Artel Tefal TD 55478"
@@ -54,6 +56,7 @@
                         android:layout_marginTop="24dp"
                         android:textSize="18sp"/>
                     <TextView
+                        android:id="@+id/tv_name_2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="18sp"
@@ -62,6 +65,7 @@
                         android:layout_marginStart="21dp"
                         android:textColor="@color/black"/>
                     <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_order"
                         android:layout_width="130dp"
                         android:layout_height="40dp"
                         android:layout_marginTop="24dp"
@@ -73,6 +77,7 @@
                         app:icon="@drawable/ic_karzinka"
                         app:iconGravity="textEnd"/>
                     <TextView
+                        android:id="@+id/tv_aboit"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Lorem ipsum dolor sit amet consectetur. Sed venenatis ornare quisque sapien in enim orci eget leo. Ornare elit urna iaculis vulputate. Mauris turpis neque in dolor eu. Hendrerit donec in tellus ullamcorper viverra. Magna pulvinar diam tempor dis venenatis. Nulla pellentesque elit quam nec quam suscipit vitae blandit sapien. Blandit felis phasellus augue nisl vitae arcu aliquam. Ipsum sed enim suscipit interdum tellus at vulputate."

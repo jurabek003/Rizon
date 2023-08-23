@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
-import uz.turgunboyevjurabek.rizon.databinding.ItemRvSaleBinding
+import uz.ilhomjon.rizonuz.databinding.ItemRvSaleBinding
 import uz.turgunboyevjurabek.rizon.madels.UserMain.ProductSalesData2
 import uz.turgunboyevjurabek.rizon.madels.sale.Sale
 

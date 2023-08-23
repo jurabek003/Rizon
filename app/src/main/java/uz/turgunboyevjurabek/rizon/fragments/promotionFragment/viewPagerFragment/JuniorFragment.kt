@@ -5,13 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import uz.turgunboyevjurabek.rizon.R
+import uz.ilhomjon.rizonuz.R
 import uz.turgunboyevjurabek.rizon.adapters.viewPagerAdapter.ItemSelect
 import uz.turgunboyevjurabek.rizon.adapters.viewPagerAdapter.RvAdapterJunior
-import uz.turgunboyevjurabek.rizon.databinding.DialogPromotionBuyBinding
-import uz.turgunboyevjurabek.rizon.databinding.FragmentJuniorBinding
+import uz.ilhomjon.rizonuz.databinding.DialogPromotionBuyBinding
+import uz.ilhomjon.rizonuz.databinding.FragmentJuniorBinding
 import uz.turgunboyevjurabek.rizon.madels.promotion.pager.Junior
 import uz.turgunboyevjurabek.rizon.madels.promotion.ProductsInterval
 import uz.turgunboyevjurabek.rizon.utils.AppObject
@@ -43,7 +44,7 @@ class JuniorFragment : Fragment(),ItemSelect {
     }
 
     override fun select(junior: ProductsInterval, position: Int) {
-        findNavController().navigate(R.id.bioFragment)
+        findNavController().navigate(R.id.bioFragment, bundleOf("keyProductInterval" to junior))
     }
 
     override fun dialogSelect(junior: ProductsInterval, position: Int) {
