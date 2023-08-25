@@ -44,10 +44,10 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    override fun onResume() {
-        super.onResume()
-    //    selectNavigation()
-    }
+//    override fun onResume() {
+//        super.onResume()
+//    //    selectNavigation()
+//    }
     //vaqtinchalik funkiya token yozib olish uchun
 //    fun addCatchToken(){
 //        MySharedPreference.init(this)

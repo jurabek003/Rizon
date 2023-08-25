@@ -24,7 +24,6 @@
            android:layout_width="match_parent"
            android:layout_height="match_parent"
            android:hint="Username"
-           android:text="MuqaddasxonXabirxanova"
            />
    </com.google.android.material.textfield.TextInputLayout>
 
@@ -36,7 +35,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="Parol"
-            android:text="MuqaddasxonXabirxanova"
             />
     </com.google.android.material.textfield.TextInputLayout>
 

@@ -30,6 +30,7 @@ import uz.ilhomjon.rizonuz.R
 import uz.ilhomjon.rizonuz.databinding.FragmentHomeBinding
 import uz.turgunboyevjurabek.rizon.adapters.SaleRvAdapter
 import uz.turgunboyevjurabek.rizon.madels.UserMain.ProductSalesData2
+import uz.turgunboyevjurabek.rizon.madels.UserMain.SalaryData
 import uz.turgunboyevjurabek.rizon.utils.AppObject
 import uz.turgunboyevjurabek.rizon.utils.MySharedPreference
 import uz.turgunboyevjurabek.rizon.utils.Status
@@ -82,9 +83,9 @@ class HomeFragment : Fragment() {
                     Status.ERROR -> {
                         Log.d(TAG, "onCreate: Error ${it.message}")
                         binding.myProgressBar.visibility = View.GONE
-                        Toast.makeText(context, "Error ${it.message}", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(AppObject.binding.root.context, "Error ${it.message}", Toast.LENGTH_SHORT).show()
                         if (it.message!!.lowercase().contains("unauth")){
-                            findNavController().popBackStack()
+//                            findNavController().popBackStack()
                             findNavController().navigate(R.id.authFragment)
                         }
                     }
@@ -94,8 +95,8 @@ class HomeFragment : Fragment() {
                         binding.myProgressBar.visibility = View.GONE
                         binding.homeScrollview.visibility = View.VISIBLE
                         saleAdapter(it.data?.product_sales_data2 as? ArrayList)
-                        diagram()
-                        diagram2()
+                        diagram(it.data?.product_sales_data2)
+                        diagram2(it.data?.salary_data)
                         shareLink(it.data?.follower_link!!, it.data.sale_link)
                     }
                 }
@@ -120,7 +121,7 @@ class HomeFragment : Fragment() {
     }
 
     ////umumiy maosh grafigi // salary-data
-    private fun diagram2() {
+    private fun diagram2(list: List<SalaryData>?) {
         barChart = binding.barChartView
 
         // on below line we are calling get bar
@@ -172,7 +173,7 @@ class HomeFragment : Fragment() {
 
     //maxsulot sotuv ulushi// products-selas-data2
     // ekranda korin yapti lekin figmadagidek emas
-    private fun diagram() {
+    private fun diagram(list: List<ProductSalesData2>?) {
         pieChart = binding.myPieChart
         pieChart.setUsePercentValues(true)
         pieChart.getDescription().setEnabled(false)
