@@ -12,6 +12,9 @@ import uz.turgunboyevjurabek.rizon.madels.UserMain.GetUsersMainResponse
 import uz.turgunboyevjurabek.rizon.madels.auth.PostAuthRequest
 import uz.turgunboyevjurabek.rizon.madels.auth.PostAuthResponse
 import uz.turgunboyevjurabek.rizon.madels.coupon.GetUsersCoupon
+import uz.turgunboyevjurabek.rizon.madels.coupon.transfer.GetUserForCouponTransferResponse
+import uz.turgunboyevjurabek.rizon.madels.coupon.transfer.PostCouponTransferRequest
+import uz.turgunboyevjurabek.rizon.madels.coupon.transfer.PostTransferResponse
 import uz.turgunboyevjurabek.rizon.madels.filial.Filial
 import uz.turgunboyevjurabek.rizon.madels.notification.GetNotificationResponse
 import uz.turgunboyevjurabek.rizon.madels.promotion.GetPromotionResponse
@@ -79,6 +82,13 @@ interface ApiService {
     //kuponlarni olib kelish
     @GET("users-coupons")
     suspend fun getUsersCoupon(@Header("Authorization") token: String): GetUsersCoupon
+
+    //koupon transfer uchun ism familiya bilish
+    @GET("users/{id}/user_id")
+    suspend fun getNameForTransferCoupon(@Header("Authorization") token: String, @Path("id") id:String):GetUserForCouponTransferResponse
+    //transfer coupon
+    @POST("coupons/transfers/")
+    suspend fun postTransferCoupon(@Header("Authorization") token: String, @Body postCouponTransferRequest: PostCouponTransferRequest): PostTransferResponse
 
     //asosiy main oyansidagi diagrammalarni, chegirmalarani chiqarish
     @GET("users-main-a")

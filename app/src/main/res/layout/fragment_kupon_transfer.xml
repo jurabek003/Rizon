@@ -128,6 +128,7 @@
                         android:layout_width="90dp"
                         android:layout_height="30dp"
                         android:layout_marginEnd="25dp"
+                        android:inputType="number"
                         android:background="@drawable/edt_bac"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textView7" />
@@ -151,7 +152,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:fontFamily="@font/inter"
-                        android:text="Munisa Rizayeva Shaxzod qizi"
+                        android:text="Avval oluvchi ID sini kiriting"
                         android:textColor="#B9B9B9"
                         android:textSize="14sp"
                         app:layout_constraintStart_toStartOf="parent"

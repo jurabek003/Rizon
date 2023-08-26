@@ -59,6 +59,8 @@ class AuthFragment : Fragment() {
                             AppObject.binding.btnNavigation.visibility = View.VISIBLE
                             AppObject.binding.appPanel.visibility = View.VISIBLE
                             findNavController().navigate(R.id.homeFragment)
+                            Toast.makeText(AppObject.binding.root.context, "Muvaffaqiyatli", Toast.LENGTH_SHORT)
+                                .show()
                         }
                     }
                 }

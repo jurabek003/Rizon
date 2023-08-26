@@ -1,6 +1,7 @@
 package uz.turgunboyevjurabek.rizon.repository
 
 import uz.turgunboyevjurabek.rizon.madels.auth.PostAuthRequest
+import uz.turgunboyevjurabek.rizon.madels.coupon.transfer.PostCouponTransferRequest
 import uz.turgunboyevjurabek.rizon.madels.usersProducts.post.PostProductsOrder
 import uz.turgunboyevjurabek.rizon.madels.usersProfile.userChangeInfo.PatchUserChangeInfoRequest
 import uz.turgunboyevjurabek.rizon.retrofit.ApiService
@@ -19,6 +20,8 @@ class AppRepository(val apiService: ApiService) {
     suspend fun getSalaryPayments(token: String) = apiService.getSalaryPayments("Bearer $token")
     suspend fun getNotifications(token: String) = apiService.getNotifications("Bearer $token")
     suspend fun getUserCoupon(token: String) = apiService.getUsersCoupon("Bearer $token")
+    suspend fun getUserNameForTransferCoupon(token: String, id:String) = apiService.getNameForTransferCoupon("Bearer $token", id)
+    suspend fun postTransferCoupons(token: String, postCouponTransferRequest: PostCouponTransferRequest) = apiService.postTransferCoupon("Bearer $token", postCouponTransferRequest)
     suspend fun getUserMain(token: String) = apiService.getUsersMain("Bearer $token")
     suspend fun getPromotions(token: String) = apiService.getPromotions("Bearer $token")
 }

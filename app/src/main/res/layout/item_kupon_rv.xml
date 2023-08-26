@@ -1,38 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="560dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
+
     <com.google.android.material.card.MaterialCardView
         android:layout_width="330dp"
-        android:layout_height="530dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
-        app:strokeWidth="0dp"
+        android:layout_marginTop="10dp"
         android:backgroundTint="@color/white"
         app:cardElevation="5dp"
-        android:layout_marginTop="10dp">
+        app:strokeWidth="0dp">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
             <TextView
+                android:id="@+id/tv_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="11.02.2023"
-                android:textSize="18sp"
-                android:textColor="@color/black"
-                android:fontFamily="@font/inter"
                 android:layout_gravity="center"
-                android:textStyle="bold"
-                android:paddingVertical="15dp"/>
+                android:fontFamily="@font/inter"
+                android:paddingVertical="15dp"
+                android:text="11.02.2023"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="312dp"
                 android:layout_height="211dp"
                 android:layout_gravity="center"
-                app:cardCornerRadius="15dp"
                 android:layout_marginVertical="20dp"
                 android:layout_weight="1"
+                app:cardCornerRadius="15dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:strokeWidth="0dp">
@@ -65,6 +70,7 @@
                                 android:textStyle="bold" />
 
                             <TextView
+                                android:id="@+id/tv_oluvchi_id"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/inter"
@@ -91,6 +97,7 @@
                                 android:textStyle="bold" />
 
                             <TextView
+                                android:id="@+id/tv_ism_familiya"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/inter"
@@ -109,6 +116,7 @@
                                 android:textStyle="bold" />
 
                             <TextView
+                                android:id="@+id/tv_miqdor"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/inter"
@@ -117,142 +125,23 @@
                                 android:textSize="12sp" />
 
 
-
-
                         </LinearLayout>
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="38dp"
-                        android:gravity="center"
                         android:background="#002940"
                         android:clickable="true"
-                        android:foreground="?selectableItemBackground"
                         android:focusable="true"
+                        android:foreground="?selectableItemBackground"
+                        android:gravity="center"
                         app:layout_constraintBottom_toBottomOf="parent">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Qabul qilindi"
-                            android:textColor="@color/white"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="312dp"
-                android:layout_height="211dp"
-                android:layout_gravity="center"
-                app:cardCornerRadius="15dp"
-                android:layout_marginVertical="20dp"
-                android:layout_weight="1"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:strokeWidth="0dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="horizontal">
-
-                        <LinearLayout
-                            android:layout_width="150dp"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:padding="20dp">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/inter"
-                                android:paddingTop="5dp"
-                                android:text="Oluvchi  ID"
-                                android:textColor="@color/black"
-                                android:textSize="14sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/inter"
-                                android:text="11.02.2023"
-                                android:textColor="@color/black"
-                                android:textSize="12sp" />
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:padding="20dp">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/inter"
-                                android:paddingTop="5dp"
-                                android:text="Ism va familiya"
-                                android:textColor="@color/black"
-                                android:textSize="14sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/inter"
-                                android:text="Elbek Botirov"
-                                android:textColor="@color/black"
-                                android:textSize="12sp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/inter"
-                                android:paddingTop="5dp"
-                                android:text="Miqdor"
-                                android:textColor="@color/black"
-                                android:textSize="14sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/inter"
-                                android:text="3000"
-                                android:textColor="@color/black"
-                                android:textSize="12sp" />
-
-
-
-
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="38dp"
-                        android:gravity="center"
-                        android:background="#002940"
-                        android:clickable="true"
-                        android:foreground="?selectableItemBackground"
-                        android:focusable="true"
-                        app:layout_constraintBottom_toBottomOf="parent">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="O’tkazildi"
                             android:textColor="@color/white"
                             android:textSize="16sp"
                             android:textStyle="bold" />
