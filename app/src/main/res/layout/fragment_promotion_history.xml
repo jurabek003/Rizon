@@ -1,172 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".fragments.promotionFragment.PromotionHistoryFragment">
-    
+
     <!-- TODO: Update blank fragment layout -->
     <ImageView
         android:id="@+id/img_back_history"
         android:layout_width="25dp"
         android:layout_height="25dp"
-        android:src="@drawable/ic_back"
         android:layout_marginStart="15dp"
         android:layout_marginTop="30dp"
-        />
-<com.google.android.material.card.MaterialCardView
-    android:layout_width="323dp"
-    android:layout_height="195dp"
-    android:layout_gravity="center"
-    app:strokeWidth="0dp"
-    android:backgroundTint="@color/white"
-    app:cardCornerRadius="21dp"
-    app:cardElevation="5dp"
-    android:layout_marginTop="30dp"
-    >
-    <LinearLayout
+        android:src="@drawable/ic_back" />
+
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:paddingVertical="15dp"
-            android:text="Maosh to’lash tarixi"
-            android:textSize="18sp"
-            android:fontFamily="@font/inter"
-            android:layout_gravity="center"/>
-        <LinearLayout
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/tv_rv"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_weight="1"
-                android:paddingStart="20dp"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/item_promotion_buy_history" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Sana"
-                    android:fontFamily="@font/inter"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="11.01.2023"
-                    android:textSize="12sp"
-                    android:paddingTop="10dp"
-                    android:textColor="@color/black"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="21.01.2023"
-                    android:textSize="12sp"
-                    android:paddingTop="10dp"
-                    android:textColor="@color/black"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="31.01.2023"
-                    android:textSize="12sp"
-                    android:paddingTop="10dp"
-                    android:textColor="@color/black"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingStart="20dp"
-                android:orientation="vertical">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="16sp"
-                    android:text="Tovar nomi"
-                    android:fontFamily="@font/inter"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Tefal Artel 1"
-                    android:textSize="12sp"
-                    android:paddingTop="10dp"
-                    android:textColor="@color/black"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Tefal Artel 2"
-                    android:textSize="12sp"
-                    android:paddingTop="10dp"
-                    android:textColor="@color/black"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Tefal Artel 3"
-                    android:textSize="12sp"
-                    android:paddingTop="10dp"
-                    android:textColor="@color/black"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingStart="20dp"
-                android:orientation="vertical">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="16sp"
-                    android:text="Qiymati"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="100RV"
-                    android:textSize="12sp"
-                    android:paddingTop="10dp"
-                    android:textColor="@color/black"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="100RV"
-                    android:textSize="12sp"
-                    android:paddingTop="10dp"
-                    android:textColor="@color/black"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="100RV"
-                    android:textSize="12sp"
-                    android:paddingTop="10dp"
-                    android:textColor="@color/black"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-            </LinearLayout>
-        </LinearLayout>
-    </LinearLayout>
-</com.google.android.material.card.MaterialCardView>
-
-
+        <ProgressBar
+            android:id="@+id/my_progress_bar"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="150dp"
+            />
+    </FrameLayout>
 </LinearLayout>

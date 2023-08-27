@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -31,6 +32,72 @@ class PromotionFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+
+    }
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?,
+    ): View {
+        // Inflate the layout for this fragment
+
+        return binding.root
+    }
+
+    private fun viewPager(getPromotionResponse: GetPromotionResponse) {
+        list= ArrayList()
+        list.addAll(listOf(Pager("Junior"), Pager("Middle"), Pager("Senior")))
+
+        viewPager2Adapter=ViewPagerAdapter(AppObject.fragmentManager, getPromotionResponse)
+        binding.myViewPager.adapter=viewPager2Adapter
+//        binding.myViewPager.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(binding.tabLayout))
+        binding.tabLayout.setupWithViewPager(binding.myViewPager)
+//
+//        val tabCount=binding.tabLayout.tabCount
+//
+//        for (i in 0 until tabCount){
+//            val itemTabBinding = ItemTabBinding.inflate(layoutInflater)
+//            val tab=binding.tabLayout.getTabAt(i)
+//            itemTabBinding.tabItemName.text=list[i].name.toString()
+//            tab?.setCustomView(itemTabBinding.root)
+//        }
+
+//     binding.tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener{
+//            @SuppressLint("ResourceAsColor")
+//            override fun onTabSelected(tab: TabLayout.Tab?) {
+//
+////                val tabBinding = ItemTabBinding.bind(tab?.customView!!)
+////                tabBinding.tabItemName.alpha=1f
+//                tab?.
+//                view?.
+//                findViewById<TextView>(R.id.tab_item_name)!!
+//                    .alpha = 1f
+//            }
+//
+//            override fun onTabUnselected(tab: TabLayout.Tab?) {
+////                val tabBinding = ItemTabBinding.bind(tab?.customView!!)
+////                tabBinding.tabItemName.alpha=.5f
+//                tab?.view?.findViewById<TextView>(R.id.tab_item_name)!!
+//                    .alpha = 0.5f
+//            }
+//
+//            override fun onTabReselected(tab: TabLayout.Tab?) {
+//
+//            }
+//        })
+
+
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+        AppObject.binding.thtPanel.text = "Promotion"
+        AppObject.binding.materialCardViewCalendar.visibility = View.INVISIBLE
+        binding.btnHistory.setOnClickListener {
+            findNavController().navigate(R.id.promotionHistoryFragment)
+        }
+
+
         promotionViewModel = ViewModelProvider(requireActivity())[PromotionViewModel::class.java]
 
         promotionViewModel.getPromotions(MySharedPreference.token)
@@ -52,64 +119,7 @@ class PromotionFragment : Fragment() {
                     }
                 }
             }
-    }
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?,
-    ): View {
-        // Inflate the layout for this fragment
 
-
-        return binding.root
-    }
-
-    private fun viewPager(getPromotionResponse: GetPromotionResponse) {
-        list= ArrayList()
-        list.addAll(listOf(Pager("Junior"), Pager("Middle"), Pager("Senior")))
-
-        viewPager2Adapter=ViewPagerAdapter(parentFragmentManager, getPromotionResponse)
-        binding.myViewPager.adapter=viewPager2Adapter
-        binding.myViewPager.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(binding.tabLayout))
-        binding.tabLayout.setupWithViewPager(binding.myViewPager)
-
-        val tabCount=binding.tabLayout.tabCount
-
-        for (i in 0 until tabCount){
-            val itemTabBinding = ItemTabBinding.inflate(layoutInflater)
-            val tab=binding.tabLayout.getTabAt(i)
-            itemTabBinding.tabItemName.text=list[i].name.toString()
-            tab?.setCustomView(itemTabBinding.root)
-        }
-
-     binding.tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener{
-            @SuppressLint("ResourceAsColor")
-            override fun onTabSelected(tab: TabLayout.Tab?) {
-
-                val tabBinding = ItemTabBinding.bind(tab?.customView!!)
-                tabBinding.tabItemName.alpha=1f
-            }
-
-            override fun onTabUnselected(tab: TabLayout.Tab?) {
-                val tabBinding = ItemTabBinding.bind(tab?.customView!!)
-                tabBinding.tabItemName.alpha=.5f
-            }
-
-            override fun onTabReselected(tab: TabLayout.Tab?) {
-
-            }
-        })
-
-
-
-    }
-
-    override fun onResume() {
-        super.onResume()
-        AppObject.binding.thtPanel.text = "Promotion"
-        AppObject.binding.materialCardViewCalendar.visibility = View.INVISIBLE
-        binding.btnHistory.setOnClickListener {
-            findNavController().navigate(R.id.promotionHistoryFragment)
-        }
     }
 }
 

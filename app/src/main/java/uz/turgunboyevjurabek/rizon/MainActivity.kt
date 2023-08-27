@@ -16,6 +16,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         AppObject.binding = binding
+        AppObject.fragmentManager = supportFragmentManager
         val navController = findNavController(R.id.my_navigation_host)
         binding.btnNavigation.setupWithNavController(navController)
 

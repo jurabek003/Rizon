@@ -3,13 +3,14 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="400dp"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
 
     <!--  asosiy   CardView boshlanishi   -->
     <com.google.android.material.card.MaterialCardView
-        android:layout_width="330dp"
-        android:layout_height="376dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
         android:backgroundTint="@color/white"
@@ -38,8 +39,8 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <com.google.android.material.card.MaterialCardView
-                android:layout_width="312dp"
-                android:layout_height="290dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 app:cardCornerRadius="15dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -265,6 +266,25 @@
                                 android:textSize="12sp" />
 
 
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" android:fontFamily="@font/inter"
+                                android:paddingTop="5dp"
+                                android:text="Oylik"
+                                android:textColor="@color/black"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tv_oylik"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/inter"
+                                android:text="6 000 000"
+                                android:textColor="@color/black"
+                                android:textSize="15sp" />
+
+
                         </LinearLayout>
                     </LinearLayout>
 
@@ -282,9 +302,10 @@
                         app:layout_constraintBottom_toBottomOf="parent">
 
                         <TextView
+                            android:id="@+id/tv_filial"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Ko’rish"
+                            android:text="Filial"
                             android:textColor="@color/white"
                             android:textSize="16sp"
                             android:textStyle="bold" />

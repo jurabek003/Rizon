@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import uz.ilhomjon.rizonuz.databinding.ItemSalaryRvBinding
 import uz.turgunboyevjurabek.rizon.madels.salary.SalaryHistory
+import java.text.SimpleDateFormat
 
 class SalaryHistoryAdapter(val selectSalary: SelectSalary, val list:ArrayList<SalaryHistory> = ArrayList()):RecyclerView.Adapter<SalaryHistoryAdapter.Vh>() {
     inner class Vh(val itemSalaryRvBinding: ItemSalaryRvBinding): RecyclerView.ViewHolder(itemSalaryRvBinding.root){
@@ -12,7 +13,12 @@ class SalaryHistoryAdapter(val selectSalary: SelectSalary, val list:ArrayList<Sa
             itemSalaryRvBinding.showLayout.setOnClickListener {
                 selectSalary.clickSalary(salaryHistory,position)
             }
-            itemSalaryRvBinding.tvDate.text = salaryHistory.updated_time
+
+            val formatter = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSSSSXXX")
+            itemSalaryRvBinding.tvDate.text = SimpleDateFormat("dd.MM.yyyy").format(formatter.parse(salaryHistory.created_time))
+
+            itemSalaryRvBinding.tvOylik.text = salaryHistory.salary.toString()
+            itemSalaryRvBinding.tvFilial.text = salaryHistory.warehouse.name
             itemSalaryRvBinding.salaryItemSana.text = salaryHistory.month
             itemSalaryRvBinding.tvKupon.text = salaryHistory.coupon.toString()
             itemSalaryRvBinding.tvShaxsiyAylanma.text = salaryHistory.user_score.toString()

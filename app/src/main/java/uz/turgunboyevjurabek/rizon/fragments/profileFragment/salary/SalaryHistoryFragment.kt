@@ -59,10 +59,11 @@ class SalaryHistoryFragment : Fragment(),SelectSalary {
     }
 
     override fun clickSalary(salaryHistory: SalaryHistory, position: Int) {
-        val dialog=MaterialAlertDialogBuilder(requireContext()).create()
-        val dialogSalaryItemBinding=DialogSalaryItemBinding.inflate(layoutInflater)
-        dialog.setView(dialogSalaryItemBinding.root)
-        dialog.show()
+//        val dialog=MaterialAlertDialogBuilder(requireContext()).create()
+//        val dialogSalaryItemBinding=DialogSalaryItemBinding.inflate(layoutInflater)
+//        dialogSalaryItemBinding
+//        dialog.setView(dialogSalaryItemBinding.root)
+//        dialog.show()
 
     }
 }

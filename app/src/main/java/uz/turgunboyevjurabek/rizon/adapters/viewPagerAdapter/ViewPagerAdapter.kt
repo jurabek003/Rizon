@@ -28,4 +28,13 @@ class ViewPagerAdapter(fm:FragmentManager, val getPromotionResponse: GetPromotio
         }
         return JuniorFragment.newInstance(getPromotionResponse.small_interval)
     }
+
+    override fun getPageTitle(position: Int): CharSequence? {
+        return when(position){
+            0->"Junior"
+            1->"Middle"
+            2->"Senior"
+            else->"Junior"
+        }
+    }
 }

@@ -17,7 +17,10 @@ import uz.turgunboyevjurabek.rizon.madels.coupon.transfer.PostCouponTransferRequ
 import uz.turgunboyevjurabek.rizon.madels.coupon.transfer.PostTransferResponse
 import uz.turgunboyevjurabek.rizon.madels.filial.Filial
 import uz.turgunboyevjurabek.rizon.madels.notification.GetNotificationResponse
+import uz.turgunboyevjurabek.rizon.madels.promotion.GetPromotionBuyHistoryResponse
 import uz.turgunboyevjurabek.rizon.madels.promotion.GetPromotionResponse
+import uz.turgunboyevjurabek.rizon.madels.promotion.post.PostBuyPromotionRequest
+import uz.turgunboyevjurabek.rizon.madels.promotion.post.PostBuyPromotionResponse
 import uz.turgunboyevjurabek.rizon.madels.salary.GetSalaryResponce
 import uz.turgunboyevjurabek.rizon.madels.userOrders.GetUsersOrdersResponse
 import uz.turgunboyevjurabek.rizon.madels.usersProducts.GetUserProductsResponse
@@ -97,5 +100,11 @@ interface ApiService {
     //promotion maxsulotlarni olib kelish
     @GET("users-promotions")
     suspend fun getPromotions(@Header("Authorization") token: String): GetPromotionResponse
+
+    @GET("users-promotions-purchases/")
+    suspend fun getPromotionsBuyHistory(@Header("Authorization") token: String): GetPromotionBuyHistoryResponse
+
+    @POST("users-promotions-buy//")
+    suspend fun postBuyPromotion(@Header("Authorization") token: String, @Body postBuyPromotionRequest: PostBuyPromotionRequest): PostBuyPromotionResponse
 
 }
