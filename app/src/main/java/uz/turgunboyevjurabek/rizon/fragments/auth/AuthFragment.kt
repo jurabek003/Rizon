@@ -31,8 +31,8 @@ class AuthFragment : Fragment() {
 
         binding.btnSign.setOnClickListener {
             val postAuthRequest = PostAuthRequest(
-                binding.edtPassword.text.toString(),
-                binding.edtUserName.text.toString()
+                binding.edtPassword.text.toString().trim(),
+                binding.edtUserName.text.toString().trim()
             )
 
             authViewModel.getToken(postAuthRequest)

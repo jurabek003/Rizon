@@ -1,5 +1,6 @@
 package uz.turgunboyevjurabek.rizon.fragments.homeFragment
 
+import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
@@ -67,10 +68,20 @@ class HomeFragment : Fragment() {
 
     lateinit var homeViewModel: HomeViewModel
     private fun getApi() {
+
         MySharedPreference.init(binding.root.context)
 
         homeViewModel = ViewModelProvider(requireActivity())[HomeViewModel::class.java]
-
+        val dialog = AlertDialog.Builder(binding.root.context)
+            .setTitle("Authorizationda xatolik")
+            .setMessage("Qaytadan login parol kiritishingiz kerak.")
+            .setPositiveButton("Login") { v, d ->
+                findNavController().navigate(R.id.authFragment)
+            }
+            .setNegativeButton("Kerak emas") { v, d ->
+                requireActivity().finish()
+            }
+            .create()
         homeViewModel.getUsersMain(MySharedPreference.token)
             .observe(requireActivity()) {
                 when (it.status) {
@@ -83,14 +94,16 @@ class HomeFragment : Fragment() {
                     Status.ERROR -> {
                         Log.d(TAG, "onCreate: Error ${it.message}")
                         binding.myProgressBar.visibility = View.GONE
-                        Toast.makeText(AppObject.binding.root.context, "Error main ${it.message}", Toast.LENGTH_SHORT).show()
-                        if (it.message!!.lowercase().contains("unauth")){
+//                        Toast.makeText(AppObject.binding.root.context, "Error main ${it.message}", Toast.LENGTH_SHORT).show()
+                        if (it.message!!.lowercase().contains("unauth") ){
 //                            findNavController().popBackStack()
-                            findNavController().navigate(R.id.authFragment)
+                            dialog.setCancelable(false)
+                            dialog.show()
                         }
                     }
 
                     Status.SUCCESS -> {
+                        dialog.cancel()
                         Log.d(TAG, "onCreate: ${it.data}")
                         binding.myProgressBar.visibility = View.GONE
                         binding.homeScrollview.visibility = View.VISIBLE
