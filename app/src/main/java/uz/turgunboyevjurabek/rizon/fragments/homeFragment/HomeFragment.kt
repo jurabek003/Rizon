@@ -138,6 +138,9 @@ class HomeFragment : Fragment() {
     private fun diagram2(list: List<SalaryData>?) {
         barChart = binding.barChartView
 
+        binding.tvToliq.setOnClickListener {
+            findNavController().navigate(R.id.salaryHistoryFragment)
+        }
         // on below line we are calling get bar
         // chart data to add data to our array list
         val barChart: BarChart = binding.barChartView
@@ -165,7 +168,7 @@ class HomeFragment : Fragment() {
 
         // X-osi bo'yicha datalarni joylash
         val barDataSet = BarDataSet(entries, "Ma'lumotlar")
-        barDataSet.color = Color.BLUE
+        barDataSet.color = Color.BLACK
         // X-osi bo'yicha nomlarni joylash
         val xAxisLabels = dates.toTypedArray()
         val xAxis = barChart.xAxis
