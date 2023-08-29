@@ -13,7 +13,7 @@ class KuponTransferAdapter(val list:ArrayList<Transfer> = ArrayList()):RecyclerV
         fun onBind(transfer: Transfer){
             val formatter = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSSSSXXX")
             itemKuponRvBinding.tvDate.text = SimpleDateFormat("dd.MM.yyyy").format(formatter.parse(transfer.dateTime))
-            itemKuponRvBinding.tvOluvchiId.text = transfer.sender.id
+            itemKuponRvBinding.tvOluvchiId.text = transfer.receiver.user_id
 
             itemKuponRvBinding.tvIsmFamiliya.text = "${transfer.receiver.first_name} ${transfer.receiver.last_name}"
             itemKuponRvBinding.tvMiqdor.text = transfer.used.toString()

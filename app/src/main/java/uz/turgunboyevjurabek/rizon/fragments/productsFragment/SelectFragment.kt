@@ -95,12 +95,14 @@ class SelectFragment : Fragment() {
                         val nameList = ArrayList<String>()
                         val list = it.data
                         it.data?.forEach {
-                            nameList.add("${it.name} ${it.address}")
+                            nameList.add("${it.name} ")
                         }
                         itemDialog.spinnerFilial.adapter = ArrayAdapter<String>(binding.root.context, android.R.layout.simple_list_item_1, nameList)
 
                         itemDialog.materialButton2.setOnClickListener {
                             applyOrder(
+                                product,
+                                list?.get(itemDialog.spinnerFilial.selectedItemPosition)?.name!!,
                                 dialog,
                                 itemDialog,
                                 PostProductsOrder(
@@ -118,7 +120,7 @@ class SelectFragment : Fragment() {
         dialog.show()
     }
 
-    fun applyOrder(alertDialog: BottomSheetDialog, itemDialog: ItemAddOrderDialogBinding, postProductsOrder: PostProductsOrder){
+    fun applyOrder(product: Product, filial:String,  alertDialog: BottomSheetDialog, itemDialog: ItemAddOrderDialogBinding, postProductsOrder: PostProductsOrder){
         productsViewModel.postProductsOrder(MySharedPreference.token, postProductsOrder)
             .observe(viewLifecycleOwner){
                 when(it.status){
@@ -136,7 +138,7 @@ class SelectFragment : Fragment() {
                     Status.SUCCESS ->{
                         Log.d(TAG, "onCreate: ${it.data}")
                         val dialog = AlertDialog.Builder(binding.root.context)
-                        dialog.setMessage("${it.data?.product} maxsuloti ${it.data?.warehouse} filialiga ${it.data?.amount} ta buyurtma qilindi. Buyurtmalar oynasidan ko'rishingiz mumkin.")
+                        dialog.setMessage("${product.name} maxsuloti $filial filialiga ${it.data?.amount} ta buyurtma qilindi. Buyurtmalar oynasidan ko'rishingiz mumkin.")
                         dialog.show()
                         itemDialog.myProgressBar.visibility = View.GONE
                         alertDialog.cancel()

@@ -12,6 +12,7 @@
         android:layout_height="match_parent">
 
         <LinearLayout
+            android:id="@+id/my_root"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
@@ -90,7 +91,7 @@
                     android:layout_gravity="center"
                     android:backgroundTint="#002940"
                     android:text="Kupon transfer"
-                    android:textSize="13sp"
+                    android:textSize="11sp"
                     app:cornerRadius="5dp" />
 
                 <com.google.android.material.button.MaterialButton
@@ -102,7 +103,7 @@
                     android:backgroundTint="#002940"
                     android:gravity="center"
                     android:text="Sotuv tarixi"
-                    android:textSize="13sp"
+                    android:textSize="11sp"
                     app:cornerRadius="5dp" />
 
                 <com.google.android.material.button.MaterialButton
@@ -113,7 +114,7 @@
                     android:layout_gravity="center"
                     android:backgroundTint="#002940"
                     android:text="Maosh tarixi"
-                    android:textSize="13sp"
+                    android:textSize="11sp"
                     app:cornerRadius="5dp" />
             </LinearLayout>
 
@@ -197,6 +198,7 @@
                     android:layout_marginStart="15dp"
                     android:layout_marginTop="5dp"/>
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/id_raqam"
                 android:layout_width="112dp"
                 android:layout_height="30dp"
                 android:layout_marginStart="20dp"
@@ -480,6 +482,15 @@
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="20dp"
                         android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/img_before"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center"
+                            android:padding="4dp"
+                            android:layout_marginEnd="20dp"
+                            android:src="@drawable/ic_back" />
 
                         <TextView
                             android:layout_width="wrap_content"

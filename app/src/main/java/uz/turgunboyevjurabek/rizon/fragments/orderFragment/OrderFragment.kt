@@ -1,5 +1,6 @@
 package uz.turgunboyevjurabek.rizon.fragments.orderFragment
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -65,26 +66,36 @@ class OrderFragment : Fragment(), RvAction {
 
     override fun deleteOrder(orders: Order, position: Int) {
         //buyurtmani bekor qilish
-        ordersViewModel.deleteOrder(MySharedPreference.token, orders.id)
-            .observe(requireActivity()){
-                when(it.status){
-                    Status.LOADING ->{
-                        Log.d(TAG, "onCreate: Loading")
-                        binding.progressUserProducts.visibility = View.VISIBLE
-                    }
-                    Status.ERROR->{
-                        Log.d(TAG, "onCreate: Error ${it.message}")
-                        binding.progressUserProducts.visibility = View.GONE
+        val dialog = AlertDialog.Builder(binding.root.context)
+        dialog.setTitle("Ogohlantirish")
+        dialog.setMessage("Haqiqatdan ham ushbu buyurtmani bekor qilmoqchimisiz?")
+        dialog.setPositiveButton("Ha") { d, v ->
+
+            ordersViewModel.deleteOrder(MySharedPreference.token, orders.id)
+                .observe(requireActivity()){
+                    when(it.status){
+                        Status.LOADING ->{
+                            Log.d(TAG, "onCreate: Loading")
+                            binding.progressUserProducts.visibility = View.VISIBLE
+                        }
+                        Status.ERROR->{
+                            Log.d(TAG, "onCreate: Error ${it.message}")
+                            binding.progressUserProducts.visibility = View.GONE
 //                        Toast.makeText(context, "Error ${it.message}", Toast.LENGTH_SHORT).show()
-                    }
-                    Status.SUCCESS ->{
-                        Log.d(TAG, "onCreate: ${it.data}")
-                        userOrderAdapter.list.remove(orders)
-                        userOrderAdapter.notifyItemRemoved(position)
-                        binding.progressUserProducts.visibility = View.GONE
+                        }
+                        Status.SUCCESS ->{
+                            Log.d(TAG, "onCreate: ${it.data}")
+                            userOrderAdapter.list.remove(orders)
+                            userOrderAdapter.notifyItemRemoved(position)
+                            binding.progressUserProducts.visibility = View.GONE
+                        }
                     }
                 }
-            }
+
+
+        }
+        dialog.setNegativeButton("Yo'q") { d, v -> }
+        dialog.show()
 
     }
 

@@ -30,6 +30,7 @@ import com.github.mikephil.charting.utils.MPPointF
 import uz.ilhomjon.rizonuz.R
 import uz.ilhomjon.rizonuz.databinding.FragmentHomeBinding
 import uz.turgunboyevjurabek.rizon.adapters.SaleRvAdapter
+import uz.turgunboyevjurabek.rizon.madels.UserMain.Discount
 import uz.turgunboyevjurabek.rizon.madels.UserMain.ProductSalesData2
 import uz.turgunboyevjurabek.rizon.madels.UserMain.SalaryData
 import uz.turgunboyevjurabek.rizon.utils.AppObject
@@ -107,7 +108,7 @@ class HomeFragment : Fragment() {
                         Log.d(TAG, "onCreate: ${it.data}")
                         binding.myProgressBar.visibility = View.GONE
                         binding.homeScrollview.visibility = View.VISIBLE
-                        saleAdapter(it.data?.product_sales_data2 as? ArrayList)
+                        saleAdapter(it.data?.discounts as? ArrayList)
                         diagram(it.data?.product_sales_data2)
                         diagram2(it.data?.salary_data)
                         shareLink(it.data?.follower_link!!, it.data.sale_link)
@@ -272,11 +273,12 @@ class HomeFragment : Fragment() {
     }
 
     //chegirmali maxsulotlar
-    private fun saleAdapter(list:ArrayList<ProductSalesData2>?) {
+    private fun saleAdapter(list:ArrayList<Discount>?) {
         saleRvAdapter = SaleRvAdapter()
         saleRvAdapter.list.clear()
-        if (list!=null)
-        saleRvAdapter.list.addAll(list)
+        if (list!=null) {
+            saleRvAdapter.list.addAll(list)
+        }
         binding.rvSale.adapter = saleRvAdapter
         saleRvAdapter.notifyDataSetChanged()
 

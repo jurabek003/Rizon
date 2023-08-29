@@ -2,6 +2,9 @@ package uz.turgunboyevjurabek.rizon.fragments.profileFragment
 
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -10,6 +13,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -37,6 +41,7 @@ class ProfileFragment : Fragment() {
     ): View? {
         MySharedPreference.init(binding.root.context)
 
+        binding.myRoot.visibility = View.GONE
 
         profileViewModel = ViewModelProvider(requireActivity())[ProfileViewModel::class.java]
 
@@ -83,6 +88,7 @@ class ProfileFragment : Fragment() {
             user.phoneNumTwo
         ))
         binding.apply {
+            myRoot.visibility = View.VISIBLE
             if (user.photo!=null){
             Picasso.get().load(ApiClient.PHOTO_BASE_URL+user.photo.toString()).into(imageProfile)
             }
@@ -102,19 +108,27 @@ class ProfileFragment : Fragment() {
             tvTugilganKun.setText(user.dateOfBirth.substring(8))
             tvTugilganOy.setText(user.dateOfBirth.substring(5, 7))
             tvTugilganYil.setText(user.dateOfBirth.substring(0, 4))
+
+            idRaqam.setOnClickListener {
+
+                val clipboardManager = requireActivity().getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+                val clipData = ClipData.newPlainText("Label", binding.tvId.text.toString())
+                clipboardManager.setPrimaryClip(clipData)
+                Toast.makeText(context, "Id nusxalandi", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
     var shajaraNumber = 0
     fun showShajara(getUserProfileResponse: GetUserProfileResponse){
-        shajaraRvAdapter = ShajaraRvAdapter()
+        shajaraRvAdapter = ShajaraRvAdapter(requireActivity())
         shajaraRvAdapter.list.addAll(getUserProfileResponse.user_tree[shajaraNumber])
 
         binding.apply {
             rvShajara.adapter = shajaraRvAdapter
             tvIzdoshlarSoni.text = "Izdosh ${getUserProfileResponse.user_tree[0].size} ta"
 
-            linerAvlod.setOnClickListener {
+            imgNext.setOnClickListener {
                     if (shajaraNumber<getUserProfileResponse.user_tree.size-1){
                         shajaraNumber++
                     }else{
@@ -129,6 +143,21 @@ class ProfileFragment : Fragment() {
                     tvIzdoshlarSoni.text =
                         "Izdosh ${getUserProfileResponse.user_tree[shajaraNumber].size} ta"
                 }
+            imgBefore.setOnClickListener {
+                if (shajaraNumber>0){
+                    shajaraNumber--
+                }else{
+                    shajaraNumber = 0
+                }
+                shajaraRvAdapter.list.clear()
+                shajaraRvAdapter.list.addAll(getUserProfileResponse.user_tree[shajaraNumber])
+                shajaraRvAdapter.notifyDataSetChanged()
+
+                tvAvldNumber.text = "${shajaraNumber + 1} - Avlod"
+
+                tvIzdoshlarSoni.text =
+                    "Izdosh ${getUserProfileResponse.user_tree[shajaraNumber].size} ta"
+            }
 
 
         }

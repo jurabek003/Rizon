@@ -11,5 +11,6 @@ data class Discount(
     val name: String,
     val photo_link: String,
     val price: Int,
-    val product_type: String
+    val product_type: String,
+    val lifetime:String
 )
