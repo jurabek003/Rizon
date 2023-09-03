@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.provider.CalendarContract.Colors
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -26,9 +27,12 @@ import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import com.github.mikephil.charting.formatter.PercentFormatter
+import com.github.mikephil.charting.formatter.ValueFormatter
 import com.github.mikephil.charting.utils.MPPointF
 import uz.ilhomjon.rizonuz.R
 import uz.ilhomjon.rizonuz.databinding.FragmentHomeBinding
+import uz.turgunboyevjurabek.rizon.adapters.MyDiagramObject
+import uz.turgunboyevjurabek.rizon.adapters.My_diagramRoundRvAdapter
 import uz.turgunboyevjurabek.rizon.adapters.SaleRvAdapter
 import uz.turgunboyevjurabek.rizon.madels.UserMain.Discount
 import uz.turgunboyevjurabek.rizon.madels.UserMain.ProductSalesData2
@@ -36,6 +40,8 @@ import uz.turgunboyevjurabek.rizon.madels.UserMain.SalaryData
 import uz.turgunboyevjurabek.rizon.utils.AppObject
 import uz.turgunboyevjurabek.rizon.utils.MySharedPreference
 import uz.turgunboyevjurabek.rizon.utils.Status
+import java.text.SimpleDateFormat
+import java.util.Random
 
 
 private const val TAG = "HomeFragment"
@@ -95,7 +101,7 @@ class HomeFragment : Fragment() {
                     Status.ERROR -> {
                         Log.d(TAG, "onCreate: Error ${it.message}")
                         binding.myProgressBar.visibility = View.GONE
-//                        Toast.makeText(AppObject.binding.root.context, "Error main ${it.message}", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(AppObject.binding.root.context, "Error main ${it.message}", Toast.LENGTH_SHORT).show()
                         if (it.message!!.lowercase().contains("unauth") ){
 //                            findNavController().popBackStack()
                             dialog.setCancelable(false)
@@ -109,7 +115,7 @@ class HomeFragment : Fragment() {
                         binding.myProgressBar.visibility = View.GONE
                         binding.homeScrollview.visibility = View.VISIBLE
                         saleAdapter(it.data?.discounts as? ArrayList)
-                        diagram(it.data?.product_sales_data2)
+                        diagram(it.data?.product_sales_data)
                         diagram2(it.data?.salary_data)
                         shareLink(it.data?.follower_link!!, it.data.sale_link)
                     }
@@ -145,21 +151,41 @@ class HomeFragment : Fragment() {
         // chart data to add data to our array list
         val barChart: BarChart = binding.barChartView
 
-        val dates = listOf(
-            "January",
-            "February",
-            "March",
-            "April",
-            "May",
-            "June",
-            "July",
-            "August",
-            "September",
-            "October",
-            "November",
-            "December"
-        )
-        val values = listOf(10f, 50f, 700f, 120f, 340f, 214f, 567f, 6666f, 999f, 112f, 2222f, 1212f)
+        val formatter = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSSSSXXX")
+        val lastDate = SimpleDateFormat("dd.MM.yyyy").format(formatter.parse(list?.last()?.date))
+
+        val format = SimpleDateFormat("MM.yyyy")
+
+        val list1 = ArrayList<SalaryData>()
+        for (i in list?.size!!-1 downTo 0){
+            list1.add(list.get(i)!!)
+            if (list1.size >= 6){
+                break
+            }
+        }
+
+//        val months = listOf(
+//            "January",
+//            "February",
+//            "March",
+//            "April",
+//            "May",
+//            "June",
+//            "July",
+//            "August",
+//            "September",
+//            "October",
+//            "November",
+//            "December"
+//        )
+
+        val dates = ArrayList<String>()
+        val values = ArrayList<Float>()
+        list1.reversed().forEach {
+            dates.add(format.format(formatter.parse(it.date)))
+            values.add(it.paid.toFloat())
+        }
+
         // BarEntry ma'lumotlarini tayyorlash
         val entries: ArrayList<BarEntry> = ArrayList()
         for (i in values.indices) {
@@ -180,9 +206,26 @@ class HomeFragment : Fragment() {
         // BarChart konfiguratsiyalari
         val barData = BarData(barDataSet)
         barChart.data = barData
+        barChart.data.barWidth = 0.15f
         barChart.setFitBars(true)
         barChart.description.isEnabled = false
         barChart.animateY(1000)
+
+
+        //  BarChart konfiguratsiyalari
+        barChart.legend.isEnabled = false
+        barChart.axisRight.isEnabled=false
+        barChart.description.textSize = 30f
+
+
+        val leftAxis = barChart.axisLeft
+
+        // Diapazon belgilari
+        leftAxis.granularity = 0.2f // Belgilashning o'zgarish qadami
+
+        // Tashqi chiziqlarni chizishni o'chirish
+//        leftAxis.setDrawAxisLine(false)
+//        leftAxis.setDrawGridLines(false)
 
         // Barchartni yangilash
         barChart.invalidate()
@@ -233,10 +276,22 @@ class HomeFragment : Fragment() {
         // on below line we are creating array list and
         // adding data to it to display in pie chart
         val entries: ArrayList<PieEntry> = ArrayList()
-        entries.add(PieEntry(50f))
-        entries.add(PieEntry(30f))
-        entries.add(PieEntry(10f))
-        entries.add(PieEntry(40f))
+//        entries.add(PieEntry(50f))
+//        entries.add(PieEntry(30f))
+//        entries.add(PieEntry(10f))
+//        entries.add(PieEntry(40f))
+//        Toast.makeText(context, "$list", Toast.LENGTH_SHORT).show()
+        val colors: ArrayList<Int> = ArrayList()
+        val rvList = ArrayList<MyDiagramObject>()
+        list?.forEach {
+            if (it.product_sales_percent>1){
+                entries.add(PieEntry(it.product_sales_percent.toFloat()))
+                var red = Random().nextInt(256); var green = Random().nextInt(256); var blue = Random().nextInt(256);
+                colors.add(Color.rgb(red, green, blue))
+                rvList.add(MyDiagramObject(it.name, Color.rgb(red, green, blue)))
+            }
+        }
+        binding.rvDiagrmaRound.adapter = My_diagramRoundRvAdapter(rvList)
 
         // on below line we are setting pie data set
         val dataSet = PieDataSet(entries, "Mobile OS")
@@ -250,11 +305,10 @@ class HomeFragment : Fragment() {
         dataSet.selectionShift = 5f
 
         // add a lot of colors to list
-        val colors: ArrayList<Int> = ArrayList()
-        colors.add(resources.getColor(R.color.purple_200))
-        colors.add(resources.getColor(R.color.yellow))
-        colors.add(resources.getColor(R.color.red))
-        colors.add(resources.getColor(R.color.black))
+//        colors.add(resources.getColor(R.color.purple_200))
+//        colors.add(resources.getColor(R.color.yellow))
+//        colors.add(resources.getColor(R.color.red))
+
 
         // on below line we are setting colors.
         dataSet.colors = colors
@@ -267,7 +321,7 @@ class HomeFragment : Fragment() {
         pieChart.setData(data)
 
         // undo all highlights
-        pieChart.highlightValues(null)
+//        pieChart.highlightValues(null)
 
         // loading chart
         pieChart.invalidate()
