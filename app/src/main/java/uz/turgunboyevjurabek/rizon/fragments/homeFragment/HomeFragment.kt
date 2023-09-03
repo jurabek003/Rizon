@@ -101,7 +101,7 @@ class HomeFragment : Fragment() {
                     Status.ERROR -> {
                         Log.d(TAG, "onCreate: Error ${it.message}")
                         binding.myProgressBar.visibility = View.GONE
-                        Toast.makeText(AppObject.binding.root.context, "Error main ${it.message}", Toast.LENGTH_SHORT).show()
+//                        Toast.makeText(AppObject.binding.root.context, "Error main ${it.message}", Toast.LENGTH_SHORT).show()
                         if (it.message!!.lowercase().contains("unauth") ){
 //                            findNavController().popBackStack()
                             dialog.setCancelable(false)
