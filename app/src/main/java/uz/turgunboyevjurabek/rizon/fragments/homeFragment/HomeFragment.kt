@@ -152,7 +152,6 @@ class HomeFragment : Fragment() {
         val barChart: BarChart = binding.barChartView
 
         val formatter = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSSSSXXX")
-        val lastDate = SimpleDateFormat("dd.MM.yyyy").format(formatter.parse(list?.last()?.date))
 
         val format = SimpleDateFormat("MM.yyyy")
 
