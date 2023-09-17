@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="160dp"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <com.google.android.material.card.MaterialCardView
-        android:layout_width="312dp"
-        android:layout_height="140dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_gravity="center"
         app:cardCornerRadius="12sp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         app:strokeWidth="0dp"
         app:cardElevation="5dp"
         android:backgroundTint="#E9EDEF"
@@ -21,7 +23,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_gravity="center"
                 android:orientation="horizontal">
@@ -57,7 +59,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginStart="10dp"
-
+                    android:id="@+id/liner_phone"
                     android:layout_marginTop="23dp"
                     android:layout_weight="1"
                     android:orientation="vertical">
@@ -198,6 +200,33 @@
 
 
             </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:layout_marginStart="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter"
+                    android:text="Jamoaviy Ball"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/item_jamoaviy_ball"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3000"
+                    android:textSize="12sp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/inter"/>
+            </LinearLayout>
+
 
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>

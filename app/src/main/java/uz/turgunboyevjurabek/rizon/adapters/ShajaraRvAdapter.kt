@@ -4,14 +4,19 @@ import android.app.Activity
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.content.ContextCompat.getSystemService
+import androidx.core.content.ContextCompat.startActivity
+import androidx.core.os.bundleOf
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import uz.ilhomjon.rizonuz.databinding.ItemShajaraRvBinding
 import uz.turgunboyevjurabek.rizon.madels.usersProfile.UserTree
+import uz.turgunboyevjurabek.rizon.utils.AppObject
 
 class ShajaraRvAdapter(val activity:Activity, val list: ArrayList<UserTree> = ArrayList()):RecyclerView.Adapter<ShajaraRvAdapter.Vh>() {
     inner class Vh(val itemShajaraRvBinding: ItemShajaraRvBinding):ViewHolder(itemShajaraRvBinding.root){
@@ -33,7 +38,14 @@ class ShajaraRvAdapter(val activity:Activity, val list: ArrayList<UserTree> = Ar
             itemShajaraRvBinding.itemStatus.text = shajara.user_status
             itemShajaraRvBinding.itemIsmFamiliya.text = "${shajara.first_name} ${shajara.last_name}"
             itemShajaraRvBinding.itemPhoneNumber.text = shajara.phone_number
+            itemShajaraRvBinding.linerPhone.setOnClickListener {
+            if (shajara.phone_number.first()=='+')
+                startActivity(AppObject.binding.root.context, Intent(Intent.ACTION_DIAL).setData(Uri.parse("tel:${shajara.phone_number}")), bundleOf())
+                else
+                startActivity(AppObject.binding.root.context, Intent(Intent.ACTION_DIAL).setData(Uri.parse("tel:+${shajara.phone_number}")), bundleOf())
+            }
             itemShajaraRvBinding.itemShaxsiyBall.text = shajara.personal_bonus.toString()
+            itemShajaraRvBinding.itemJamoaviyBall.text = shajara.user_tree_score.toString()
         }
     }
 

@@ -47,7 +47,7 @@ class AuthFragment : Fragment() {
                         Status.ERROR -> {
                             Log.d(TAG, "onCreate: Error ${it.message}")
                             binding.myProgressBar.visibility = View.GONE
-                            Toast.makeText(context, "Error ${it.message}", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(AppObject.binding.root.context, "Error ${it.message}", Toast.LENGTH_SHORT).show()
                         }
 
                         Status.SUCCESS -> {
