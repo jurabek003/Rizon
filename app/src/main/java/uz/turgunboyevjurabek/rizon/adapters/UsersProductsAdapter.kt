@@ -1,14 +1,17 @@
 package uz.turgunboyevjurabek.rizon.adapters
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
-import com.squareup.picasso.Picasso
+import com.bumptech.glide.Glide
+import uz.ilhomjon.rizonuz.R
 import uz.ilhomjon.rizonuz.databinding.ItemProductRvBinding
 import uz.turgunboyevjurabek.rizon.madels.usersProducts.Product
 import uz.turgunboyevjurabek.rizon.retrofit.ApiClient
 
+private const val TAG = "UsersProductsAdapter"
 class MyProductsAdapter (val list:ArrayList<Product> = ArrayList(),val selectItem: SelectItem ):Adapter<MyProductsAdapter.Vh>(){
 
     inner class Vh(val itemRv:ItemProductRvBinding):ViewHolder(itemRv.root){
@@ -17,7 +20,12 @@ class MyProductsAdapter (val list:ArrayList<Product> = ArrayList(),val selectIte
             itemRv.itemPrice.text = "${product.price} UZS"
             itemRv.tvUmumiySumma.text = "${product.price * itemRv.tvCount.text.toString().toInt()}"
 
-            Picasso.get().load("${ApiClient.PHOTO_BASE_URL}${product.photo_link}").into(itemRv.itemImg)
+            val imageLink = "${ApiClient.PHOTO_BASE_URL}${product.photo_link}"
+            Log.d(TAG, "onBind: $imageLink")
+            Glide.with(itemRv.root)
+                .load(imageLink)
+                .error(R.mipmap.ic_launcher)
+                .into(itemRv.itemImg)
             itemRv.btnBatafsil.setOnClickListener {
                 selectItem.onClick(position,product)
             }

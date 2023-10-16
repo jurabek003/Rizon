@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
-import com.squareup.picasso.Picasso
+import com.bumptech.glide.Glide
 import uz.ilhomjon.rizonuz.databinding.ItemOrderRvBinding
 import uz.turgunboyevjurabek.rizon.madels.userOrders.Order
 import uz.turgunboyevjurabek.rizon.retrofit.ApiClient
@@ -12,7 +12,7 @@ import uz.turgunboyevjurabek.rizon.retrofit.ApiClient
 class UserOrderAdapter(val rvAction:RvAction,  val list: ArrayList<Order> = ArrayList()):RecyclerView.Adapter<UserOrderAdapter.Vh>() {
     inner class Vh(val itemOrderRvBinding: ItemOrderRvBinding):ViewHolder(itemOrderRvBinding.root){
         fun onBind(orders: Order, position: Int){
-            Picasso.get().load("${ApiClient.PHOTO_BASE_URL}${orders.product.photo_link}").into(itemOrderRvBinding.itemImg)
+            Glide.with(itemView).load("${ApiClient.PHOTO_BASE_URL}${orders.product.photo_link}").into(itemOrderRvBinding.itemImg)
             itemOrderRvBinding.itemName.text = orders.product.name
             itemOrderRvBinding.itemPrice.text = "${orders.product.price}uzs"
             itemOrderRvBinding.itemCount.text = "${orders.amount}ta"

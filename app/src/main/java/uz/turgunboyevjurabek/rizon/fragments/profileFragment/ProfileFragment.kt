@@ -68,7 +68,11 @@ class ProfileFragment : Fragment() {
 //                        myProductsAdapter.list.addAll(it.data?.products!!)
 //                        myProductsAdapter.notifyDataSetChanged()
                         showProfile(it.data!!)
-                        showShajara(it.data)
+                        try {
+                            showShajara(it.data)
+                        }catch (e:Exception){
+                            Toast.makeText(context, "Shajara bo'sh", Toast.LENGTH_SHORT).show()
+                        }
                         binding.progressUserProducts.visibility = View.GONE
                     }
                 }

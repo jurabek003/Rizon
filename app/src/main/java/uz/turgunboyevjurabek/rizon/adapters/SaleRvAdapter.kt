@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
-import com.squareup.picasso.Picasso
+import com.bumptech.glide.Glide
 import uz.ilhomjon.rizonuz.databinding.ItemRvSaleBinding
 import uz.turgunboyevjurabek.rizon.madels.UserMain.Discount
 import uz.turgunboyevjurabek.rizon.madels.UserMain.ProductSalesData2
@@ -16,7 +16,7 @@ class SaleRvAdapter(val list: ArrayList<Discount> = ArrayList() ):RecyclerView.A
         fun onBind(sale:Discount){
             itemRvSaleBinding.thtSale.text=sale.discount+"% chegirma"
 
-            Picasso.get().load("${ApiClient.PHOTO_BASE_URL}${sale.photo_link}").into(itemRvSaleBinding.itemImg)
+            Glide.with(itemView).load("${ApiClient.PHOTO_BASE_URL}${sale.photo_link}").into(itemRvSaleBinding.itemImg)
             itemRvSaleBinding.tvName.text = sale.name
             itemRvSaleBinding.tvAbout.text = sale.about
             itemRvSaleBinding.tvDate.text = sale.lifetime
