@@ -71,7 +71,7 @@ class ProfileFragment : Fragment() {
                         try {
                             showShajara(it.data)
                         }catch (e:Exception){
-                            Toast.makeText(context, "Shajara bo'sh", Toast.LENGTH_SHORT).show()
+//                            Toast.makeText(context, "Shajara bo'sh", Toast.LENGTH_SHORT).show()
                         }
                         binding.progressUserProducts.visibility = View.GONE
                     }
